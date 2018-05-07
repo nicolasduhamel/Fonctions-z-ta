@@ -1,0 +1,100 @@
+\documentclass{amsart}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[francais]{babel}
+%\usepackage{fouriernc}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{mathtools}
+\usepackage{hyperref}
+\usepackage{graphics}
+\usepackage{enumerate}
+
+\usepackage{eulervm}
+
+\newtheorem{proposition}{Proposition}
+\newtheorem{propriete}{Propriété}
+\newtheorem{definition}{Définition}
+\newtheorem{theoreme}{Théorème}
+\newtheorem{lemme}{Lemme}
+
+\DeclareMathOperator{\Hom}{\mathnormal{Hom}}
+
+\begin{document}
+
+\title{Équation fonctionnelle}
+\maketitle
+
+%\bibliographystyle{siam}
+%\bibliography{biblio}
+
+Soit $n \geq 1$ un entier et $p$ un nombre premier. Dans la suite, on notera $G = GL_n(\mathbb{Q}_p)$, $dg$ une mesure de Haar sur $G$ et $(\pi, V)$ une représentation admissible irréductible de $G$.
+
+Les coefficients de $\pi$ sont les fonctions de la forme
+$$g \in G \mapsto <\pi(g)v, \tilde{v}>,$$
+où $v \in V$ et $\tilde{v} \in \tilde{V}$.
+
+On note $M$ l'ensemble des matrices $n \times n$ et $\mathcal{S}$ l'ensemble des fonctions $\phi : M \rightarrow \mathbb{C}$ localement constantes à support compact.
+
+Si $f$ est un coefficient de $\pi$, $\phi \in \mathcal{S}$ et $s \in \mathbb{C}$, on pose
+$$\zeta(f, \phi, s) = \int_G \phi(g)f(g)|\det g|^s dg.$$
+
+On fixe un caractère $\psi$ de $\mathbb{Q}_p^\times$ et on pose
+$$\hat{\phi}(y) = \int_M \phi(x) \psi(Tr(xy)) dx,$$
+où $dx$ est une mesure de Haar sur $M$.
+
+On veut montrer l'équation fonctionnelle suivante
+$$\zeta(f, \phi, s) = \gamma(s) \zeta(\check{f}, \hat{\phi}, 1-s),$$
+où $\gamma$ est une fonction rationnelle et $\check{f}(g) = f(g^{-1})$.
+
+Pour montrer cette équation fonctionnelle, on va utiliser la
+\begin{propriete}
+Les opérateurs $\zeta(., ., s)$ et $\zeta(\check{.}, \hat{.}, 1-s)$ sont des éléments de
+$$\Hom_{G \times G} ( (\pi \boxtimes \tilde{\pi}) \otimes \mathcal{S}, |\det|^s \boxtimes |\det|^{-s}).$$
+\end{propriete}
+
+On précise que l'action de $G \times G$ sur $\mathcal{S}$ est
+$(g_1,g_2).\phi(x) = \phi(g_1^{-1} x g_2)$. De plus, on identifie l'ensemble des coefficients de $\pi$ avec l'espace $V\otimes \tilde{V}$; l'action de $G \times G$ sur $\pi \boxtimes \tilde{\pi}$ est $(g_1,g_2).f(g) = f(g_1^{-1} g g_2)$.
+
+\begin{proof}
+L'action de $G \times G$ sur $\zeta(f,\phi,s)$ donne
+$$\int_G \phi(g_1^{-1}gg_2)f(g_1^{-1}gg_2)|\det g|^s dg.$$
+On effectue le changement de variable $g \mapsto g_1gg_2^{-1},$ le groupe $G$ étant unimodulaire l'intégrale devient
+$$|\det g_1g_2^{-1}|^s\int_G \phi(g)f(g)|\det g|^s dg.$$
+
+D'autre part, l'action de $G \times G$ sur $\zeta(\check{f}, \hat{\phi}, 1-s)$ donne
+$$\int_G \hat{\phi_{g_1,g_2}}(g)\check{f_{g_1,g_2}}(g)|\det g|^{1-s} dg,$$
+où l'on note $\phi_{g_1,g_2}(x) = \phi(g_1^{-1}xg_2)$ et $f_{g_1,g_2}(g) = f(g_1^{-1}gg_2).$
+
+Un calcul immédiat, montre que $\check{f_{g_1,g_2}}(g) = f(g_2^{-1}g^{-1}g_1)$. De plus,
+$$\hat{\phi_{g_1,g_2}}(g) = \int_M \phi(g_1^{-1}xg_2) \psi(Tr(xg)) dx.$$
+Après le changement de variable $x \mapsto g_1xg_2^{-1}$ l'intégrale devient
+$$|\det g_1^{-1}g_2|\int_M \phi(x) \psi(Tr(xg_2^{-1}gg_1)) dx,$$
+qui n'est autre que $|\det g_1g_2^{-1}|\hat{\phi}(g_2^{-1}gg_1)$.
+L'intégrale
+$$\int_G \hat{\phi_{g_1,g_2}}(g)\check{f_{g_1,g_2}}(g)|\det g|^{1-s} dg$$
+devient donc, après le changement de variable $g \mapsto g_2gg_1^{-1}$,
+$$|\det g_1^{-1}g_2||\det g_2g_1^{-1}|^{1-s}\int_G \hat{\phi}(g)\check{f}(g)|\det g|^{1-s} dg.$$
+\end{proof}
+
+\begin{proposition}
+Pour $r=n$, $S_r = G$, on a
+$$\dim \Hom_{G \times G} ( (\pi \boxtimes \tilde{\pi}) \otimes C_{c}^\infty(G), |.|^s) = 1;$$
+et pour $r < n$, on a
+$$\Hom_{G \times G} ( (\pi \boxtimes \tilde{\pi}) \otimes C_{c}^\infty(S_r), |.|^s) = 0.$$
+\end{proposition}
+
+\begin{align*}
+\Hom_{G \times G}( (\pi \boxtimes \tilde{\pi}) \otimes C_c^\infty(G), |.|^s) &= \Hom_{G \times G}( (\pi \boxtimes \tilde{\pi}) \otimes |.|^{-s}, C^\infty(G)) \\
+&= \Hom_H( (\pi \boxtimes \tilde{\pi}) \otimes |.|^{-s}, \mathbb{C}) \\
+&= \Hom_G(\pi, \pi);
+\end{align*}
+où le groupe $H$ désigne la diagonale de $G \times G$. Ce dernier espace est bien de dimension $1$ d'après le lemme de Schur.
+
+La première égalité provient de la dualité entre $C_c^\infty(G)$ et $C^\infty(G)$. Pour la deuxième égalité, on utilise la réciprocité de Frobenius et l'identification $C^\infty(G) = Ind_H^{G \times G}(\mathbb{C})$.
+
+
+
+\end{document}
