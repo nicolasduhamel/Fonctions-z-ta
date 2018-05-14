@@ -1,0 +1,147 @@
+\section{Fonctions zêta sur $GL_n(\mathbb{A})$}
+
+On note $G = GL_n(\mathbb{Q})$ et $G_\mathbb{A}=GL_n(\mathbb{A})$. On pose $K = O_n(\mathbb{R}) \times \prod_p GL_n(\mathbb{Z}_p)$, c'est un sous-groupe compact maximal de $G_\mathbb{A}$.
+
+\subsection{Formes cuspidales}
+On considère une fonction $f : G \backslash G_\mathbb{A} \rightarrow \mathbb{C}$ qui vérifie :
+\begin{itemize}
+\item $f$ est $K$-finie à droite,
+\item il existe un caractère $\omega : \mathbb{A}^\times/\mathbb{Q}^\times \rightarrow \mathbb{S}^1$ tel que
+\begin{equation}
+f(zg) = \omega(z)f(g) \quad \forall g \in G_\mathbb{A}, z \in \mathbb{A}^\times,
+\end{equation}
+\item $f$ est à décroissance rapide,
+\item $f$ est cuspidale :
+\begin{equation}
+\int_{U \backslash U_\mathbb{A}} f(ug) du = 0
+\end{equation}
+pour tout radical unipotent $U$ d'un sous-groupe parabolique de $G$ et tout $g \in G_\mathbb{A}$.
+\end{itemize}
+On dira qu'une telle fonction est une forme cuspidale.
+
+Pour $\phi \in \mathcal{S}(M_\mathbb{A})$ et $s \in \mathbb{C}$, on pose
+\begin{equation}
+\zeta(f, \phi, s) = \int_{G_\mathbb{A}} \phi(g) f(g) |\det g|_\mathbb{A}^s dg,
+\end{equation}
+où $dg = \otimes_v dg_v$ est une mesure de Haar sur $GL_n(\mathbb{A})$ et $|.|_\mathbb{A} = \prod_v |.|_v$ est la valeur absolue adélique.
+
+Notons $G^0_\mathbb{A}=\left\lbrace g \in G_\mathbb{A}, \det g = 1 \right\rbrace$. Comme $\mathbb{R}_{> 0} \subset \mathbb{A}^\times=Z(G_\mathbb{A})$, l'application $\det : G_\mathbb{A} \rightarrow \mathbb{R}_{> 0}$ est surjective de noyau $G^0_\mathbb{A}$.
+
+La factorisation $G_\mathbb{A} = \mathbb{R}_{> 0}G^0_\mathbb{A}$ permet d'obtenir que
+\begin{align}
+\zeta(f, \phi, s) &= \int_0^\infty \int_{G^0_\mathbb{A}} \phi(tg) \omega(t) f(g) t^{ns} dg dt \\
+&= \int_0^\infty \int_{G \backslash G^0_\mathbb{A}} \sum_{x \in G}{\phi(txg)} f(g) \omega(t) t^{ns} dg dt
+\end{align}
+
+Comme dans la preuve de l'équation fonctionnelle de la fonction zêta de Riemann, on scinde l'intégrale en $1$ pour faire apparaître une symétrie. Autrement dit,
+\begin{equation}
+\begin{split}
+\zeta(f, \phi, s) &= \int_0^1 \int_{G \backslash G^0_\mathbb{A}} \sum_{x \in G}{\phi(txg)} f(g) \omega(t) t^{ns} dg dt \\
+&+ \int_1^\infty \int_{G \backslash G^0_\mathbb{A}} \sum_{x \in G}{\phi(txg)} f(g) \omega(t) t^{ns} dg dt.
+\end{split}
+\end{equation}
+
+La seconde intégrale converge absolument pour tout $s \in \mathbb{C}$, c'est une fonction entière. Pour la première intégrale, on fait le changement de variable $t \mapsto t^{-1}$, ce qui donne
+\begin{equation}
+\int_1^\infty \int_{G \backslash G^0_\mathbb{A}} \sum_{x \in G}{\phi(t^{-1}xg)} f(g) \omega^{-1}(t) t^{-ns} dg dt.
+\end{equation}
+
+On va maintenant utiliser la formule de Poisson sur $M_\mathbb{A}$, ce qui donne pour la fonction $x \mapsto \phi(t^{-1}xg)$ :
+\begin{equation}
+\sum_{x \in M} \phi(t^{-1}xg) = t^{n^2}|\det g|_\mathbb{A}^{-1}\sum_{x \in M} \hat{\phi}(txg^{-1}).
+\end{equation}
+
+On scinde la somme selon le rang de la matrice et on obtient :
+\begin{equation}
+\begin{split}
+\sum_{x \in G} \phi(t^{-1}xg) &= t^{n^2}|\det g|_\mathbb{A}^{-1}\sum_{x \in G} \hat{\phi}(txg^{-1}) \\
+&+ \sum_{r < n, rg(x)=r} \left( t^{n^2}|\det g|_\mathbb{A}^{-1}\hat{\phi}(txg^{-1}) - \phi(t^{-1}xg)\right).
+\end{split}
+\end{equation}
+
+La contribution de la dernière somme est nulle dans l'intégrale définissant la fonction zêta. Ce qui nous permet d'en déduire la
+\begin{proposition}
+La fonction $\zeta(f, \phi, .)$ peut être prolonger en une fonction entière et vérifie l'équation fonctionnelle
+\begin{equation}
+\zeta(f, \phi, s) = \zeta(\check{f}, \hat{\phi}, n-s),
+\end{equation}
+où $\check{f}(g)=f(g^{-1})$.
+\end{proposition}
+
+\subsection{Représentations automorphes}
+
+Soit $\pi$ une représentation admissible irréductible de $L_0^2(G \backslash G_\mathbb{A}, \omega)$. Un coefficient $f$ de $\pi$ est de la forme
+\begin{equation}
+f(g) = <\pi(g)\varphi, \tilde{\varphi}> = \int_{\mathbb{A}^\times G \backslash G_\mathbb{A}} \varphi(hg) \tilde{\varphi}(h) dh,
+\end{equation}
+où $\varphi \in \pi$ et $\tilde{\varphi} \in \tilde{\pi}$. On dira que $f$ est un coefficient admissible si $\varphi$ et $\tilde{\varphi}$ sont des formes cuspidales.
+
+Pour un coefficient admissible $f$ de $\pi$, $\phi \in \mathcal{S}(M_\mathbb{A})$ et $s \in \mathbb{C}$, on pose
+\begin{equation}
+\zeta(f, \phi, s) = \int_{G_\mathbb{A}} \phi(g) f(g) |\det g|_\mathbb{A}^s dg.
+\end{equation}
+
+On peut déduire les propriétés de cette fonction zêta grâce à ce qui l'on a fait précédemment sur les formes cuspidales. Plus précisément, on a
+\begin{align}
+\zeta(f, \phi, s) &= \int_{G_\mathbb{A}}\phi(g)\int_{\mathbb{A}^\times G \backslash G_\mathbb{A}} \varphi(hg) \tilde{\varphi}(h) dh |\det g|_\mathbb{A}^s dg \\
+&= \int_{\mathbb{A}^\times G \backslash G_\mathbb{A}} \tilde{\varphi}(h) \int_{G_\mathbb{A}}\phi(h^{-1}g)\varphi(g)|\det g|_\mathbb{A}^s dg |\det h|^{-s} dh \\
+&= \int_{\mathbb{A}^\times G \backslash G_\mathbb{A}} \tilde{\varphi}(h) \zeta(\varphi, \phi(h^{-1}.), s)|\det h|^{-s} dh,
+\end{align}
+où la deuxième égalité s'obtient grâce au changement de variable $g \mapsto h^{-1}g$. Ceci nous permet de démontrer la
+\begin{proposition}
+Si $f$ est un coefficient admissible de $\pi$, la fonction $\zeta(f, \phi, .)$ peut se prolonger en une fonction entière et vérifie l'équation fonctionnelle
+\begin{equation}
+\zeta(f, \phi, s) = \zeta(\check{f}, \hat{\phi}, .),
+\end{equation}
+où $\check{f}(g) = f(g^{-1}$.
+\end{proposition}
+
+Si l'on combine ce résultat avec les résultats locaux, on peut construire la fonction $L$ attachée à une représentation automorphe irréductible. Plus précisément, on a le
+\begin{theoreme}
+Soit $\pi$ une représentation automorphe irréductible, telle que $\pi \subset \mathcal{A}_0$.
+
+Le produit $L(s, \pi) = \prod_v L(s, \pi_v)$, qui est défini pour $Re(s) > n$, se prolonge en une fonction entière. De plus, $L(s, \pi)$ vérifie l'équation fonctionnelle
+\begin{equation}
+L(s,\pi) = \epsilon(s,\pi)L(1-s,\tilde{\pi}),
+\end{equation}
+où $\epsilon(s,\pi) = \prod_v \epsilon(s, \pi_v)$.
+\end{theoreme}
+
+\begin{proof}
+Comme $\pi$ est admissible, elle se décompose en facteurs locaux,
+$\pi = \hat{\otimes}_v \pi_v$, où pour presque toutes les places $\pi_v$ est sphérique (contient la représentation unité de $K_v$).
+
+D'après les résultats locaux, pour chaque place $v$, il existe un nombre fini $(\phi_{\alpha_v})_{\alpha_v \in I_v}$ d'éléments de $\mathcal{S}(M_v)$ et de coefficient $(f_{\alpha_v})_{\alpha_v \in I_v}$ de $\pi_v$ tel que
+\begin{equation}
+\sum_{\alpha_v \in I_v} \zeta(f_{\alpha_v}, \phi_{\alpha_v}, s + \frac{1}{2}(n-1)) = L(s, \pi_v).
+\end{equation}
+De plus, d'après l'équation fonctionnelle locale
+\begin{equation}
+\sum_{\alpha_v \in I_v} \zeta(\check{f}_{\alpha_v}, \hat{\phi}_{\alpha_v}, n-s + \frac{1}{2}(n-1)) = \epsilon(s,\pi_v)L(1-s, \tilde{\pi}_v).
+\end{equation}
+
+Notons $I = \prod_v I_v$. Pour presque toutes les places $v$, $I_v$ est un singleton, puisque $\pi_v$ est sphérique; donc $I$ est fini.
+
+Pour $\alpha = (\alpha_v) \in I$, on pose
+\begin{equation}
+\phi_\alpha = \prod_v \phi_{\alpha_v}, \quad f_\alpha = \prod_v f_{\alpha_v}.
+\end{equation}
+Alors $\phi_\alpha \in \mathcal{S}(M_\mathbb{A})$ et $f_\alpha$ est un coefficient (admissible) de $\pi$. De plus,
+\begin{equation}
+\zeta(f_\alpha, \phi_\alpha, s) = \prod_v \zeta(f_{\alpha_v}, \phi_{\alpha_v}, s).
+\end{equation}
+
+On en déduit que
+\begin{align}
+L(s, \pi) &= \prod_v L(s, \pi_v) = \prod_v \sum_{\alpha_v \in I_v} \zeta(f_{\alpha_v}, \phi_{\alpha_v}, s + \frac{1}{2}(n-1)) \\
+&= \sum_{\alpha \in I} \zeta(f_\alpha, \phi_\alpha, s + \frac{1}{2}(n-1))
+\end{align}
+est une somme finie de fonction zêta, qui chacune se prolonge en une fonction entière. De plus,
+\begin{align}
+L(s, \pi) &= \sum_{\alpha \in I} \zeta(f_\alpha, \phi_\alpha, s + \frac{1}{2}(n-1)) \\
+&= \sum_{\alpha \in I} \zeta(\check{f}_\alpha, \hat{\phi}_\alpha, n - s + \frac{1}{2}(n-1)) \\
+&= \prod_v \sum_{\alpha_v \in I_v} \zeta(\check{f}_{\alpha_v}, \hat{\phi}_{\alpha_v}, n-s + \frac{1}{2}(n-1)) \\
+&= \prod_v \epsilon(s, \pi_v) L(1-s, \tilde{\pi}_v) \\
+&= \epsilon(s, \pi)L(1-s, \tilde{\pi}).
+\end{align}
+\end{proof}
