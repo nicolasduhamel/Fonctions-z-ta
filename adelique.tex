@@ -1,25 +1,40 @@
 \section{Fonctions zêta sur $GL_n(\mathbb{A})$}
 
-On note $G = GL_n(\mathbb{Q})$ et $G_\mathbb{A}=GL_n(\mathbb{A})$. On pose $K = O_n(\mathbb{R}) \times \prod_p GL_n(\mathbb{Z}_p)$, c'est un sous-groupe compact maximal de $G_\mathbb{A}$.
+Dans cette partie, on note $G = GL_n(\mathbb{Q})$, $G_\mathbb{A}=GL_n(\mathbb{A})$. On pose $K = O_n(\mathbb{R}) \times \prod_p GL_n(\mathbb{Z}_p)$, c'est un sous-groupe compact maximal de $G_\mathbb{A}$.
 
 \subsection{Formes cuspidales}
-On considère une fonction $f : G \backslash G_\mathbb{A} \rightarrow \mathbb{C}$ qui vérifie :
+On commence par donner la définition des formes automorphes (et cuspidales), on renvoie à \cite{bump} et \cite{goldfeld-hundley} pour plus de détails.
+
+On fixe un caractère unitaire $\omega : \mathbb{A}^\times/\mathbb{Q}^\times \rightarrow \mathbb{S}^1$.
+
+\begin{definition}
+Une forme automorphe de caractère central $\omega$ est une fonction $f : G_\mathbb{A} \rightarrow \mathbb{C}$ lisse et $G$-invariante qui vérifie de plus :
 \begin{itemize}
 \item $f$ est $K$-finie à droite,
-\item il existe un caractère $\omega : \mathbb{A}^\times/\mathbb{Q}^\times \rightarrow \mathbb{S}^1$ tel que
-\begin{equation}
+\item $f$ est $Z(U(\mathfrak{g}))$-finie,
+\item \begin{equation}
 f(zg) = \omega(z)f(g) \quad \forall g \in G_\mathbb{A}, z \in \mathbb{A}^\times,
 \end{equation}
-\item $f$ est à décroissance rapide,
-\item $f$ est cuspidale :
+\item $f$ est à croissance modérée.
+\end{itemize}
+
+On note $\mathcal{A}(G_\mathbb{A}, \omega)$ l'espace des formes automorphes de caractère central $\omega$.
+\end{definition}
+
+On rajoute aussi une condition d'annulation dont on aura besoin pour la preuve de l'équation fonctionnelle.
+\begin{definition}
+Une forme cuspidale $f$ de caractère central $\omega$ est une forme automorphe de caractère central $\omega$ qui vérifie de plus les conditions :
 \begin{equation}
 \int_{U \backslash U_\mathbb{A}} f(ug) du = 0
 \end{equation}
-pour tout radical unipotent $U$ d'un sous-groupe parabolique de $G$ et tout $g \in G_\mathbb{A}$.
-\end{itemize}
-On dira qu'une telle fonction est une forme cuspidale.
+pour tout radical unipotent $U$ d'un sous-groupe parabolique propre de $G_\mathbb{A}$ et tout $g \in G_\mathbb{A}$.
 
-Pour $\phi \in \mathcal{S}(M_\mathbb{A})$ et $s \in \mathbb{C}$, on pose
+On note $\mathcal{A}_0(G_\mathbb{A}, \omega)$ l'espace des formes cuspidales de caractère central $\omega$.
+\end{definition}
+
+L'espace de Schwartz de $M_n(\mathbb{A})$ est, par définition, $\mathcal{S}(M_n(\mathbb{A}))=\otimes_v^{'} \mathcal{S}(M_n(\mathbb{Q}_v)=\left\lbrace \phi = \otimes \phi_v, \phi_v \in \mathcal{S}(M_n(\mathbb{Q}_v)), \phi_v = \mathbbm{1}_{\mathbb{Z}_v} \text{sauf pour un nombre fini de v} \right\rbrace$.
+
+Pour $f \in \mathcal{A}_0(G_\mathbb{A}, \omega)$, $\phi \in \mathcal{S}(M_\mathbb{A})$ et $s \in \mathbb{C}$, on pose
 \begin{equation}
 \zeta(f, \phi, s) = \int_{G_\mathbb{A}} \phi(g) f(g) |\det g|_\mathbb{A}^s dg,
 \end{equation}
@@ -46,7 +61,7 @@ La seconde intégrale converge absolument pour tout $s \in \mathbb{C}$, c'est un
 \int_1^\infty \int_{G \backslash G^0_\mathbb{A}} \sum_{x \in G}{\phi(t^{-1}xg)} f(g) \omega^{-1}(t) t^{-ns} dg dt.
 \end{equation}
 
-On va maintenant utiliser la formule de Poisson sur $M_\mathbb{A}$, ce qui donne pour la fonction $x \mapsto \phi(t^{-1}xg)$ :
+On va maintenant utiliser la formule de Poisson sur $M_n(\mathbb{A})$, ce qui donne pour la fonction $x \mapsto \phi(t^{-1}xg)$ :
 \begin{equation}
 \sum_{x \in M} \phi(t^{-1}xg) = t^{n^2}|\det g|_\mathbb{A}^{-1}\sum_{x \in M} \hat{\phi}(txg^{-1}).
 \end{equation}
@@ -61,27 +76,54 @@ On scinde la somme selon le rang de la matrice et on obtient :
 
 La contribution de la dernière somme est nulle dans l'intégrale définissant la fonction zêta. Ce qui nous permet d'en déduire la
 \begin{proposition}
-La fonction $\zeta(f, \phi, .)$ peut être prolonger en une fonction entière et vérifie l'équation fonctionnelle
+La fonction $\zeta(f, \phi, .)$ peut être prolongée en une fonction entière et vérifie l'équation fonctionnelle
 \begin{equation}
 \zeta(f, \phi, s) = \zeta(\check{f}, \hat{\phi}, n-s),
 \end{equation}
 où $\check{f}(g)=f(g^{-1})$.
 \end{proposition}
 
+\begin{proof}
+Il ne nous reste qu'à pouver que la contribution dans la formule de Poisson des matrices de rang $r < n$ est effectivement nulle. On considère l'action de $G$ par translation à droite sur l'ensemble des matrices de rang $r$. Chaque orbite contient un représentant de la forme $\begin{pmatrix} 
+* & 0 \\
+* & 0 
+\end{pmatrix}$, on note $X$ l'ensemble des matrices de cette forme. On pose $P$ le sous-groupe parabolique de $G$ des matrices de la forme $\begin{pmatrix} 
+* & 0 \\
+* & * 
+\end{pmatrix}$ et $U$ sont radical unipotent.
+
+Alors
+\begin{equation}
+\sum_{rg(x)=r}\phi(xg) = \sum_{\gamma \in P \backslash G} \sum_{x \in X} \phi(x \gamma g)
+\end{equation}
+
+On en déduit que la contribution des matrices de rang $r$ dans la seconde intégrale est
+\begin{equation}
+\int_{P \backslash G^0_\mathbb{A}} \sum_{x \in X}{\phi(t^{-1}x\gamma g)} f(g) dg.
+\end{equation}
+De plus, on remarque que, $xu=x$, pour tout $x \in X$ et $u \in U_\mathbb{A}$. Ce qui nous permet de réécrire cette intégrale sous la forme
+\begin{equation}
+\int_{PU_\mathbb{A} \backslash G^0_\mathbb{A}} \sum_{x \in X}{\phi(t^{-1}xg)} \int_{U \backslash U_\mathbb{A}} f(ug) du dg.
+\end{equation}
+Cette dernière intégrale s'annule, car $f$ est cuspidale. On montre de même de l'intégrale correspondant à $\hat{\phi}$ s'annule aussi. Ce qui termine la preuve de la proposition.
+\end{proof}
+
 \subsection{Représentations automorphes}
 
-Soit $\pi$ une représentation admissible irréductible de $L_0^2(G \backslash G_\mathbb{A}, \omega)$. Un coefficient $f$ de $\pi$ est de la forme
+L'espace des formes cuspidales $\mathcal{A}_0(G_\mathbb{A}, \omega)$ est stable par l'action de $U(\mathfrak{g})$ par opérateurs différentiels et par translation à droite de $O_n(\mathbb{R})$ et $GL_n(\mathbb{A}_f)$, c'est un $(\mathfrak{g}, O_n(\mathbb{R})) \times GL_n(\mathbb{A}_f)$-module.
+
+Un coefficient $f$ de $\mathcal{A}_0(G_\mathbb{A}, \omega)$ est de la forme
 \begin{equation}
 f(g) = <\pi(g)\varphi, \tilde{\varphi}> = \int_{\mathbb{A}^\times G \backslash G_\mathbb{A}} \varphi(hg) \tilde{\varphi}(h) dh,
 \end{equation}
-où $\varphi \in \pi$ et $\tilde{\varphi} \in \tilde{\pi}$. On dira que $f$ est un coefficient admissible si $\varphi$ et $\tilde{\varphi}$ sont des formes cuspidales.
+où $\varphi \in \mathcal{A}_0(G_\mathbb{A}, \omega)$ et $\tilde{\varphi} \in \mathcal{A}_0(G_\mathbb{A}, \omega^{-1})$.
 
-Pour un coefficient admissible $f$ de $\pi$, $\phi \in \mathcal{S}(M_\mathbb{A})$ et $s \in \mathbb{C}$, on pose
+Pour un coefficient $f$ de $\mathcal{A}_0(G_\mathbb{A}, \omega)$, $\phi \in \mathcal{S}(M_\mathbb{A})$ et $s \in \mathbb{C}$, on pose
 \begin{equation}
 \zeta(f, \phi, s) = \int_{G_\mathbb{A}} \phi(g) f(g) |\det g|_\mathbb{A}^s dg.
 \end{equation}
 
-On peut déduire les propriétés de cette fonction zêta grâce à ce qui l'on a fait précédemment sur les formes cuspidales. Plus précisément, on a
+On peut déduire les propriétés de cette fonction zêta grâce à ce que l'on a fait précédemment sur les formes cuspidales. Plus précisément, on a
 \begin{align}
 \zeta(f, \phi, s) &= \int_{G_\mathbb{A}}\phi(g)\int_{\mathbb{A}^\times G \backslash G_\mathbb{A}} \varphi(hg) \tilde{\varphi}(h) dh |\det g|_\mathbb{A}^s dg \\
 &= \int_{\mathbb{A}^\times G \backslash G_\mathbb{A}} \tilde{\varphi}(h) \int_{G_\mathbb{A}}\phi(h^{-1}g)\varphi(g)|\det g|_\mathbb{A}^s dg |\det h|^{-s} dh \\
@@ -89,16 +131,21 @@ On peut déduire les propriétés de cette fonction zêta grâce à ce qui l'on 
 \end{align}
 où la deuxième égalité s'obtient grâce au changement de variable $g \mapsto h^{-1}g$. Ceci nous permet de démontrer la
 \begin{proposition}
-Si $f$ est un coefficient admissible de $\pi$, la fonction $\zeta(f, \phi, .)$ peut se prolonger en une fonction entière et vérifie l'équation fonctionnelle
+Si $f$ est un coefficient de $\mathcal{A}_0(G_\mathbb{A}, \omega)$ et $\phi \in \mathcal{S}(M_\mathbb{A})$, la fonction $\zeta(f, \phi, .)$ peut se prolonger en une fonction entière et vérifie l'équation fonctionnelle
 \begin{equation}
 \zeta(f, \phi, s) = \zeta(\check{f}, \hat{\phi}, .),
 \end{equation}
-où $\check{f}(g) = f(g^{-1}$.
+où $\check{f}(g) = f(g^{-1})$.
 \end{proposition}
 
-Si l'on combine ce résultat avec les résultats locaux, on peut construire la fonction $L$ attachée à une représentation automorphe irréductible. Plus précisément, on a le
+Si l'on combine ce résultat avec les résultats locaux, on peut construire la fonction $L$ attachée à une représentation cuspidale irréductible.
+\begin{definition}
+Une représentation cuspidale est un $(\mathfrak{g}, O_n(\mathbb{R})) \times GL_n(\mathbb{A}_f)$-module qui est isomorphe à un sous-quotient de $\mathcal{A}_0(G_\mathbb{A}, \omega)$.
+\end{definition}
+
+Plus précisément, on a le
 \begin{theoreme}
-Soit $\pi$ une représentation automorphe irréductible, telle que $\pi \subset \mathcal{A}_0$.
+Soit $\pi$ une représentation cuspidale irréductible.
 
 Le produit $L(s, \pi) = \prod_v L(s, \pi_v)$, qui est défini pour $Re(s) > n$, se prolonge en une fonction entière. De plus, $L(s, \pi)$ vérifie l'équation fonctionnelle
 \begin{equation}
@@ -108,8 +155,8 @@ où $\epsilon(s,\pi) = \prod_v \epsilon(s, \pi_v)$.
 \end{theoreme}
 
 \begin{proof}
-Comme $\pi$ est admissible, elle se décompose en facteurs locaux,
-$\pi = \hat{\otimes}_v \pi_v$, où pour presque toutes les places $\pi_v$ est sphérique (contient la représentation unité de $K_v$).
+La représentation $\pi$ se décompose en facteurs locaux,
+$\pi \simeq \otimes_v^{'} \pi_v$, où $\pi_v$ est une représentation admissible irréductible de $GL_n(\mathbb{Q}_v)$ (un $(\mathfrak{g}, O_n(\mathbb{R}))$-module irréductible pour la place archimédienne) et pour presque toutes les places $\pi_v$ est sphérique (contient la représentation unité de $GL_n(\mathbb{Z}_v)$).
 
 D'après les résultats locaux, pour chaque place $v$, il existe un nombre fini $(\phi_{\alpha_v})_{\alpha_v \in I_v}$ d'éléments de $\mathcal{S}(M_v)$ et de coefficient $(f_{\alpha_v})_{\alpha_v \in I_v}$ de $\pi_v$ tel que
 \begin{equation}
@@ -117,7 +164,7 @@ D'après les résultats locaux, pour chaque place $v$, il existe un nombre fini 
 \end{equation}
 De plus, d'après l'équation fonctionnelle locale
 \begin{equation}
-\sum_{\alpha_v \in I_v} \zeta(\check{f}_{\alpha_v}, \hat{\phi}_{\alpha_v}, n-s + \frac{1}{2}(n-1)) = \epsilon(s,\pi_v)L(1-s, \tilde{\pi}_v).
+\sum_{\alpha_v \in I_v} \zeta(\check{f}_{\alpha_v}, \hat{\phi}_{\alpha_v}, 1-s + \frac{1}{2}(n-1)) = \epsilon(s,\pi_v)L(1-s, \tilde{\pi}_v).
 \end{equation}
 
 Notons $I = \prod_v I_v$. Pour presque toutes les places $v$, $I_v$ est un singleton, puisque $\pi_v$ est sphérique; donc $I$ est fini.
@@ -139,8 +186,8 @@ L(s, \pi) &= \prod_v L(s, \pi_v) = \prod_v \sum_{\alpha_v \in I_v} \zeta(f_{\alp
 est une somme finie de fonction zêta, qui chacune se prolonge en une fonction entière. De plus,
 \begin{align}
 L(s, \pi) &= \sum_{\alpha \in I} \zeta(f_\alpha, \phi_\alpha, s + \frac{1}{2}(n-1)) \\
-&= \sum_{\alpha \in I} \zeta(\check{f}_\alpha, \hat{\phi}_\alpha, n - s + \frac{1}{2}(n-1)) \\
-&= \prod_v \sum_{\alpha_v \in I_v} \zeta(\check{f}_{\alpha_v}, \hat{\phi}_{\alpha_v}, n-s + \frac{1}{2}(n-1)) \\
+&= \sum_{\alpha \in I} \zeta(\check{f}_\alpha, \hat{\phi}_\alpha, 1 - s + \frac{1}{2}(n-1)) \\
+&= \prod_v \sum_{\alpha_v \in I_v} \zeta(\check{f}_{\alpha_v}, \hat{\phi}_{\alpha_v}, 1-s + \frac{1}{2}(n-1)) \\
 &= \prod_v \epsilon(s, \pi_v) L(1-s, \tilde{\pi}_v) \\
 &= \epsilon(s, \pi)L(1-s, \tilde{\pi}).
 \end{align}
