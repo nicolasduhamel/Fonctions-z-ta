@@ -8,24 +8,24 @@ On commence par donner la définition des formes automorphes (et cuspidales), on
 On fixe un caractère unitaire $\omega : \mathbb{A}^\times/\mathbb{Q}^\times \rightarrow \mathbb{S}^1$.
 
 \begin{definition}
-Une forme automorphe de caractère central $\omega$ est une fonction $f : G_\mathbb{A} \rightarrow \mathbb{C}$ lisse et $G$-invariante qui vérifie de plus :
+Une forme automorphe de caractère central $\omega$ est une fonction $\varphi : G_\mathbb{A} \rightarrow \mathbb{C}$ lisse et $G$-invariante qui vérifie de plus :
 \begin{itemize}
-\item $f$ est $K$-finie à droite,
-\item $f$ est $Z(U(\mathfrak{g}))$-finie,
+\item $\varphi$ est $K$-finie à droite,
+\item $\varphi$ est $Z(U(\mathfrak{g}))$-finie,
 \item \begin{equation}
-f(zg) = \omega(z)f(g) \quad \forall g \in G_\mathbb{A}, z \in \mathbb{A}^\times,
+\varphi(zg) = \omega(z)\varphi(g) \quad \forall g \in G_\mathbb{A}, z \in \mathbb{A}^\times,
 \end{equation}
-\item $f$ est à croissance modérée.
+\item $\varphi$ est à croissance modérée.
 \end{itemize}
 
 On note $\mathcal{A}(G_\mathbb{A}, \omega)$ l'espace des formes automorphes de caractère central $\omega$.
 \end{definition}
 
-On rajoute aussi une condition d'annulation dont on aura besoin pour la preuve de l'équation fonctionnelle.
+On rajoute aussi une condition d'annulation dont on aura besoin pour la preuve de l'équation fonctionnelle. Ce qui donne la
 \begin{definition}
-Une forme cuspidale $f$ de caractère central $\omega$ est une forme automorphe de caractère central $\omega$ qui vérifie de plus les conditions :
+Une forme cuspidale $\varphi$ de caractère central $\omega$ est une forme automorphe de caractère central $\omega$ qui vérifie de plus les conditions :
 \begin{equation}
-\int_{U \backslash U_\mathbb{A}} f(ug) du = 0
+\int_{U \backslash U_\mathbb{A}} \varphi(ug) du = 0
 \end{equation}
 pour tout radical unipotent $U$ d'un sous-groupe parabolique propre de $G_\mathbb{A}$ et tout $g \in G_\mathbb{A}$.
 
@@ -34,78 +34,84 @@ On note $\mathcal{A}_0(G_\mathbb{A}, \omega)$ l'espace des formes cuspidales de 
 
 L'espace de Schwartz de $M_n(\mathbb{A})$ est, par définition, $\mathcal{S}(M_n(\mathbb{A}))=\otimes_v^{'} \mathcal{S}(M_n(\mathbb{Q}_v)=\left\lbrace \phi = \otimes \phi_v, \phi_v \in \mathcal{S}(M_n(\mathbb{Q}_v)), \phi_v = \mathbbm{1}_{\mathbb{Z}_v} \text{sauf pour un nombre fini de v} \right\rbrace$.
 
-Pour $f \in \mathcal{A}_0(G_\mathbb{A}, \omega)$, $\phi \in \mathcal{S}(M_\mathbb{A})$ et $s \in \mathbb{C}$, on pose
+Pour $\varphi \in \mathcal{A}_0(G_\mathbb{A}, \omega)$, $\phi \in \mathcal{S}(M_\mathbb{A})$ et $s \in \mathbb{C}$, on pose
 \begin{equation}
-\zeta(f, \phi, s) = \int_{G_\mathbb{A}} \phi(g) f(g) |\det g|_\mathbb{A}^s dg,
+\zeta(\varphi, \phi, s) = \int_{G_\mathbb{A}} \phi(g) \varphi(g) |\det g|_\mathbb{A}^s dg,
 \end{equation}
 où $dg = \otimes_v dg_v$ est une mesure de Haar sur $GL_n(\mathbb{A})$ et $|.|_\mathbb{A} = \prod_v |.|_v$ est la valeur absolue adélique.
 
-Notons $G^0_\mathbb{A}=\left\lbrace g \in G_\mathbb{A}, \det g = 1 \right\rbrace$. Comme $\mathbb{R}_{> 0} \subset \mathbb{A}^\times=Z(G_\mathbb{A})$, l'application $\det : G_\mathbb{A} \rightarrow \mathbb{R}_{> 0}$ est surjective de noyau $G^0_\mathbb{A}$.
+Notons $G^0_\mathbb{A}=\left\lbrace g \in G_\mathbb{A}, |\det g|_\mathbb{A} = 1 \right\rbrace$. Comme $\mathbb{R}_{> 0} \subset \mathbb{A}^\times=Z(G_\mathbb{A})$, l'application $|\det|_\mathbb{A} : G_\mathbb{A} \rightarrow \mathbb{R}_{> 0}$ est surjective de noyau $G^0_\mathbb{A}$.
 
 La factorisation $G_\mathbb{A} = \mathbb{R}_{> 0}G^0_\mathbb{A}$ permet d'obtenir que
 \begin{align}
-\zeta(f, \phi, s) &= \int_0^\infty \int_{G^0_\mathbb{A}} \phi(tg) \omega(t) f(g) t^{ns} dg dt \\
-&= \int_0^\infty \int_{G \backslash G^0_\mathbb{A}} \sum_{x \in G}{\phi(txg)} f(g) \omega(t) t^{ns} dg dt
+\zeta(\varphi, \phi, s) &= \int_0^\infty \int_{G^0_\mathbb{A}} \phi(tg) \omega(t) \varphi(g) t^{ns} dg \frac{dt}{t} \\
+&= \int_0^\infty \int_{G \backslash G^0_\mathbb{A}} \sum_{x \in G}{\phi(txg)} \varphi(g) \omega(t) t^{ns} dg \frac{dt}{t}.
 \end{align}
 
-Comme dans la preuve de l'équation fonctionnelle de la fonction zêta de Riemann, on scinde l'intégrale en $1$ pour faire apparaître une symétrie. Autrement dit,
+Comme dans la preuve de l'équation fonctionnelle de la fonction zêta de Riemann, on scinde l'intégrale en $1$ dans le but de faire apparaître une symétrie. Autrement dit,
 \begin{equation}
 \begin{split}
-\zeta(f, \phi, s) &= \int_0^1 \int_{G \backslash G^0_\mathbb{A}} \sum_{x \in G}{\phi(txg)} f(g) \omega(t) t^{ns} dg dt \\
-&+ \int_1^\infty \int_{G \backslash G^0_\mathbb{A}} \sum_{x \in G}{\phi(txg)} f(g) \omega(t) t^{ns} dg dt.
+\zeta(\varphi, \phi, s) &= \int_0^1 \int_{G \backslash G^0_\mathbb{A}} \sum_{x \in G}{\phi(txg)} \varphi(g) \omega(t) t^{ns} dg \frac{dt}{t} \\
+&+ \int_1^\infty \int_{G \backslash G^0_\mathbb{A}} \sum_{x \in G}{\phi(txg)} \varphi(g) \omega(t) t^{ns} dg \frac{dt}{t}.
 \end{split}
 \end{equation}
 
 La seconde intégrale converge absolument pour tout $s \in \mathbb{C}$, c'est une fonction entière. Pour la première intégrale, on fait le changement de variable $t \mapsto t^{-1}$, ce qui donne
 \begin{equation}
-\int_1^\infty \int_{G \backslash G^0_\mathbb{A}} \sum_{x \in G}{\phi(t^{-1}xg)} f(g) \omega^{-1}(t) t^{-ns} dg dt.
+\int_1^\infty \int_{G \backslash G^0_\mathbb{A}} \sum_{x \in G}{\phi(t^{-1}xg)} \varphi(g) \omega^{-1}(t) t^{-ns} dg \frac{dt}{t}.
 \end{equation}
 
 On va maintenant utiliser la formule de Poisson sur $M_n(\mathbb{A})$, ce qui donne pour la fonction $x \mapsto \phi(t^{-1}xg)$ :
 \begin{equation}
-\sum_{x \in M} \phi(t^{-1}xg) = t^{n^2}|\det g|_\mathbb{A}^{-1}\sum_{x \in M} \hat{\phi}(txg^{-1}).
+\sum_{x \in M_n(\mathbb{Q})} \phi(t^{-1}xg) = t^{n^2}\sum_{x \in M_n(\mathbb{Q})} \hat{\phi}(txg^{-1}),
 \end{equation}
-
-On scinde la somme selon le rang de la matrice et on obtient :
+on se rappelle que $g \in G^0_\mathbb{A}$, donc $|\det g|_\mathbb{A}=1$. On scinde la somme selon le rang de la matrice et on obtient :
 \begin{equation}
 \begin{split}
-\sum_{x \in G} \phi(t^{-1}xg) &= t^{n^2}|\det g|_\mathbb{A}^{-1}\sum_{x \in G} \hat{\phi}(txg^{-1}) \\
-&+ \sum_{r < n, rg(x)=r} \left( t^{n^2}|\det g|_\mathbb{A}^{-1}\hat{\phi}(txg^{-1}) - \phi(t^{-1}xg)\right).
+\sum_{x \in G} \phi(t^{-1}xg) &= t^{n^2}\sum_{x \in G} \hat{\phi}(txg^{-1}) \\
+&+ \sum_{r < n, rg(x)=r} \left( t^{n^2}\hat{\phi}(txg^{-1}) - \phi(t^{-1}xg)\right).
 \end{split}
 \end{equation}
 
-La contribution de la dernière somme est nulle dans l'intégrale définissant la fonction zêta. Ce qui nous permet d'en déduire la
+La contribution de la dernière somme s'avèrera nulle. Ce qui nous permet d'en déduire la
 \begin{proposition}
-La fonction $\zeta(f, \phi, .)$ peut être prolongée en une fonction entière et vérifie l'équation fonctionnelle
+Si $\varphi \in \mathcal{A}_0(G_\mathbb{A}, \omega)$ et $\phi \in \mathcal{S}(M_n(\mathbb{A})$, la fonction $\zeta(\varphi, \phi, .)$ peut être prolongée en une fonction entière et vérifie l'équation fonctionnelle
 \begin{equation}
-\zeta(f, \phi, s) = \zeta(\check{f}, \hat{\phi}, n-s),
+\label{eqcusp}
+\zeta(\varphi, \phi, s) = \zeta(\check{\varphi}, \hat{\phi}, n-s),
 \end{equation}
-où $\check{f}(g)=f(g^{-1})$.
+où $\check{\varphi}(g)=\varphi(g^{-1})$.
 \end{proposition}
 
 \begin{proof}
-Il ne nous reste qu'à pouver que la contribution dans la formule de Poisson des matrices de rang $r < n$ est effectivement nulle. On considère l'action de $G$ par translation à droite sur l'ensemble des matrices de rang $r$. Chaque orbite contient un représentant de la forme $\begin{pmatrix} 
+Il suffit de prouver que la contribution dans la formule de Poisson des matrices de rang $r < n$ est effectivement nulle. On considère l'action de $G$ par translation à droite sur l'ensemble des matrices de rang $r$. Chaque orbite contient un représentant de la forme $\begin{pmatrix} 
 * & 0 \\
 * & 0 
 \end{pmatrix}$, on note $X$ l'ensemble des matrices de cette forme. On pose $P$ le sous-groupe parabolique de $G$ des matrices de la forme $\begin{pmatrix} 
 * & 0 \\
 * & * 
-\end{pmatrix}$ et $U$ sont radical unipotent.
+\end{pmatrix}$ et $U$ son radical unipotent.
 
-Alors
+On réécrit la somme sur les matrices de rang $r$ grâce au système de représentant $X$,
 \begin{equation}
-\sum_{rg(x)=r}\phi(xg) = \sum_{\gamma \in P \backslash G} \sum_{x \in X} \phi(x \gamma g)
+\sum_{rg(x)=r}\phi(xg) = \sum_{\gamma \in P \backslash G} \sum_{x \in X} \phi(x \gamma g).
 \end{equation}
-
 On en déduit que la contribution des matrices de rang $r$ dans la seconde intégrale est
 \begin{equation}
-\int_{P \backslash G^0_\mathbb{A}} \sum_{x \in X}{\phi(t^{-1}x\gamma g)} f(g) dg.
+\int_{P \backslash G^0_\mathbb{A}} \sum_{x \in X}{\phi(t^{-1}x g)} \varphi(g) dg.
 \end{equation}
 De plus, on remarque que, $xu=x$, pour tout $x \in X$ et $u \in U_\mathbb{A}$. Ce qui nous permet de réécrire cette intégrale sous la forme
 \begin{equation}
-\int_{PU_\mathbb{A} \backslash G^0_\mathbb{A}} \sum_{x \in X}{\phi(t^{-1}xg)} \int_{U \backslash U_\mathbb{A}} f(ug) du dg.
+\int_{PU_\mathbb{A} \backslash G^0_\mathbb{A}} \sum_{x \in X}{\phi(t^{-1}xg)} \int_{U \backslash U_\mathbb{A}} \varphi(ug) du dg.
 \end{equation}
-Cette dernière intégrale s'annule, car $f$ est cuspidale. On montre de même de l'intégrale correspondant à $\hat{\phi}$ s'annule aussi. Ce qui termine la preuve de la proposition.
+Cette dernière intégrale s'annule, car $f$ est cuspidale. On montre de même de l'intégrale correspondant au terme en $\hat{\phi}$ sur les matrices de rang $r < n$ s'annule aussi. Ce qui nous donne, grâce à la formule de Poisson et le raisonnement précédent, la formule
+\begin{equation}
+\begin{split}
+\zeta(\varphi, \phi, s) &= \int_1^\infty \int_{G \backslash G^0_\mathbb{A}} \sum_{x \in G}{\hat{\phi}(txg^{-1})} \varphi(g) \omega^{-1}(t) t^{n(n-s)} dg \frac{dt}{t} \\
+&+ \int_1^\infty \int_{G \backslash G^0_\mathbb{A}} \sum_{x \in G}{\phi(txg)} \varphi(g) \omega(t) t^{ns} dg \frac{dt}{t},
+\end{split}
+\end{equation}
+ce qui démontre l'équation fonctionnelle en effectuant le changement de variable $g \mapsto g^{-1}$ dans la première intégrale.
 \end{proof}
 
 \subsection{Représentations automorphes}
@@ -123,27 +129,40 @@ Pour un coefficient $f$ de $\mathcal{A}_0(G_\mathbb{A}, \omega)$, $\phi \in \mat
 \zeta(f, \phi, s) = \int_{G_\mathbb{A}} \phi(g) f(g) |\det g|_\mathbb{A}^s dg.
 \end{equation}
 
-On peut déduire les propriétés de cette fonction zêta grâce à ce que l'on a fait précédemment sur les formes cuspidales. Plus précisément, on a
+On peut déduire les propriétés de cette fonction zêta grâce à ce que l'on vient de faire pour les formes cuspidales. Plus précisément, on a
 \begin{align}
 \zeta(f, \phi, s) &= \int_{G_\mathbb{A}}\phi(g)\int_{\mathbb{A}^\times G \backslash G_\mathbb{A}} \varphi(hg) \tilde{\varphi}(h) dh |\det g|_\mathbb{A}^s dg \\
-&= \int_{\mathbb{A}^\times G \backslash G_\mathbb{A}} \tilde{\varphi}(h) \int_{G_\mathbb{A}}\phi(h^{-1}g)\varphi(g)|\det g|_\mathbb{A}^s dg |\det h|^{-s} dh \\
-&= \int_{\mathbb{A}^\times G \backslash G_\mathbb{A}} \tilde{\varphi}(h) \zeta(\varphi, \phi(h^{-1}.), s)|\det h|^{-s} dh,
+&= \int_{\mathbb{A}^\times G \backslash G_\mathbb{A}} \tilde{\varphi}(h) \int_{G_\mathbb{A}}\phi(h^{-1}g)\varphi(g)|\det g|_\mathbb{A}^s dg |\det h|_\mathbb{A}^{-s} dh \\
+&= \int_{\mathbb{A}^\times G \backslash G_\mathbb{A}} \tilde{\varphi}(h) \zeta(\varphi, \phi(h^{-1}.), s)|\det h|_\mathbb{A}^{-s} dh,
 \end{align}
 où la deuxième égalité s'obtient grâce au changement de variable $g \mapsto h^{-1}g$. Ceci nous permet de démontrer la
 \begin{proposition}
-Si $f$ est un coefficient de $\mathcal{A}_0(G_\mathbb{A}, \omega)$ et $\phi \in \mathcal{S}(M_\mathbb{A})$, la fonction $\zeta(f, \phi, .)$ peut se prolonger en une fonction entière et vérifie l'équation fonctionnelle
+Si $f$ est un coefficient de $\mathcal{A}_0(G_\mathbb{A}, \omega)$ et $\phi \in \mathcal{S}(M_\mathbb{A})$, la fonction $\zeta(f, \phi, .)$ peut être prolongée en une fonction entière et vérifie l'équation fonctionnelle
 \begin{equation}
-\zeta(f, \phi, s) = \zeta(\check{f}, \hat{\phi}, .),
+\zeta(f, \phi, s) = \zeta(\check{f}, \hat{\phi}, n-s),
 \end{equation}
 où $\check{f}(g) = f(g^{-1})$.
 \end{proposition}
 
-Si l'on combine ce résultat avec les résultats locaux, on peut construire la fonction $L$ attachée à une représentation cuspidale irréductible.
+\begin{proof}
+On utilise l'équation fonctionnelle (\ref{eqcusp}) et le fait que la transformée de Fourier de $\phi(h^{-1}.)$ est $|\det h|_\mathbb{A}^n\hat{\phi}(.h)$,
+\begin{align}
+\zeta(f, \phi, s) &= \int_{\mathbb{A}^\times G \backslash G_\mathbb{A}} \tilde{\varphi}(h) \zeta(\check{\varphi}, \hat{\phi}(.h), n-s)|\det h|_\mathbb{A}^{n-s} dh \\
+&= \int_{\mathbb{A}^\times G \backslash G_\mathbb{A}} \tilde{\varphi}(h) \int_{G_\mathbb{A}}\hat{\phi}(gh)\varphi(g^{-1})|\det g|_\mathbb{A}^{n-s} dg |\det h|_\mathbb{A}^{n-s} dh.
+\end{align}
+On effectue maintenant le changement de variable $g \mapsto gh^{-1}$, ce qui donne
+\begin{equation}
+\int_{\mathbb{A}^\times G \backslash G_\mathbb{A}} \tilde{\varphi}(h) \int_{G_\mathbb{A}}\hat{\phi}(g)\varphi(hg^{-1})|\det g|_\mathbb{A}^{n-s} dg dh,
+\end{equation}
+qui est bien $\zeta(\check{f}, \hat{\phi}, n-s)$.
+\end{proof}
+
+Si l'on combine cette proposition avec les résultats locaux, on peut construire la fonction $L$ attachée à une représentation cuspidale irréductible.
 \begin{definition}
 Une représentation cuspidale est un $(\mathfrak{g}, O_n(\mathbb{R})) \times GL_n(\mathbb{A}_f)$-module qui est isomorphe à un sous-quotient de $\mathcal{A}_0(G_\mathbb{A}, \omega)$.
 \end{definition}
 
-Plus précisément, on a le
+Plus précisément, on montre le
 \begin{theoreme}
 Soit $\pi$ une représentation cuspidale irréductible.
 
@@ -167,13 +186,13 @@ De plus, d'après l'équation fonctionnelle locale
 \sum_{\alpha_v \in I_v} \zeta(\check{f}_{\alpha_v}, \hat{\phi}_{\alpha_v}, 1-s + \frac{1}{2}(n-1)) = \epsilon(s,\pi_v)L(1-s, \tilde{\pi}_v).
 \end{equation}
 
-Notons $I = \prod_v I_v$. Pour presque toutes les places $v$, $I_v$ est un singleton, puisque $\pi_v$ est sphérique; donc $I$ est fini.
+Notons $I = \prod_v I_v$. Pour presque toutes les places $v$, $\pi_v$ est sphérique, $I_v$ est un singleton; donc $I$ est fini.
 
 Pour $\alpha = (\alpha_v) \in I$, on pose
 \begin{equation}
 \phi_\alpha = \prod_v \phi_{\alpha_v}, \quad f_\alpha = \prod_v f_{\alpha_v}.
 \end{equation}
-Alors $\phi_\alpha \in \mathcal{S}(M_\mathbb{A})$ et $f_\alpha$ est un coefficient (admissible) de $\pi$. De plus,
+Alors $\phi_\alpha \in \mathcal{S}(M_\mathbb{A})$ et $f_\alpha$ est un coefficient de $\pi$ qui est un sous-quotient de $\mathcal{A}_0(G_\mathbb{A}, \omega)$. De plus,
 \begin{equation}
 \zeta(f_\alpha, \phi_\alpha, s) = \prod_v \zeta(f_{\alpha_v}, \phi_{\alpha_v}, s).
 \end{equation}
