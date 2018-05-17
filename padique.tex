@@ -19,13 +19,13 @@ où $dx$ est une mesure de Haar sur $M_n$.
 
 On veut montrer l'équation fonctionnelle suivante
 \begin{equation}
-\zeta(f, \phi, s) = \gamma(s) \zeta(\check{f}, \hat{\phi}, 1-s),
+\zeta(f, \phi, s) = \gamma(s) \zeta(\check{f}, \hat{\phi}, n-s),
 \end{equation}
 où $\gamma$ est une fonction rationnelle en $p^s$ et $\check{f}(g) = f(g^{-1})$.
 
 Pour montrer cette équation fonctionnelle, on va utiliser la
 \begin{propriete}
-Les opérateurs $\zeta(., ., s)$ et $\zeta(\check{.}, \hat{.}, 1-s)$ sont des opérateurs d'entrelacements, éléments de $\Hom_{G \times G} ( (\tilde{\pi} \boxtimes \pi) \otimes \mathcal{S}, |\det|_p^s \boxtimes |\det|_p^{-s})$.
+Les opérateurs $\zeta(., ., s)$ et $\zeta(\check{.}, \hat{.}, n-s)$ sont des opérateurs d'entrelacements, éléments de $\Hom_{G \times G} ( (\tilde{\pi} \boxtimes \pi) \otimes \mathcal{S}, |\det|_p^s \boxtimes |\det|_p^{-s})$.
 \end{propriete}
 
 On précise que l'action de $G \times G$ sur $\mathcal{S}$ est
@@ -41,24 +41,24 @@ On effectue le changement de variable $g \mapsto g_1gg_2^{-1},$ le groupe $G$ é
 |\det g_1g_2^{-1}|^s\int_G \phi(g)f(g)|\det g|_p^s dg.
 \end{equation}
 
-D'autre part, l'action de $G \times G$ sur $\zeta(\check{f}, \hat{\phi}, 1-s)$ donne
+D'autre part, l'action de $G \times G$ sur $\zeta(\check{f}, \hat{\phi}, n-s)$ donne
 \begin{equation}
 \label{intzetafourier}
-\int_G \hat{\phi_{g_1,g_2}}(g)\check{f_{g_1,g_2}}(g)|\det g|_p^{1-s} dg,
+\int_G \hat{\phi}_{g_1,g_2}(g)\check{f}_{g_1,g_2}(g)|\det g|_p^{n-s} dg,
 \end{equation}
 où l'on a noté $\phi_{g_1,g_2}(x) = \phi(g_1^{-1}xg_2)$ et $f_{g_1,g_2}(g) = f(g_1^{-1}gg_2).$
 
-Un calcul immédiat, montre que $\check{f_{g_1,g_2}}(g) = \check{f}(g_2^{-1}gg_1)$. De plus,
+Un calcul immédiat, montre que $\check{f}_{g_1,g_2}(g) = \check{f}(g_2^{-1}gg_1)$. De plus,
 \begin{equation}
-\hat{\phi_{g_1,g_2}}(g) = \int_{M_n} \phi(g_1^{-1}xg_2) \psi(Tr(xg)) dx.
+\hat{\phi}_{g_1,g_2}(g) = \int_{M_n} \phi(g_1^{-1}xg_2) \psi(Tr(xg)) dx.
 \end{equation}
 Après le changement de variable $x \mapsto g_1xg_2^{-1}$ l'intégrale devient
 \begin{equation}
-|\det g_1^{-1}g_2|_p\int_{M_n} \phi(x) \psi(Tr(xg_2^{-1}gg_1)) dx,
+|\det g_1^{-1}g_2|_p^n\int_{M_n} \phi(x) \psi(Tr(xg_2^{-1}gg_1)) dx,
 \end{equation}
-qui n'est autre que $|\det g_1g_2^{-1}|_p\hat{\phi}(g_2^{-1}gg_1)$.
+qui n'est autre que $|\det g_1g_2^{-1}|_p^n\hat{\phi}(g_2^{-1}gg_1)$.
 L'intégrale (\ref{intzetafourier}) devient donc, après le changement de variable $g \mapsto g_2gg_1^{-1}$,
-\begin{equation}|\det g_1^{-1}g_2|_p|\det g_2g_1^{-1}|_p^{1-s}\int_G \hat{\phi}(g)\check{f}(g)|\det g|_p^{1-s} dg.
+\begin{equation}|\det g_1^{-1}g_2|_p^n|\det g_2g_1^{-1}|_p^{n-s}\int_G \hat{\phi}(g)\check{f}(g)|\det g|_p^{n-s} dg.
 \end{equation}
 \end{proof}
 
@@ -168,12 +168,12 @@ Hom_{(M \times M) \cap H} (V_i/V_{i-1}, |.|_p^s\delta_H) = 0,
 sauf si $\omega^{(i)} = |.|_p^{-(n-r)s}$ sur $\mathbb{Q}_p^\times$. Cette dernière équation ne peut être vérifiée que pour au plus une valeur de $s$ modulo $\frac{2i\pi}{(n-r)\log p}\mathbb{Z}$.
 \end{proof}
 
-Terminons la preuve de l'équation fonctionnelle. Rappelons que les opérateurs $\zeta(., ., s)$ et $\zeta(\check{.}, \hat{.}, 1-s)$ sont des éléments de $\Hom_{G \times G} ( (\tilde{\pi} \boxtimes \pi) \otimes \mathcal{S}, |\det|_p^s \boxtimes |\det|_p^{-s})$, qui est de dimension $1$ sauf pour un nombre fini de valeurs de $s$ modulo $\sum_{r=0}^{n-1}\frac{2i\pi}{(n-r)\log p}\mathbb{Z}$.
+Terminons la preuve de l'équation fonctionnelle. Rappelons que les opérateurs $\zeta(., ., s)$ et $\zeta(\check{.}, \hat{.}, n-s)$ sont des éléments de $\Hom_{G \times G} ( (\tilde{\pi} \boxtimes \pi) \otimes \mathcal{S}, |\det|_p^s \boxtimes |\det|_p^{-s})$, qui est de dimension $1$ sauf pour un nombre fini de valeurs de $s$ modulo $\sum_{r=0}^{n-1}\frac{2i\pi}{(n-r)\log p}\mathbb{Z}$.
 
 Autrement dit, pour $s$ en dehors de cet ensemble de valeurs exceptionnelles, il existe $\gamma(s) \in \mathbb{C}$ tel que
 \begin{equation}
 \label{eqfun}
-\zeta(., ., s) = \gamma(s) \zeta(\check{.}, \hat{.}, 1-s).
+\zeta(., ., s) = \gamma(s) \zeta(\check{.}, \hat{.}, n-s).
 \end{equation}
 
 Les fonctions zêta étant des fonctions rationnelles en $p^s$ et l'ensemble des valeurs de $s$ pour lesquelles $\gamma$ est ainsi défini est dense pour la topologie de Zariski, on en déduit que l'on peut étendre $\gamma$ en une fonction rationnelle en $p^s$ pour laquelle l'équation (\ref{eqfun}) est vérifiée en tant qu'égalité de fonctions rationnelles en $p^s$.
