@@ -1,8 +1,20 @@
 \section{Fonctions zêta sur $GL_n(\mathbb{Q}_p)$}
 
-Dans la suite, on notera $G = GL_n(\mathbb{Q}_p)$, $dg$ une mesure de Haar sur $G$ et $(\pi, V)$ une représentation admissible irréductible de $G$.
+Dans la suite, on notera $G = GL_n(\mathbb{Q}_p)$, $dg$ une mesure de Haar sur $G$ et $(\pi, V)$ une représentation admissible irréductible de $G$. On pose $K=GL_n(\mathbb{Z}_p)$, c'est un sous-groupe compact maximal de $G$.
 
-Les coefficients de $\pi$ sont les fonctions de la forme $g \in G \mapsto <\pi(g)v, \tilde{v}>$, où $v \in V$ et $\tilde{v} \in \tilde{V}$.
+\begin{definition}
+Une représentation $\pi : G \rightarrow GL(V)$ sur un $\mathbb{C}$-espace vectoriel $V$ est dite admissible si elle vérifie :
+\begin{itemize}
+\item Pour tout $v \in V$, le stabilisateur de $v$ dans $G$, $\left\lbrace g \in G, \pi(g)v = v \right\rbrace$, est un sous-groupe ouvert de $G$,
+\item Pour tout sous-groupe ouvert $H$ de $G$, le sous-espace
+\begin{equation*}
+V^H=\left\lbrace v \in V, \pi(h)v = v, \forall h \in H \right\rbrace
+\end{equation*}
+des vecteurs stable par $H$ est de dimension fini.
+\end{itemize}
+\end{definition}
+
+Les coefficients de $\pi$ sont les fonctions de la forme $g \in G \mapsto <\pi(g)v, \tilde{v}>$, où $v \in V$ et $\tilde{v} \in \tilde{V}$. Alors $\check{f}(g)=f(g^{-1})=<v, \tilde{\pi}(g)\tilde{v}>$ est un coefficient de $\tilde{\pi}$.
 
 On note $M_n$ l'ensemble des matrices $n \times n$ à coefficients dans $\mathbb{Q}_p$ et $\mathcal{S}$ l'ensemble des fonctions $\phi : M_n \rightarrow \mathbb{C}$ localement constantes à support compact.
 
@@ -15,4 +27,85 @@ On fixe un caractère non trivial $\psi$ de $\mathbb{Q}_p$ et on pose
 \begin{equation}
 \hat{\phi}(y) = \int_{M_n} \phi(x) \psi(Tr(xy)) dx,
 \end{equation}
-où $dx$ est une mesure de Haar sur $M_n$.
+où $dx$ est une mesure de Haar sur $M_n$, normalisée telle que $\hat{\hat{\phi}}(x)=\phi(-x)$.
+
+L'objectif de cette section est de montrer le
+\begin{theoreme}
+\begin{enumerate}
+\item Il existe $s_0 \in \mathbb{R}$ tel que pour tout $s \in \mathbb{C}$ vérifiant $Re (s) > s_0$, $\phi \in \mathcal{S}$ et $f$ un coefficient de $\pi$, les intégrales
+\begin{align}
+\zeta(f, \phi, s) &= \int_G \phi(g)f(g)|\det g|_p^s dg \\
+\zeta(\check{f}, \phi, s) &= \int_G \phi(g)\check{f}(g)|\det g|_p^s dg
+\end{align}
+convergent absolument.
+\item Ces intégrales sont des fonctions rationnelles en $p^{-s}$. Plus précisément, il existe des polynômes $Q$ et $\tilde{Q}$ indépendant de $f$ et $\phi$ avec $Q(0)\neq 0$ (respectivement $\tilde{Q}(0)\neq 0$) et des polynômes $\Xi(f, \phi, s)$, $\tilde{\Xi}(\check{f}, \phi, s)$ en $p^{s}$ et $p^{-s}$ tel que
+\begin{align}
+\zeta(f, \phi, s+\frac{1}{2}(n-1)) &= \frac{\Xi(f, \phi, s)}{Q(p^{-s})}, \\
+\zeta(\check{f}, \phi, s+\frac{1}{2}(n-1)) &= \frac{\tilde{\Xi}(\check{f}, \phi, s)}{\tilde{Q}(p^{-s})},
+\end{align}
+pour tout $s \in \mathbb{C}$, $\phi \in \mathcal{S}$ et $f$ coefficient de $\pi$.
+\item On peut choisir un nombre fini, de coefficients $f_i$ de $\pi$ (respectivement $\tilde{\pi}$) et de fonctions $\phi_i \in \mathcal{S}$, telles que $\sum_i \Xi(f_i, \phi_i, s)$ (respectivement $\sum_i \tilde{\Xi}(f_i, \phi_i, s)$ soit une constante non nulle.
+\item Il existe une fonction $\epsilon(s, \pi, \psi)$, qui est à une constante prés une puissance de $p^{-s}$, telle que
+\begin{equation}
+\label{epsilon}
+\tilde{\Xi}(\check{f}, \hat{\phi}, 1-s) = \epsilon(s, \pi, \psi)\Xi(f, \phi, s),
+\end{equation}
+pour tout $s\in \mathbb{C}$, $\phi \in \mathcal{S}$ et $f$ coefficient de $\pi$.
+\end{enumerate}
+\end{theoreme}
+
+On normalise $Q$ et $\tilde{Q}$ tel que $Q(0)=\tilde{Q}(0)=1$, on pose alors
+\begin{equation}
+L(s, \pi) = \frac{1}{Q(p^{-s})}, \quad L(s, \tilde{\pi}) = \frac{1}{\tilde{Q}(p^{-s})}.
+\end{equation}
+
+L'existence de la fonction $\epsilon(s, \pi, \psi)$ est équivalente à l'existence d'une fonction méromorphe $\gamma(s,\pi,\psi)$ telle que
+\begin{equation}
+\zeta(\check{f}, \hat{\phi}, 1-s+\frac{1}{2}(n-1))=\gamma(s, \pi, \psi)\zeta(f, \phi, s),
+\end{equation}
+pour tout $\phi \in \mathcal{S}$ et $f$ coefficient de $\pi$. Ces deux fonctions étant reliées par la relation
+\begin{equation}
+\epsilon(s,\pi,\psi)=\gamma(s,\pi,\psi)\frac{L(s,\pi)}{L(1-s,\tilde{\pi})}.
+\end{equation}
+En effet, supposons l'existence de $\gamma(s,\pi,\psi)$ alors $\epsilon(s,\pi,\psi)$ vérifie 
+\begin{equation}
+\tilde{\Xi}(\check{f}, \hat{\phi}, 1-s) = \epsilon(s, \pi, \psi)\Xi(f, \phi, s).
+\end{equation}
+On a de plus une égalité similaire avec $\epsilon(s,\tilde{\pi},\psi)$,
+\begin{equation}
+\Xi(f, s, \hat{\hat{\phi}}, s)=\epsilon(1-s, \tilde{\pi}, \psi)\tilde{\Xi}(\check{f}, \hat{\phi}, 1-s).
+\end{equation}
+Il ne nous reste plus qu'à utiliser la formule $\hat{\hat{\phi}}(x)=\phi(-x)$ pour obtenir la relation
+\begin{equation}
+\epsilon(s, \pi, \psi)\epsilon(1-s, \tilde{\pi}, \psi)=\omega(-1),
+\end{equation}
+où $\omega$ est le caractère de $\mathbb{Q}_p^\times$ tel que $\pi(z)=\omega(z)1$ pour $z\in \mathbb{Q}_p^\times$. D'après (2) et (3) du théorème, $\epsilon(s, \pi, \psi)$ est alors un polynôme en $p^s$ et $p^{-s}$, on en déduit que $\epsilon(s, \pi, \psi)$ est une puissance de $p^{-s}$ à constante prés.
+
+\subsection{Réduction au cas supercuspidal}
+
+Si $\pi$ est une représentation admissible (non nécessairement irréductible) de $G$, les assertions du théorème font sens pour $\pi$ et $\tilde{\pi}$, mais peuvent être fausse si $\pi$ n'est pas irréductible.
+
+Supposons le théorème vrai pour $\pi$ et $\tilde{\pi}$. Soit $\sigma$ une sous-représentation irréductible de $\pi$. Alors les coefficients de $\sigma$ sont de la forme $<\pi(g)v,\tilde{v}>$ avec $v\in V$ et $\tilde{v} \in \tilde{V}$. Cependant, toutes ces fonctions ne sont pas des coefficients de $\sigma$. On en déduit la
+\begin{proposition}
+Il existe des polynômes $R$ et $\tilde{R}$ en $p^{-s}$ tel que
+\begin{align}
+L(s,\sigma)&=R(p^{-s})L(s,\pi), \\
+L(s,\tilde{\sigma})&=\tilde{p^{-s}}L(s,\tilde{\pi}).
+\end{align}
+De plus,
+\begin{equation}
+\gamma(s,\sigma,\psi)=\gamma(s,\pi,\psi).
+\end{equation}
+\end{proposition}
+
+Soit $P$ un sous-groupe parabolique propre maximal de $G$ et $U$ son radical unipotent alors $P/U \simeq G' \times G''$, où l'on note $G'=GL_{n'}(\mathbb{Q}_p)$ et $G''=GL_{n''}(\mathbb{Q}_p)$.
+
+Soit $\sigma'$ (respectivement $\sigma''$) une représentation admissible de $G'$ (respectivement $G''$). On ne les suppose pas irréductible, on suppose cependant qu'ils admettent des caractères centraux $\omega'$ et $\omega''$. Alors $\sigma' \boxtimes \sigma''$ est naturellement une représentation de $P/U$, donc une représentation de $P$ triviale sur $U$.
+\begin{proposition}
+Notons $\pi = Ind_P^G(\sigma' \boxtimes \sigma'')$. Supposons le théorème vrai pour $\sigma'$ et $\sigma''$. Alors le théorème est vrai pour $\pi$. De plus, on a
+\begin{align}
+L(s,\pi)&=L(s,\sigma')L(s,\sigma''), \\
+L(s,\tilde{\pi})&=L(s,\tilde{\sigma}')L(s,\tilde{\sigma}''), \\
+\epsilon(s,\pi,\psi)&=\epsilon(s,\sigma',\psi)\epsilon(s,\sigma'',\psi).
+\end{align}
+\end{proposition}
