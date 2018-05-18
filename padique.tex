@@ -109,3 +109,162 @@ L(s,\tilde{\pi})&=L(s,\tilde{\sigma}')L(s,\tilde{\sigma}''), \\
 \epsilon(s,\pi,\psi)&=\epsilon(s,\sigma',\psi)\epsilon(s,\sigma'',\psi).
 \end{align}
 \end{proposition}
+
+\begin{proof}
+On notera $M'=M_{n'}(\mathbb{Q}_p)$ et $M''=M_{n''}(\mathbb{Q}_p)$. Soit $f$ un coefficient de $\pi$, $\phi \in \mathcal{S}$ et $s \in \mathbb{C}$.
+
+L'espace vectoriel $V$ sur lequel $\pi$ agit est l'espace des fonctions $v : G \rightarrow W$ localement constante qui vérifient
+\begin{equation}
+v(pg)=\delta_P^{\frac{1}{2}}(p)(\sigma' \boxtimes \sigma'')(p)v(g),
+\end{equation}
+où $\delta_P$ est le caractère modulaire de $P$ et $W$ est l'espace vectoriel sur lequel $\sigma' \boxtimes \sigma''$ agit.
+
+Le coefficient $f$ est alors de la forme
+\begin{align}
+f(g)&=<\pi(g)v,\tilde{v}> \\
+&= \int_K <v(kg),\tilde{v}(k)>_W dk.
+\end{align}
+
+Posons $t=s+\frac{1}{2}(n-1)$, $t'=s+\frac{1}{2}(n'-1)$ et $t''=s+\frac{1}{2}(n''-1)$. L'intégrale zêta est donc
+\begin{equation}
+\zeta(f,\phi,s)=\int_G \phi(g)|\det g|_p^t \int_K <v(kg),\tilde{v}(k)>dk dg.
+\end{equation}
+On échange l'ordre d'intégration et on fait le changement de variables $g \mapsto k^{-1}g$, on obtient
+\begin{equation}
+\label{integrale1}
+\int_K \int_G \phi(k^{-1}g)|\det g|^t<v(g),\tilde{v}(k)>dg dk.
+\end{equation}
+On utilise la décomposition de Cartan pour écrire $g \in G$ sous la forme $g = \begin{pmatrix} 
+g' & u \\
+0 & g'' 
+\end{pmatrix} k'$, où $g' \in G'$, $g'' \in G''$, $u \in U$ et $k' \in K$. On peut alors décomposer la mesure de Haar de $G$ en fonction des mesures de Haar de $G'$, $G''$, $U$ et $K$. En effet,
+\begin{equation}
+dg = |\det g'|^{-n''}dg'dg''dudk'.
+\end{equation}
+L'expression (\ref{integrale1}) devient
+\begin{equation}
+\label{integrale2}
+\begin{split}
+\int_K \int_{G' \times G'' \times U \times K} &\phi(k^{-1}\begin{pmatrix} 
+g' & u \\
+0 & g'' 
+\end{pmatrix} k') |\det g'|^{t'}|\det g''|^{t''} \\
+&<(\sigma'(g') \boxtimes \sigma''(g''))v(k'), \tilde{v}(k)> dg' dg'' du dk' dk.
+\end{split}
+\end{equation}
+
+Le facteur $<(\sigma'(g') \boxtimes \sigma''(g''))v(k'), \tilde{v}(k)>$ est un coefficient de $\sigma' \boxtimes \sigma''$, donc est une combinaison linéaire de produits de coefficients de $\sigma'$ et de coefficients de $\sigma''$ :
+\begin{equation}
+<(\sigma'(g') \boxtimes \sigma''(g''))v(k'), \tilde{v}(k)> = \sum_{i=1}^l \lambda_i(k,k')f_i'(g')f_i''(g''),
+\end{equation}
+où les fonctions $\lambda_i : K \times K \rightarrow \mathbb{C}$ sont localement constante et les $f_i'$ (respectivement $f_i''$) sont des coefficients de $\sigma'$ (respectivement $\sigma''$).
+
+D'autre part, la fonction
+\begin{equation}
+(x' \in M', x'' \in M'') \mapsto \int_U \phi(k^{-1}\begin{pmatrix} 
+x' & u \\
+0 & x'' 
+\end{pmatrix} k') du
+\end{equation}
+est un élément de l'espace de Schwartz $\mathcal{S}(M' \times M'')$. On peut donc l'écrire sous la forme
+\begin{equation}
+\label{u_integrale}
+\int_U \phi(k^{-1}\begin{pmatrix} 
+x' & u \\
+0 & x'' 
+\end{pmatrix} k') du = \sum_{j=1}^{l'} \mu_j(k, k')\phi_j'(x')\phi_j''(x''),
+\end{equation}
+où les $\mu_j$ sont localement constantes et $\phi_j' \in \mathcal{S}(M')$ (respectivement $\phi_j'' \in \mathcal{S}(M'')$).
+
+En remplaçant ces expressions dans l'intégrale (\ref{integrale2}), on trouve
+\begin{equation}
+\label{zetainduite}
+\zeta(f, \phi, t) = \sum_{i,j=1}^{l,l'} \int_{K \times K} \lambda_i(k,k')\mu_j(k,k') dk dk' \zeta(f_i',\phi_j',t') \zeta(f_i'',\phi_j'',t'').
+\end{equation}
+
+D'après les hypothèses faites sur $\sigma'$ et $\sigma''$, les intégrales définissant les $\zeta(f_i',\phi_j',t')$ (respectivement $\zeta(f_i'',\phi_j'',t'')$) sont absolument convergentes pour $Re(s)$ assez grande. Ce qui justifie à posteriori les calculs que l'on vient de faire et prouve la partie (1) du théorème pour $\pi$.
+
+D'après (\ref{zetainduite}) et les hypothèses faites sur $\sigma'$ et $\sigma''$, on obtient la relation
+\begin{equation}
+\zeta(f,\phi,s)=\sum_{i,j=1}^{l,l'}c_{i,j}\Xi(f_i',\phi_j',s)L(s,\sigma')\Xi(f_i'',\phi_j'',s)L(s,\sigma'').
+\end{equation}
+Ce qui prouve la partie (2) du théorème pour $\pi$.
+
+Passons à la partie (4) du théorème. La valeur $\zeta(\check{f}, \hat{\phi}, t)$ s'obtient en remplaçant $f$ par $\check{f}$, ce qui remplace les $f_i'$ et $f''_i$ en $\check{f}_i'$ et $\check{f}_i''$, et $\phi$ en $\hat{\phi}$. Voyons maintenant comment ce dernier changement affecte l'intégrale. Montrons que l'équation (\ref{u_integrale}) se transforme en
+\begin{equation}
+\int_U \hat{\phi}(k'^{-1}\begin{pmatrix} 
+x' & u \\
+0 & x'' 
+\end{pmatrix} k) du = \sum_{j=1}^{l'} \mu_j(k, k')\hat{\phi}_j'(x')\hat{\phi}_j''(x'').
+\end{equation}
+En effet, 
+\begin{align}
+\int_U \hat{\phi}(k'^{-1}\begin{pmatrix} 
+x' & u \\
+0 & x'' 
+\end{pmatrix} k) du &= \int_U \int_{M_n} \phi(k^{-1}xk')\psi(Tr(\begin{pmatrix} 
+x_1 & x_2 \\
+x_3 & x_4 
+\end{pmatrix}\begin{pmatrix} 
+x' & u \\
+0 & x'' 
+\end{pmatrix})dxdu \\
+&= \int \phi(k^{-1}\begin{pmatrix} 
+x_1 & x_2 \\
+0 & x_4 
+\end{pmatrix}k')\psi(x_1x'+x_4x'')dx_1dx_2dx_4 \\
+&= \sum_{j=1}^{l'} \mu_j(k, k')\hat{\phi}_j'(x')\hat{\phi}_j''(x'').
+\end{align}
+La première égalité s'obtient en considérant la transformée de Fourier en les variables $(x_3, u)$. La dernière s'obtient en appliquant la transformée de Fourier sur $M'\times M''$ à l'équation (\ref{u_integrale}).
+
+Ces considérations nous donnent une égalité similaire à (\ref{zetainduite}),
+\begin{equation}
+\zeta(\check{f},\phi,1-s+\frac{1}{2}(n-1))=\sum_{i,j=1}^{l,l'}c_{i,j}\Xi(\check{f}_i',\hat{\phi}_j',1-s)L(1-s,\tilde{\sigma}')\Xi(\check{f}_i'',\hat{\phi}_j'',1-s)L(1-s,\tilde{\sigma}'').
+\end{equation}
+On obtient ainsi l'équation fonctionnelle
+\begin{equation}
+\tilde{\Xi}(\check{f}, \hat{\phi}, 1-s)=\epsilon(s, \sigma', \psi)\epsilon(s,\sigma'',\psi)\Xi(f,\phi,s),
+\end{equation}
+on en déduit que $\epsilon(s,\pi,\psi)=\epsilon(s, \sigma', \psi)\epsilon(s,\sigma'',\psi)$ et la partie (4) du théorème pour $\pi$.
+
+Il ne reste plus qu'à prouver la partie (3). Il suffit de montrer que si l'on fixe $\phi' \in \mathcal{S}(M')$, $\phi'' \in \mathcal{S}(M'')$ et $f$ (respectivement $f'$) coefficient de $\sigma'$ (respectivement $\sigma''$) alors il existe $\phi \in \mathcal{S}(M)$ et $f$ coefficient de $\pi$ tel que
+\begin{equation}
+\zeta(f,\phi,t)=\zeta(f',\phi',t')\zeta(f'',\phi'',t'').
+\end{equation}
+En effet, le calcul du produit des fonctions zêta $\zeta(f',\phi',t')\zeta(f'',\phi'',t'')$ donne
+\begin{equation}
+\label{zetaprod}
+\int_{G' \times G''} \phi'(g')\phi''(g'')f'(g')f''(g'')|\det g'|_p^{t'}|\det g''|_p^{t''}dg'dg''.
+\end{equation}
+On choisit alors $\phi \in \mathcal{S}(M)$ de la forme $\begin{pmatrix} 
+x' & u \\
+v & x'' 
+\end{pmatrix} \mapsto \phi'(x')\phi''(x'')\phi_0(u)\phi_1(v)$, où $\phi_1 \in \mathcal{S}(M_{n'',n'})$ vérifie $\phi_1(0)=1$ et $\phi_0 \in \mathcal{S}(M_{n',n''})$ est d'intégrale $1$. Avec ce choix, on a
+\begin{equation}
+\int_U \phi(\begin{pmatrix} 
+g' & u \\
+0 & g'' 
+\end{pmatrix})=\phi'(g')\phi''(g'').
+\end{equation}
+De plus, il existe une fonction localement constante $\eta : K \rightarrow \mathbb{C}$ telle que
+\begin{equation}
+\int_{U \times K} \phi(\begin{pmatrix} 
+g' & u \\
+0 & g'' 
+\end{pmatrix}k)\eta(k)dudk = \phi(g')\phi(g'').
+\end{equation}
+On pose aussi $f(g)=\delta_P^{\frac{1}{2}}(\begin{pmatrix} 
+g' & u \\
+0 & g'' 
+\end{pmatrix})\eta(k)f(g')f(g'')$, alors $f$ est bien un coefficient de $\pi$. De plus, en intégrant sur $U \times K$ l'expression (\ref{zetaprod}) devient
+\begin{equation}
+\int_G \phi(\begin{pmatrix} 
+g' & u \\
+0 & g'' 
+\end{pmatrix}k)f(g)|\deg g|_p^t\delta_P(\begin{pmatrix} 
+g' & u \\
+0 & g'' 
+\end{pmatrix})dg'dg''dudk,
+\end{equation}
+qui est bien $\zeta(f,\phi,t)$. Ce qui termine la preuve de la proposition.
+\end{proof}
