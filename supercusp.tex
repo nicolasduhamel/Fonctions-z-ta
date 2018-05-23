@@ -1,0 +1,158 @@
+\subsection{Représentation supercuspidale}
+
+Dans cette partie, on suppose que $\pi$ est une représentation supercuspidale irréductible de $G$. Avant d'aller plus loin, commençons par rappeler un résultat fondamental sur les représentations supercuspidales.
+
+\begin{proposition}
+Les coefficients de $\pi$ sont à support compact modulo $\mathbb{Q}_p^\times$.
+\end{proposition}
+
+Soit $f$ un coefficient de $\pi$ et $\phi \in \mathcal{S}$, alors il existe un sous-groupe compact $K'$ de $G$ tel que $f$ et $\phi$ sont invariant à gauche par $K'$. De plus, le support de $f$ est, d'après la proposition, à support compact modulo $\mathbb{Q}_p^\times$. Il existe donc un nombre fini d'éléments $(g_i)_{1 \leq i \leq N}$ de $G$ tel que
+\begin{equation}
+supp(f) \subset \cup_{i=1}^N K'\mathbb{Q}_p^\times g_i.
+\end{equation}
+
+On en déduit que
+\begin{equation}
+\zeta(f,\phi,s) = vol(K') \sum_{i=1}^N f(g_i)|\det g_i|_p^s \int_{\mathbb{Q}_p^\times} \phi(xg_i)|x|_p^{ns}\omega(x)dx,
+\end{equation}
+où $\omega$ est le caractère central de $\pi$. Cette dernière intégrale est absolument convergente pour $Re(s) > 0$. De plus, le quotient $\frac{\zeta(f,\phi,s)}{L(ns,\omega)}$ est un polynôme en $p^s$ et $p^{-s}$. Ce qui prouve les parties (1) et (2) du théorème pour $\pi$.
+
+Posons $G^0=\left\lbrace g \in G, |\det g|_p = 1 \right\rbrace$, alors $G^0 \cap \mathbb{Q}_p^\times = \mathbb{Z}_p^\times$ est compact. On choisit $\phi \in \mathcal{S}$ tel que $\phi(g) = \overline{f(g)}$ si $g \in G^0$ et $\phi(g)=0$ sinon. Alors
+\begin{equation}
+\zeta(f, \phi, s) = \int_{G^0} f(g)\overline{f(g)} dg > 0
+\end{equation}
+est une constante non nulle, ce qui prouve la partie (3) du théorème pour $\pi$. Il ne nous reste plus qu'à montrer l'équation fonctionnelle.
+
+Commençons par définir l'opérateur zêta,
+\begin{equation}
+\zeta(\pi, \phi, s) = \int_G \phi(g)|\det g|_p^s\pi(g) dg.
+\end{equation}
+C'est l'opérateur dont les coefficients sont exactement les $\zeta(f, \phi,s)$ pour $f$ coefficient de $\pi$.
+
+Posons $\mathcal{S}_0=\left\lbrace \phi \in \mathcal{S}| supp(\phi), supp(\hat{\phi}) \subset G \right\rbrace$. Le résultat qui va nous permettre de prouver l'équation fonctionnelle est la
+\begin{proposition}
+\label{pre-eq-func}
+Pour $\phi \in \mathcal{S}, \phi' \in \mathcal{S}_0$, on a
+\begin{equation}
+\zeta(\check{\pi}, \hat{\phi}', n-s)\zeta(\pi,\phi,s) = \zeta(\pi, \phi',s)\zeta(\check{\pi}, \hat{\phi}, n-s),
+\end{equation}
+où $\check{\pi}(g) = \pi(g^{-1})$.
+\end{proposition}
+
+\begin{proof}
+La proposition est une conséquence immédiate du
+\begin{lemme}
+Soit $\phi \in \mathcal{S}, \phi' \in \mathcal{S}_0, v \in V$ et $\tilde{v} \in \tilde{V}$, pour $0 < Re(s) < n$, les intégrales
+\begin{align}
+&\int_G \int_G \phi(g)\hat{\phi}'(h)<\pi(g)v,\tilde{\pi}(h)\tilde{v}>|\det g|_p^s|\det h|_p^{n-s}dg dh,
+&\int_G \int_G \hat{\phi}(g)\phi'(h)<\pi(g^{-1}v,\tilde{\pi}(h^{-1})\tilde{v}>|\det g|_p^{n-s}|\det h|_p^s dg dh,
+\end{align}
+sont absolument convergentes et coïncident. De plus, ces intégrales sont les coefficients des opérateurs $\zeta(\check{\pi}, \hat{\phi}', n-s)\zeta(\pi,\phi,s)$ et $\zeta(\pi, \phi',s)\zeta(\check{\pi}, \hat{\phi}, n-s)$.
+\end{lemme}
+
+\end{proof}
+
+\begin{proposition}
+Pour $s \in \mathbb{C}$, il existe un opérateur $\gamma(s) : V \rightarrow V$ tel que
+\begin{equation}
+\zeta(\check{\pi}, \hat{\phi}, n-s) = \gamma(s)\zeta(\pi,\phi,s), \forall \phi \in \mathcal{S}_0.
+\end{equation}
+De plus, l'opérateur $\gamma(s)$ est un scalaire.
+\end{proposition}
+
+\begin{proof}
+Unicité : On choisit $\phi \in \mathcal{S}_0$ tel que $\zeta(\pi,\phi,s)=Id_V$, alors $\gamma(s)=\zeta(\check{\pi}, \hat{\phi}, n-s)$.
+
+Existence : Il faut démontrer que les différents $\phi \in \mathcal{S}_0$ tel que $\zeta(\pi,\phi,s)=Id_V$ donnent un même opérateur $\zeta(\check{\pi},\hat{\phi}, n-s)$. Soit $\phi_1,\phi_2 \in \mathcal{S}_0$ tel que $\zeta(\pi,\phi_1,s)=\zeta(\pi,\phi_2,s)=Id_v$. D'après la proposition (\ref{pre-eq-func}), on en déduit que $\zeta(\check{\pi},\hat{\phi_1}, n-s)=\zeta(\check{\pi},\hat{\phi_2}, n-s)$.
+
+On pose $\gamma(s)=\zeta(\check{\pi},\hat{\phi_0}, n-s)$ pour $\phi_0 \in \mathcal{S}_0$ tel que $\zeta(\pi,\phi,s)=Id_V$. Alors, d'après la proposition (\ref{pre-eq-func}),
+\begin{align}
+\gamma(s)\zeta(\pi,\phi,s) &= \zeta(\check{\pi},\hat{\phi_0}, n-s)\zeta(\pi,\phi,s) \\
+&= \zeta(\pi,\phi_0,s)\zeta(\check{\pi}, \hat{\phi}, n-s) \\
+&= \zeta(\check{\pi}, \hat{\phi},s),
+\end{align}
+pour tout $\phi \in \mathcal{S}$.
+
+Montrons maintenant que $\gamma(s) \in \Hom_G(\pi,\pi)$, le lemme de Schur nous permet de conclure que $\gamma(s)$ est un scalaire.
+
+Pour $\phi \in \mathcal{S}$, on pose $\phi_h = \phi(h.)$. Alors $\hat{\phi}_h = |\det h|_p^{-n}\hat{\phi}(.h^{-1})$. Ce qui nous permet d'obtenir
+\begin{align}
+\zeta(\check{\pi}, \hat{\phi}_h, n-s)&=|\det h|_p^{-n}\zeta(\check{\pi}, \hat{\phi}(.h^{-1}),n-s) \\
+&= |\det h|_p^{-s}\pi(h^{-1})\zeta(\check{pi}, \hat{\phi}, n-s) \\
+&= |\det h|_p^{-s}\pi(h^{-1})\gamma(s)\zeta(\pi,\phi,s).
+\end{align}
+D'autre part, on a
+\begin{equation}
+\gamma(s)\zeta(\pi,\phi_h,s)=|\det h|_p^{-s}\gamma(s)\pi(h^{-1})\zeta(\pi,\phi,s).
+\end{equation}
+Par unicité de l'opérateur $\gamma(s)$, on en déduit que $\pi(h^{-1})\gamma(s)=\gamma(s)\pi(h^{-1})$. Autrement dit, $\gamma(s) \in \Hom_G(\pi,\pi)$.
+\end{proof}
+
+\begin{lemme}
+Soit $v \in V, \tilde{v} \in \tilde{V}$ et $s \in \mathbb{C}$, il existe $\phi \in \mathcal{S}_0$ tel que
+\begin{equation}
+\zeta(\pi,\phi,s)w = <w,\tilde{v}>v, \forall w \in V.
+\end{equation}
+En particulier, il existe $\phi \in \mathcal{S}_0$ tel que $\zeta(\pi, \phi, s) = Id_V.$
+\end{lemme}
+
+\begin{proof}
+Soit $\phi \in \mathcal{S}_0$ tel que $\phi(g) = |\det g|_p^s<v, \tilde{\pi}\tilde{v}>$ si $|\det g|_p \in \left\lbrace 1, p, ..., p^{n-1} \right\rbrace$ et $\phi(g) = 0$ sinon. Alors
+\begin{align}
+<\zeta(\pi,\phi,s)w,\tilde{w}> &= \int_{G/\mathbb{Q}_p^\times} <v,\tilde{\pi}(g)\tilde{v}><\pi(g)w,\tilde{w}>dg \\
+&= c <v, \tilde{w}><w,\tilde{v}>,
+\end{align}
+pour tout $w \in V, \tilde{w} \in \tilde{V}$. La dernière égalité est une conséquence du lemme de Schur. Ce qui montre que $\zeta(\pi, \phi,s)$ est proportionnel à $w \mapsto <w,\tilde{v}>v$.
+\end{proof}
+
+\begin{lemme}
+Soit $v \in V$ non nul, alors
+$$W=\left\lbrace u \in V, \exists \phi \in \mathcal{S}_0, c \neq 0, l \in \mathbb{Z}, \zeta(\pi, \phi, s) = cp^{-ls}u \forall s \in \mathbb{C} \right\rbrace$$
+engendre $V$.
+\end{lemme}
+
+\begin{proof}
+Si $u \in W$, alors $\pi(h)u$ l'est aussi pour $h \in G$. En effet,
+$\zeta(\pi,\phi(.h^{-1}),s) = cp^{-ls}|\det h|_p^{-s}u$. Comme $V$ est irréductible, il suffit de montrer que $W \neq 0$.
+
+Soit $\phi \in \mathcal{S}_0$ tel que $\phi(g) = <v, \pi(g)v>$ si $g \in G^0$ et $\phi(g) = 0$ sinon. Alors
+\begin{equation}
+u=\zeta(\pi, \phi, s)v = \int_{G^0} <v,\pi(g)v>\pi(g)v dg
+\end{equation}
+est indépendant de $s$ et non nul puisque
+\begin{equation}
+<\zeta(\pi,\phi,s)v,v> = \int_{G^0} |<v,\pi(g)v>|^2 dg > 0.
+\end{equation}
+Ce qui montre que $u \in W$ et $u$ non nul.
+\end{proof}
+
+Montrons que $\gamma(s)$ est non seulement une fraction rationnelle en $p^{-s}$, mais en fait une puissance de $p^s$. En effet, on a
+\begin{equation}
+\zeta(\check{f}, \hat{\phi}, n-s)=\gamma(s)\zeta(f,\phi,s), \forall \phi \in \mathcal{S}_0.
+\end{equation}
+D'après le lemme, on peut choisir $\phi \in \mathcal{S}_0$ et $f$ coefficient de $\pi$ tel que $\zeta(f,\phi,s)=p^{-ls}$. Alors $\gamma(s) = \zeta(\check{f}, \hat{\phi}, n-s)p^{ls}$ est un polynôme en $p^{-s}$ et $p^s$. En appliquant le lemme à $\check{\pi}$, on en déduit que $\gamma$ n'admet pas de $zéros$, c'est donc une puissance de $p^{s}$.
+
+\begin{proposition}
+Pour $\pi$ supercuspidale irréductible, on a $L(s,\pi)=1$.
+\end{proposition}
+
+\begin{proof}
+Si $\omega$ est ramifié, alors $L(s,\omega)=1$. On en déduit que
+$L(s,\pi)=\frac{L(s,\pi)}{L(ns,\omega)}$ est un polynôme en $p^{-s}$, donc $L(s, \pi)=1$.
+
+Si $\omega$ est non ramifié, on peut supposer sans perte de généralité que $\omega=1$, alors
+\begin{equation}
+L(s,\omega)=\frac{1}{1-p^{-s}}, \quad L(ns,\omega)=\frac{1}{\prod_{\mu^n=1}(1-\mu p^{-s})}=\frac{1}{1-p^{-ns}}.
+\end{equation}
+Ce qui nous permet d'en déduire que
+\begin{equation}
+L(s,\pi) = \frac{1}{\prod_{\mu \in T}(1-\mu p^{-s})}, \quad L(s,\tilde{\pi}) = \frac{1}{\prod_{\mu \in T'}(1-\mu p^{-s})},
+\end{equation}
+où $T$ et $T'$ sont des sous-ensembles des racines $n$-ième de l'unité.
+
+On vient de montrer précédemment que $\gamma$ est une puissance de $p^s$, il en est alors de même pour $\epsilon(s,\pi,\psi)$ et $\frac{L(s,\pi)}{L(1-s,\tilde{\pi})}$ d'après la relation (\ref{gammaepsilon}). Ce qui montre que la fraction
+\begin{equation}
+\frac{\prod_{\mu \in T'}(1-\mu p^{s-1})}{\prod_{\mu \in T}(1-\mu p^{-s})}
+\end{equation}
+est une puissance de $p^s$, d'où $L(s,\pi)=L(s,\tilde{\pi})=1$.
+\end{proof}
