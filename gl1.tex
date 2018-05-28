@@ -1,1 +1,142 @@
 \section{Fonctions zêta sur $GL_1(\mathbb{Q}_p)$}
+
+Cette section décrit la théorie de Tate \cite{tate} des fonctions zêta sur $GL_1(\mathbb{Q}_p)$. Dans la section 2, on aura besoin de supposer que $n > 1$ et on aura aussi besoin des résultats pour $n=1$.
+
+\subsection{Caractères de $\mathbb{Q}_p$}
+
+Commençons par décrire l'ensemble des caractères de $\mathbb{Q}_p$. Pour ce faire, on dispose du
+
+\begin{lemme}
+Soit $\psi$ un caractère non trivial de $\mathbb{Q}_p$, alors les caractères de $\mathbb{Q}_p$ sont de la forme $x \mapsto \psi(xy)$ avec $y \in \mathbb{Q}_p$.
+\end{lemme}
+
+Pour avoir une description complète des caractères de $\mathbb{Q}_p$, il ne nous reste plus qu'à exhiber un caractère non trivial.
+
+Soit $x \in \mathbb{Q}_p$, alors il existe $\mu \in \mathbb{N}$ tel que $p^\mu x \in \mathbb{Z}_p$. On note $m$ l'entier tel que $m = p^\mu x \mod p^\mu$. On pose alors $\lambda(x) = \frac{m}{p^\mu}$, c'est un rationnel bien déterminé $\mod 1$. L'application $x \mapsto e^{2i\pi \lambda(x)}$ est un caractère non trivial de $\mathbb{Q}_p$.
+
+On note $\mathcal{S}(\mathbb{Q}_p)$ l'ensemble des fonctions $\phi : \mathbb{Q}_p \rightarrow \mathbb{C}$ localement constantes à support compact, on l'appelle l'espace de Schwartz de $\mathbb{Q}_p$.
+
+Pour $\phi \in \mathcal{S}(\mathbb{Q}_p)$, on définit la transformée de Fourier de $\phi$ par la formule
+\begin{equation}
+\hat{\phi}(y) = \int_{\mathbb{Q}_p} \phi(x) e^{-2i\pi \lambda(xy)}dx, y \in \mathbb{Q}_p,
+\end{equation}
+où $dx$ est une mesure de Haar sur $\mathbb{Q}_p$. On choisit la mesure de Haar de façon à avoir la formule d'inversion $\hat{\hat{\phi}}(x)=\phi(-x)$.
+
+\subsection{Fonctions zêta, équation fonctionnelle}
+\begin{definition}
+Pour $\phi \in \mathcal{S}(\mathbb{Q}_p), \omega$ caractère de $\mathbb{Q}_p^\times$ et $s \in \mathbb{C}$, on pose
+\begin{equation}
+\zeta(\phi,\omega,s) = \int_{\mathbb{Q}_p^\times} \phi(x) \omega(x) |x|_p^s d^\times x,
+\end{equation}
+où $d^\times x$ est une mesure de Haar sur $\mathbb{Q}_p$. On choisit la mesure de Haar normalisé de telle façon à avoir $vol(\mathbb{Z}_p^\times)=1$.
+\end{definition}
+
+\begin{lemme}
+L'intégrale définissant la fonction zêta est absolument convergente pour $Re(s)$ assez grand.
+\end{lemme}
+
+Dans la suite, on veut montrer que les fonctions zêta peuvent être prolongées analytiquement en des fonctions méromorphes. On montre aussi que les fonctions zêta vérifient une équation fonctionnelle. On commence par le
+\begin{lemme}
+\label{lemme_fun}
+Soit $\phi_1, \phi_2 \in \mathcal{S}(\mathbb{Q}_p), \omega$ un caractère de $\mathbb{Q}_p^\times$ et $s \in \mathbb{C}$. Alors
+\begin{equation}
+\zeta(\phi_1, \omega, s)\zeta(\hat{\phi}_2, \omega^{-1}, 1-s)=\zeta(\hat{\phi}_1, \omega^{-1}, 1-s)\zeta(\phi_2, \omega, s),
+\end{equation}
+cette équation étant valable dans le domaine d'absolue convergence.
+\end{lemme}
+
+\begin{proof}
+Développons le membre de gauche,
+\begin{align}
+\zeta(\phi_1, \omega, s)\zeta(\hat{\phi}_2, \omega^{-1},1-s) &= \int_{{(\mathbb{Q}_p^\times)}^2} \phi_1(x_1)\hat{\phi}_2(x_2)\omega(x_1x_2^{-1})|x_1x_2|_p^s|x_2|_p d^\times x_1 d^\times x_2 \\
+&= \int_{{(\mathbb{Q}_p^\times)}^2} \phi_1(x_1)\hat{\phi}_2(x_1x_2)\omega(x_2^{-1})|x_2|_p^{-s}|x_1x_2|_p d^\times x_1 d^\times x_2
+\end{align}
+On ne considère maintenant que la partie qui dépend de la variable $x_1$ et on utilise la formule définissant la transformée de Fourier, on obtient
+\begin{align}
+&\int_{\mathbb{Q}_p^\times} \phi_1(x_1)\hat{\phi}_2(x_1x_2)|x_1|_p d^\times x_1 \\
+&=\int_{\mathbb{Q}_p^\times} \int_{\mathbb{Q}_p} \phi_1(x_1) \phi_2(y)|x_1|_p e^{2i\pi \lambda(x_1x_2 y)} dy d^\times x_1 \\
+&= \int_{{(\mathbb{Q}_p)}^2} \phi_1(x_1)\phi_2(y) e^{2i\pi \lambda(x_1x_2 y)} dy dx_1 \\
+&= \int_{\mathbb{Q}_p^\times} \hat{\phi}_1(x_1x_2)\phi_2(x_1)|x_1|_p d^\times x_1
+\end{align}
+
+D'autre part, en développant le membre de droite de l'équation, on a
+\begin{equation}
+\zeta(\hat{\phi}_1, \omega^{-1}, 1-s)\zeta(\phi_2,\omega,s) =  \int_{{(\mathbb{Q}_p^\times)}^2} \hat{\phi}_1(x_1x_2)\phi_2(x_1)|x_1|_p \omega(x_2^{-1})|x_2|_p^{1-s} d^\times x_1 d^\times x_2.
+\end{equation}
+
+On en déduit l'égalité avec $\zeta(\phi_1, \omega, s)\zeta(\hat{\phi}_2, \omega^{-1},1-s)$.
+\end{proof}
+
+On démontre maintenant le
+\begin{theoreme}
+Soit $\phi \in \mathcal{S}(\mathbb{Q}_p), \omega$ un caractère de $\mathbb{Q}_p^\times$ et $s \in \mathbb{C}$. La fonction $\zeta(\phi, \omega, .)$ peut être prolongée analytiquement en une fonction méromorphe sur $\mathbb{C}$. De plus, elle vérifie
+\begin{equation}
+\label{eq_gl1}
+\zeta(\phi,\omega,s)=\gamma(\omega, s)\zeta(\hat{\phi}, \omega^{-1}, 1-s),
+\end{equation}
+où $\gamma$ est une fonction méromorphe indépendante de $\phi$.
+\end{theoreme}
+
+\begin{proof}
+On suppose tout d'abord que l'équation (\ref{eq_gl1}) est vérifiée pour une fonction $\phi_0 \in \mathcal{S}(\mathbb{Q}_p)$ telle que le quotient $\frac{\zeta(\phi_0, \omega, s)}{\zeta(\hat{\phi}_0, \omega^{-1}, 1-s)}$ est défini. D'après le lemme (\ref{lemme_fun}), on en déduit que
+\begin{equation}
+\zeta(\phi, \omega, s) = \gamma(\omega,s)\zeta(\hat{\phi}, \omega, 1-s),
+\end{equation}
+où $\gamma(\omega,s) = \frac{\zeta(\phi_0, \omega, s)}{\zeta(\hat{\phi}_0, \omega^{-1}, 1-s)}$. Ce qui montre l'équation fonctionnelle pour toutes les fonctions $\phi \in \mathcal{S}(\mathbb{Q}_p)$. La suite de cette section, on montre que cette fonction $\phi_0$ existe bien et on calcule le facteur $\gamma$.
+\end{proof}
+
+\subsection{Calcul du facteur $\gamma$}
+
+Le caractère $\omega$ est trivial sur un ensemble de la forme $1+p^m \mathbb{Z}_p$, on suppose $m$ minimal pour cette propriété. L'entier $p^m$ est appelé le conducteur de $\omega$.
+
+On choisi alors pour $\phi_0$ la fonction telle que $\phi_0(x)=e^{2i\pi \lambda(x)}$ si $x \in p^{-m}\mathbb{Z}_p$ et $\phi_0(x)=0$ sinon.
+
+\begin{lemme}
+\begin{equation}
+\hat{\phi}_0(x) = \left\{
+    \begin{array}{ll}
+        p^m & \mbox{si } x = 1 \mod p^m, \\
+        0 & \mbox{sinon.}
+    \end{array}
+\right.
+\end{equation}
+\end{lemme}
+
+Dans le cas où le caractère $\omega$ est non ramifié, $m=0$,
+\begin{align}
+\zeta(\phi_0, \omega, s)&=\frac{1}{1-\omega(p)p^{-s}},\\
+\zeta(\hat{\phi}_0, \omega^{-1}, 1-s) &= \frac{1}{1-\omega(p)^{-1}p^{s-1}}, \\
+\gamma(\omega,s) &= \frac{1-\omega(p)^{-1}p^{s-1}}{1-\omega(p)p^{-s}}.
+\end{align}
+
+Dans le cas ramifié, $m > 0$,
+\begin{align}
+\zeta(\phi_0, \omega, s) &= p^{-ms}\int_{p^{-m}\mathbb{Z}_p} \omega(x)e^{2i\pi \lambda(x)}dx, \\
+\zeta(\hat{\phi}_0, \omega, s) &= \int_{1+p^{m}\mathbb{Z}_p} dx, \\
+\gamma(\omega,s) &= c p^{-ms},
+\end{align}
+où $c$ est une constante non nulle.
+
+Pour finir cette partie sur $GL_1(\mathbb{Q}_p)$, on définit la fonction $L$ d'un caractère $\omega$.
+\begin{definition}
+Lorsque $\omega$ est non ramifié, on pose
+\begin{equation}
+L(\omega,s) = \frac{1}{1-\omega(p)p^{-s}}.
+\end{equation}
+Si $\omega$ est ramifié, on pose $L(\omega,s)=1$.
+\end{definition}
+
+La proposition suivante nous sera utile dans la suite.
+\begin{proposition}
+Le quotient $\frac{\zeta(\phi, \omega, s)}{L(\omega,s)}$ est un polynôme en $p^s$ et $p^{-s}$.
+\end{proposition}
+
+\begin{proof}
+Dans le cas ramifié,
+\begin{equation}
+\zeta(\phi, \omega, s)=\sum_{i=1}^{p^{m}-1} \int_{1+p^{m}\mathbb{Z}_p} \phi(x_ix)\omega(x_ix)|x_i|_p^s d^\times x,
+\end{equation}
+où $(x_i)$ est un système de représentant de $\mathbb{Q}_p^\times/(1+p^m\mathbb{Z}_p)$. C'est un polynôme en $p^s$ et $p^{-s}$.
+
+Dans le cas non ramifié, on écrit $\phi = \phi_1 + \alpha \phi_0$, avec $\phi_1(0)=0$ et $\alpha = \phi(0)$. Alors le support de $\phi_1$ est inclus dans un nombre fini d'ensembles de la forme $p^i \mathbb{Z}_p^\times$. On en déduit que $\zeta(\phi_1, \omega, s)$ est un polynôme en $p^s$ et $p^{-s}$. D'autre part, on a $\zeta(\phi_0, \omega, s) = L(\omega, s)$. Ce qui nous permet de conclure que le quotient $\frac{\zeta(\phi, \omega, s)}{L(\omega,s)}$ est un polynôme en $p^s$ et $p^{-s}$.
+\end{proof}
