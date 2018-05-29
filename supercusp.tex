@@ -44,7 +44,7 @@ La proposition est une conséquence immédiate du
 \begin{lemme}
 Soit $\phi \in \mathcal{S}, \phi' \in \mathcal{S}_0, v \in V$ et $\tilde{v} \in \tilde{V}$, pour $0 < Re(s) < n$, les intégrales
 \begin{align}
-&\int_G \int_G \phi(g)\hat{\phi}'(h)<\pi(g)v,\tilde{\pi}(h)\tilde{v}>|\det g|_p^s|\det h|_p^{n-s}dg dh,
+&\int_G \int_G \phi(g)\hat{\phi}'(h)<\pi(g)v,\tilde{\pi}(h)\tilde{v}>|\det g|_p^s|\det h|_p^{n-s}dg dh, \\
 &\int_G \int_G \hat{\phi}(g)\phi'(h)<\pi(g^{-1}v,\tilde{\pi}(h^{-1})\tilde{v}>|\det g|_p^{n-s}|\det h|_p^s dg dh,
 \end{align}
 sont absolument convergentes et coïncident. De plus, ces intégrales sont les coefficients des opérateurs $\zeta(\check{\pi}, \hat{\phi}', n-s)\zeta(\pi,\phi,s)$ et $\zeta(\pi, \phi',s)\zeta(\check{\pi}, \hat{\phi}, n-s)$.
@@ -65,9 +65,9 @@ Unicité : On choisit $\phi \in \mathcal{S}_0$ tel que $\zeta(\pi,\phi,s)=Id_V$,
 
 Existence : Il faut démontrer que les différents $\phi \in \mathcal{S}_0$ tel que $\zeta(\pi,\phi,s)=Id_V$ donnent un même opérateur $\zeta(\check{\pi},\hat{\phi}, n-s)$. Soit $\phi_1,\phi_2 \in \mathcal{S}_0$ tel que $\zeta(\pi,\phi_1,s)=\zeta(\pi,\phi_2,s)=Id_v$. D'après la proposition (\ref{pre-eq-func}), on en déduit que $\zeta(\check{\pi},\hat{\phi_1}, n-s)=\zeta(\check{\pi},\hat{\phi_2}, n-s)$.
 
-On pose $\gamma(s)=\zeta(\check{\pi},\hat{\phi_0}, n-s)$ pour $\phi_0 \in \mathcal{S}_0$ tel que $\zeta(\pi,\phi,s)=Id_V$. Alors, d'après la proposition (\ref{pre-eq-func}),
+On pose $\gamma(s)=\zeta(\check{\pi},\hat{\phi}_0, n-s)$ pour $\phi_0 \in \mathcal{S}_0$ tel que $\zeta(\pi,\phi,s)=Id_V$. Alors, d'après la proposition (\ref{pre-eq-func}),
 \begin{align}
-\gamma(s)\zeta(\pi,\phi,s) &= \zeta(\check{\pi},\hat{\phi_0}, n-s)\zeta(\pi,\phi,s) \\
+\gamma(s)\zeta(\pi,\phi,s) &= \zeta(\check{\pi},\hat{\phi}_0, n-s)\zeta(\pi,\phi,s) \\
 &= \zeta(\pi,\phi_0,s)\zeta(\check{\pi}, \hat{\phi}, n-s) \\
 &= \zeta(\check{\pi}, \hat{\phi},s),
 \end{align}
@@ -130,7 +130,7 @@ Montrons que $\gamma(s)$ est non seulement une fraction rationnelle en $p^{-s}$,
 \begin{equation}
 \zeta(\check{f}, \hat{\phi}, n-s)=\gamma(s)\zeta(f,\phi,s), \forall \phi \in \mathcal{S}_0.
 \end{equation}
-D'après le lemme, on peut choisir $\phi \in \mathcal{S}_0$ et $f$ coefficient de $\pi$ tel que $\zeta(f,\phi,s)=p^{-ls}$. Alors $\gamma(s) = \zeta(\check{f}, \hat{\phi}, n-s)p^{ls}$ est un polynôme en $p^{-s}$ et $p^s$. En appliquant le lemme à $\check{\pi}$, on en déduit que $\gamma$ n'admet pas de $zéros$, c'est donc une puissance de $p^{s}$.
+D'après le lemme, on peut choisir $\phi \in \mathcal{S}_0$ et $f$ coefficient de $\pi$ tel que $\zeta(f,\phi,s)=p^{-ls}$. Alors $\gamma(s) = \zeta(\check{f}, \hat{\phi}, n-s)p^{ls}$ est un polynôme en $p^{-s}$ et $p^s$. En appliquant le lemme à $\check{\pi}$, on en déduit que $\gamma$ n'admet pas de zéros, c'est donc une puissance de $p^{s}$.
 
 \begin{proposition}
 Pour $\pi$ supercuspidale irréductible, on a $L(s,\pi)=1$.

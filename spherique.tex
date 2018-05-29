@@ -1,3 +1,43 @@
 \subsection{Représentation sphérique}
 
+L'importance des représentations sphériques vient du fait que dans la théorie globale presque toutes les composantes locales sont des représentations sphériques.
+
+\begin{definition}
+Une représentation sphérique de $G$ est une représentation $(\pi, V)$ admissible irréductible de $G$ telle qu'il existe un vecteur $v \in V$ non nul invariant par $K$.
+\end{definition}
+
+Notons $P_0 \subset G$ l'ensemble des matrices triangulaires supérieures. Soit $\chi_1, ..., \chi_n$ des caractères non ramifiés de $\mathbb{Q}_p^\times$, on note $\chi = \chi_1 \boxtimes ... \boxtimes \chi_n$ le caractère de $P_0$ trivial sur son radical unipotent. On pose $\pi = Ind_{P_0}^G(\chi)$.
+
+Alors $\pi$ contient un vecteur invariant par $K$, $\varphi_0$ définie par $\varphi_0(pk)=\delta_P(p)^{\frac{1}{2}}\chi(p)$. On considère le coefficient $f_0$ défini par $f_0(g)=<\pi(g)\varphi_0, \tilde{\varphi}_0>$, où $\tilde{\varphi}_0$ est un vecteur de $\tilde{\pi}$ invariant par $K$ défini par $\tilde{\varphi}_0(pk)=\delta_P(p)^{\frac{1}{2}}\chi(p)^{-1}$. C'est un coefficient d'une représentation admissible irréductible que l'on note $\pi_0$, cette représentation est sphérique.
+
+De plus, toutes les représentations sphériques sont de cette forme (à isomorphisme prés).
+
+\begin{lemme}
+On note $\phi_0$ l'indicatrice de $M_n(\mathbb{Z}_p)$. Alors
+\begin{equation}
+\zeta(f_0, \phi_0, s) = \prod_{i=1}^n L(s, \chi_i).
+\end{equation}
+\end{lemme}
+
+\begin{proof}
+Comme $\varphi_0$ et $\tilde{\varphi}$ sont $K$-invariant, on en déduit que
+\begin{equation}
+f_0(g)=\int_K \varphi_0(kg)\tilde{\varphi}_0(k)dk=\varphi_0(g).
+\end{equation}
+De plus,
+\begin{align}
+\zeta(f_0, \phi_0, s) &= \int_G \phi_0(g)\varphi_0(g)|\det g|^s dg \\
+&= \int_P \int_K \phi_0(pk) \varphi_0(pk) |\det p|^s \delta_P(p)^{-\frac{1}{2}}dp dk \\
+&= \prod_{i=1}^n \int_{\mathbb{Z}_p}|a_i|^s\chi_i(a_i)da_i \\
+&= \prod_{i=1}^n L(s, \chi_i).
+\end{align}
+\end{proof}
+
+On en déduit le calcul de la fonction $L$ d'une représentation sphérique.
+\begin{proposition}
+En reprenant les notations précédentes,
+\begin{equation}
+L(s, \pi_0) = \prod_{i=1}^n L(s+\frac{1}{2}(n-1), \chi_i).
+\end{equation}
+\end{proposition}
 \subsection{Représentation de carré intégrable}
