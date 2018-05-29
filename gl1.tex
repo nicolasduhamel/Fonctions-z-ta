@@ -35,6 +35,16 @@ où $d^\times x$ est une mesure de Haar sur $\mathbb{Q}_p$. On choisit la mesure
 L'intégrale définissant la fonction zêta est absolument convergente pour $Re(s)$ assez grand.
 \end{lemme}
 
+\begin{proof}
+Quitte à remplacer $\omega$ par $\omega|.|_p^{-s_0}$, on peut supposer que $\omega$ est unitaire. On sépare l'intégrale en deux selon un intégrale pour $|x|_p > 1$ et l'autre pour $|x|_p \leq 1$. 
+
+Pour ce qui est de la première intégrale, elle est absolument convergente car $\phi$ est à support compact. Quant à la seconde intégrale, elle est bornée par
+\begin{equation}
+\int_{|x|_p \leq 1} |x|_p^{Re(s)}dx=\sum_{i=0}^{\infty} p^{-iRe(s)},
+\end{equation}
+à une constante près, car $\phi$ est bornée. Cette dernière intégrale est convergente pour $Re(s) > 0$.
+\end{proof}
+
 Dans la suite, on veut montrer que les fonctions zêta peuvent être prolongées analytiquement en des fonctions méromorphes. On montre aussi que les fonctions zêta vérifient une équation fonctionnelle. On commence par le
 \begin{lemme}
 \label{lemme_fun}
