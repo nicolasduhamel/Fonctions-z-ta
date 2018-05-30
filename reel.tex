@@ -1,1 +1,87 @@
 \section{Fonctions zêta sur $GL_n(\mathbb{R})$}
+
+Dans cette partie, on note $G=GL_n(\mathbb{R})$ et $\mathfrak{g}$ son algèbre de Lie. On pose $K=O_n(\mathbb{R})$, c'est un sous-groupe compact maximal de $G$.
+
+Dans la théorie globale, les composantes locales archimédiennes ne seront pas de représentations de $GL_n(\mathbb{R})$, on introduit une notion plus faible.
+
+\begin{definition}
+Un $(\mathfrak{g}, K)$-module $(\pi, V)$ est un espace vectoriel $V$ muni d'actions $\pi_\mathfrak{g} : U(\mathfrak{g}) \rightarrow End(V)$ et $\pi_K : K \rightarrow GL(V)$ tel que :
+\begin{itemize}
+\item Pour tout $v \in V$, $\left\lbrace \pi_K(k)v, k \in K \right\rbrace$ est de dimension finie,
+\item Pour tout $k \in K$ et $X \in \mathfrak{g}$, on a
+$\pi_K(k)\pi_\mathfrak{g}(X) = \pi_\mathfrak{g}(Ad(k)X)\pi_K(k)$,
+\item Pour tout $Y \in Lie(K)$ et $v \in V$, on a
+$\pi_\mathfrak{g}(Y)v = \left.\left(\frac{d}{dt}\pi_K(\exp(tY))v\right)\right|_{t=0}.$
+\end{itemize}
+\end{definition}
+
+On va restreindre l'étude aux $(\mathfrak{g}, K)$-module unitaire, ils sont en correspondance avec les représentations unitaires de $G$.
+
+\begin{definition}
+Un $(\mathfrak{g}, K)$-module $(\pi, V)$ est dit unitaire s'il existe une forme hermitienne définie positive $(,) : V \times V \rightarrow \mathbb{C}$ invariante au sens suivant :
+\begin{itemize}
+\item $(\pi_K(k)v, v') = (v, \pi_K(k^{-1})v')$,
+\item $(\pi_\mathfrak{g}(X)v, v') = -(v, \pi_\mathfrak{g}(X)v')$,
+\end{itemize}
+pour tout $v, v' \in V, k \in K$ et $X \in \mathfrak{g}$.
+\end{definition}
+
+Soit $(\pi, V)$ une représentation unitaire irréductible de $GL_n(\mathbb{R})$. Pour $f$ un coefficient de $\pi$ et $\phi : M_n(\mathbb{R}) \rightarrow \mathbb{C}$ une fonction de la forme
+$g \mapsto e^{-\pi Tr(gg^t)}P(g)$, où $P$ est un polynôme en les coefficients de $g$; on pose
+\begin{equation}
+\zeta(f, \phi, s) = \int_{GL_n(\mathbb{R})} f(g) \phi(g) |\det g|^s dg,
+\end{equation}
+où $dg$ est une mesure de Haar sur $GL_n(\mathbb{R})$.
+
+On est maintenant prêt pour écrire l'analogue du théorème \ref{thm_padique} dans le cas réel.
+\begin{theoreme}
+\label{thm_reel}
+\begin{itemize}
+\item Il existe $s_0 \in \mathbb{R}$ tel que l'intégrale définissant la fonction zêta convergence absolument pour tout $s \in \mathbb{C}$ vérifiant $Re(s) > s_0$.
+\item Il existe $\nu_1, ..., \nu_n \in \mathbb{C}$ et des polynômes $\Xi(f,\phi,s)$ tel que
+\begin{equation}
+\zeta(f, \phi, s+ \frac{n-1}{2}) = \Xi(f, \phi, s)\prod_{i=1}^n \pi^{-\frac{s+\nu_i}{2}}\Gamma(\frac{s+\nu_i}{2}).
+\end{equation}
+\item On peut choisir un nombre fini de coefficients $f_i$ de $\pi$ et de fonctions $\phi_i$ de la forme $g \mapsto e^{-\pi Tr(gg^t)}P(g)$, telles que $\sum_i \Xi(f_i, \phi_i, s)$ est une constante non nulle.
+\item Il existe une fonction méromorphe $\gamma(s, \pi)$ telle que
+\begin{equation}
+\zeta(\check{f}, \hat{\phi}, 1-s+\frac{n-1}{2}) = \gamma(s, \pi)\zeta(f, \phi, s + \frac{n-1}{2}),
+\end{equation}
+où la transformée de Fourier est définie par
+\begin{equation}
+\hat{\phi}(x) = \int_{M_n(\mathbb{R})}\phi(y)e^{-Tr(xy)}dx.
+\end{equation}
+\end{itemize}
+\end{theoreme}
+
+\subsection{$GL_1(\mathbb{R})$}
+
+On doit traiter séparément le cas où $n=1$, comme précédemment pour $GL_n(\mathbb{Q}_p)$. Les caractères de $\mathbb{R}$ se répartissent en deux classes, les caractères de la forme $|.|^t$ et les caractères de la forme $sgn(.)|.|^t$. On en déduit immédiatement la convergence absolue des intégrables pour $Re(s)$ assez grand. De plus, on dispose de l'analogue de lemme \ref{lemme_fun}.
+\begin{lemme}
+Soit $\phi_1, \phi_2 : \mathbb{R} \rightarrow \mathbb{C}$ de la forme $x \mapsto e^{-\pi x^2}P(x)$ et $\omega$ de la forme $|.|^t$ ou $sgn(.)|.|^t$. Alors
+\begin{equation}
+\zeta(\omega, \phi_1, s)\zeta(\omega^{-1}, \hat{\phi}_2, 1-s)=\zeta(\omega^{-1}, \hat{\phi}_1, 1-s)\zeta(\omega, \phi_2, s)
+\end{equation}
+pour $s \in \mathbb{C}$ dans le domaine de convergence absolue.
+\end{lemme}
+La preuve est la même que dans le cas de $GL_1(\mathbb{Q}_p)$. Il nous suffit donc de faire le calcul explicite des membres de l'équation fonctionnelle pour des fonctions $\phi$ bien choisis.
+
+On pose $\phi_0(x) = e^{-\pi x^2}$ et $\phi_{sgn}(x)=xe^{-\pi x^2}$. Le calcul des transformées de Fourier est un résultat classique, $\hat{\phi}_0 = \phi_0$ et $\hat{\phi}_{sgn} = i\phi_{sgn}$. On vérifie alors que
+\begin{align}
+\zeta(|.|^t, \phi_0, s) &= \pi^{-\frac{s+t}{2}}\Gamma(\frac{s+t}{2}), \\
+\zeta(sgn(.)|.|^t, \phi_{sgn}, s) &= \pi^{-\frac{s+t+1}{2}}\Gamma(\frac{s+t+1}{2}), \\
+\zeta(|.|^{-t}, \hat{\phi}_0, 1-s) &= \pi^{-\frac{1-s-t}{2}}\Gamma(\frac{1-s-t}{2}), \\
+\zeta(sgn(.)|.|^{-t}, \hat{\phi}_{sgn}, 1-s) &= i\pi^{-\frac{(1-s+t)+1}{2}}\Gamma(\frac{(1-s-t)+1}{2}).
+\end{align}
+Ce qui nous permet de calculer explicitement le facteur $\gamma(s,\pi)$ et de vérifier que ce sont bien des fonctions méromorphes :
+\begin{align}
+\gamma(s, |.|^t) = \frac{\pi^{-\frac{s+t}{2}}\Gamma(\frac{s+t}{2})}{\pi^{-\frac{1-s-t}{2}}\Gamma(\frac{1-s-t}{2})}, \\
+\gamma(s, sgn(.)|.|^t) = -i\frac{\pi^{-\frac{s+t+1}{2}}\Gamma(\frac{s+t+1}{2})}{\pi^{-\frac{(1-s+t)+1}{2}}\Gamma(\frac{(1-s-t)+1}{2})}.
+\end{align}
+
+\subsection{$GL_n(\mathbb{R}), n > 1$}
+
+Les propositions \ref{comp_ind1} et \ref{comp_ind2} admettent un analogue dans le cas réel. Elles traduisent la compatibilité du théorème vis à vis des sous-représentations et des représentations induites. Le théorème \ref{thm_reel} est alors une conséquence de la
+\begin{proposition}
+Soit $\pi$ une représentation unitaire irréductible de $GL_n(\mathbb{R})$. Alors il existe des caractères $\chi_1, ..., \chi_n$ de $GL_1(\mathbb{R})$ tel que $\pi$ soit une sous-représentation de $Ind_{P_0}^{GL_n(\mathbb{R})}(\chi_1 \boxtimes ... \boxtimes \chi_n)$, où $P_0$ est le sous-groupe des matrices triangulaires supérieures de $GL_n(\mathbb{R})$.
+\end{proposition}
