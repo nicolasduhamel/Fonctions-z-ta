@@ -1,5 +1,8 @@
 \section{Seconde preuve du théorème \ref{thm_padique}}
 
+On reprend les notations de la section \ref{gln}. Dans cette partie, on propose de présenter une autre preuve qui se base sur un dévissage de l'espace de Schwartz.
+
+\subsection{Équation fonctionnelle}
 On veut montrer l'équation fonctionnelle suivante
 \begin{equation}
 \zeta(f, \phi, s) = \gamma(s) \zeta(\check{f}, \hat{\phi}, n-s),
@@ -51,6 +54,7 @@ Si $X$ est un espace localement compact totalement discontinu, on note $C^\infty
 
 Le groupe $G$ est un ouvert de $M_n$ et $M_n \setminus G = S^{(n)}$. Cette décomposition donne la suite exacte
 \begin{equation}
+\label{suiteexacte}
 0 \rightarrow C^\infty_c(G) \rightarrow C^\infty_c(M_n) \rightarrow C^\infty_c(S^{(n)}) \rightarrow 0,
 \end{equation}
 où l'inclusion de $C^\infty_c(G)$ dans $C^\infty_c(M_n)$ se fait par extension par $0$ et l'application $C^\infty_c(M_n) \rightarrow C^\infty_c(S^{(n)})$ est l'application de restriction.
@@ -115,11 +119,14 @@ a & b \\
 0 & c 
 \end{pmatrix}$ et $\bar{P} = M\bar{N}$ le groupe parabolique opposé, alors $H \subset P \times \bar{P}$.
 
-\begin{align}
+\begin{equation}
+\label{isom}
+\begin{split}
 \Hom( (\tilde{\pi} \boxtimes \pi) \otimes C_c^\infty(S_r), |.|_p^s) &\simeq \Hom_{G \times G}( (\tilde{\pi} \boxtimes \pi) \otimes |.|_p^{-s}, Ind_H^{G \times G}(\delta_H)) \\
 &\simeq \Hom_{M \times M}( (\tilde{\pi} \boxtimes \pi)_{N \times \bar{N}} \otimes |.|_p^{-s}, Ind_{(M \times M)\cap H}^{M \times M}(\delta_H)) \\
 &\simeq \Hom_{(M \times M) \cap H}( (\tilde{\pi} \boxtimes \pi)_{N \times \bar{N}}, \delta_H \otimes |.|_p^s),
-\end{align}
+\end{split}
+\end{equation}
 où $\delta_H$ est le caractère modulaire de $H$.
 
 Le premier isomorphisme provient de l'identification de $C_c^\infty(S_r)=c-Ind_H^{G \times G}(1)$ et de la dualité entre $c-Ind_H^{G \times G}(1)$ et $Ind_H^{G \times G}(\delta_H)$. Pour le deuxième isomorphisme, on utilise la transitivité de l'induction, $H \subset P \times \bar{P} \subset G \times G$, et l'adjonction entre $Ind_{P \times \bar{P}}^{G \times G}$ et le foncteur de Jacquet; en remarquant, que $N \times \bar{N}$ agit trivialement sur $|.|_p^{-s}$. Le dernier isomorphisme n'est autre que la réciprocité de Frobenius.
@@ -160,3 +167,67 @@ Autrement dit, pour $s$ en dehors de cet ensemble de valeurs exceptionnelles, il
 \end{equation}
 
 Les fonctions zêta étant des fonctions rationnelles en $p^s$ et l'ensemble des valeurs de $s$ pour lesquelles $\gamma$ est ainsi défini est dense pour la topologie de Zariski, on en déduit que l'on peut étendre $\gamma$ en une fonction rationnelle en $p^s$ pour laquelle l'équation (\ref{eqfun}) est vérifiée en tant qu'égalité de fonctions rationnelles en $p^s$.
+
+\subsection{Familles de représentations}
+
+On veut maintenant montrer que la fonction zêta est une fraction rationnelle où l'on peut choisir le dénominateur de façon indépendante de $f$ et de $\phi$.
+
+Si l'on note $\pi_s = \pi \otimes |\det|^s$, alors $\zeta(f, \phi, s)$ est élément de $\Hom_{G \times G}((\tilde{\pi_s} \boxtimes \pi_s) \otimes \mathcal{S}(M), \mathbb{C})$. On va donc considérer $\pi_s$ comme une famille de représentation paramétrée par $s$.
+
+\begin{definition}
+Soit $B$ une $\mathbb{C}$-algèbre commutative noethérienne réduite. Un $(G, B)$-module (ou $B$-famille de représentation de $G$) est une représentation lisse $(\pi_B, V_B)$ de $G$ muni d'une structure de $B$-module plat, qui commute à l'action de $G$.
+\end{definition}
+
+On pose $B=\mathbb{C}[G/G^0]$ l'algèbre des polynômes sur la variété des caractères non ramifiés $X^*(G)$ de $G$. On définit alors un $(G,B)$-module $(\pi_B, V_B)$ par $V_B = V \otimes B$ et $\pi_B(g)(v \times b) = \pi(g)v \otimes gb$ pour $v \in V, b \in B$ et $g \in G$.
+
+La variété des caractères non ramifiés est $X^*(G) = \left\lbrace |\det|^s, s \in \mathbb{C} \right\rbrace$, on retrouve la famille de représentation $\pi_s$.
+
+Lorsque l'on restreint l'espace de Schwartz à $\mathcal{S}(G)$, la fonction zêta $\zeta(f, \phi, .)$ est un polynôme en $p^s$. On en déduit que $\zeta_{|\mathcal{S}(G)}$ (que l'on étend par linéarité à $B$) est un élément de $\Hom_{B, G \times G}((\tilde{\pi_B} \boxtimes \pi_B) \otimes \mathcal{S}(G), B)$.
+
+On reprend la suite exacte (\ref{suiteexacte}) et on applique le foncteur $\Hom_{B, G \times G} (., \pi_B \boxtimes \tilde{\pi_B})$, ce qui nous donne
+\begin{equation}
+\begin{split}
+0 \rightarrow \Hom_{B, G \times G}((\tilde{\pi_B} \boxtimes \pi_B) \otimes C^\infty_c(S^{(n)}), B) &\rightarrow \Hom_{B, G \times G}((\tilde{\pi_B} \boxtimes \pi_B) \otimes C^\infty_c(M_n), B) \\
+&\rightarrow \Hom_{B, G \times G}((\tilde{\pi_B} \boxtimes \pi_B) \otimes C^\infty_c(G), B)
+\end{split}
+\end{equation}
+
+Si la dernière flèche était surjective, cela montrerait immédiatement que $\zeta \in \Hom_{B, G \times G}((\tilde{\pi_B} \boxtimes \pi_B) \otimes C^\infty_c(M_n), B)$. Cependant, en général, elle n'est pas surjective. On doit donc utiliser le terme suivant de cette suite exacte, qui est $\Ext^1_{B, G \times G}((\tilde{\pi_B} \boxtimes \pi_B) \otimes C^\infty_c(S^{(n)}), B)$.
+
+Le but est maintenant de trouver un élément de $\Hom_{B, G \times G}((\tilde{\pi_B} \boxtimes \pi_B) \otimes C^\infty_c(G), B)$ dont l'image dans $\Ext^1_{B, G \times G}((\tilde{\pi_B} \boxtimes \pi_B) \otimes C^\infty_c(S^{(n)}), B)$ est nulle, ce qui nous permettra de le relever dans $\Hom_{B, G \times G}((\tilde{\pi_B} \boxtimes \pi_B) \otimes C^\infty_c(M_n), B)$. Plus exactement, on va montrer qu'il existe un élément de $B$ qui agit par $0$ dans $\Ext^1_{B, G \times G}((\tilde{\pi_B} \boxtimes \pi_B) \otimes C^\infty_c(S^{(n)}), B)$.
+
+Pour $r \in \left\lbrace 1, ..., n \right\rbrace$, on décompose l'espace $S^{(r)}$ des matrices de rang $< r$ en $S^{(r)}=S^{(r-1)} \cup S_{r-1}$ où $S_{r-1}$ est l'ouvert de $S^{(r)}$ des matrices de rang $r-1$, pour obtenir la suite exacte
+\begin{equation}
+0 \rightarrow C^\infty_c(S_{r-1}) \rightarrow C^\infty_c(S^{(r)}) \rightarrow C^\infty_c(S^{(r-1)}) \rightarrow 0.
+\end{equation}
+En prolongeant la suite exacte du foncteur $\Hom_{B, G \times G} (., \pi_B \boxtimes \tilde{\pi_B})$, on en déduit la suite exacte
+\begin{equation}
+\begin{split}
+\Ext^1_{B, G \times G}((\tilde{\pi_B} \boxtimes \pi_B) \otimes C^\infty_c(S^{(r-1)}), B) &\rightarrow \Ext^1_{B, G \times G}((\tilde{\pi_B} \boxtimes \pi_B) \otimes C^\infty_c(S^{(r)}), B) \\ 
+&\rightarrow \Ext^1_{B, G \times G}((\tilde{\pi_B} \boxtimes \pi_B) \otimes C^\infty_c(S_{r-1}), B)
+\end{split}
+\end{equation}
+
+\begin{lemme}
+Soit $M,N,P$ des $B$-module qui satisfont la suite exacte de $B$-module
+\begin{equation}
+M \xrightarrow{\alpha} N \xrightarrow{\beta} P.
+\end{equation}
+Supposons qu'il existe $b_1, b_2 \in B$ tel que $b_1M = 0$ et $b_2P=0$. Alors $b_1b_2N=0$.
+\end{lemme}
+
+\begin{proof}
+Soit $n \in N$. Alors $\beta(n) \in P$, donc $b_2\beta(n)=0$. On en déduit qu'il existe $m \in M$ tel que $\alpha(m)=b_2n$. Or $b_1m=0$, d'où $b_1b_2n=\alpha(b_1m)=0$.
+\end{proof}
+
+Ce lemme nous permet d'en déduire qu'il suffit de montrer que les espaces $\Ext^1_{B, G \times G}((\tilde{\pi_B} \boxtimes \pi_B) \otimes C^\infty_c(S_r), B)$ sont de torsion, pour $r \in \left\lbrace 0, ..., n-1 \right\rbrace$.
+
+De plus, on dispose de l'isomorphisme suivant
+\begin{equation}
+\Ext^1_{B, G \times G}((\tilde{\pi_B} \boxtimes \pi_B) \otimes C^\infty_c(S_r), B) \simeq \Ext^1_{B, (M \times M) \cap H}((\tilde{\pi_B} \boxtimes \pi_B)_{N \times \bar{N}}, \delta_H).
+\end{equation}
+Pour justifier cet isomorphisme, on reprend la suite d'isomorphisme (\ref{isom}) et on montre que les isomorphismes passe au $Ext^1$ en prenant une résolution projective.
+
+Considérons l'action de $(z_1,z_2) \in Z(GL_{n-r}) \times Z(GL_{n-r})$ sur ce dernier. Il agit par $z_1^{-1}z_2 \in G/G_0$ sur $(\tilde{\pi}_B \boxtimes \pi_B)_{N \times \bar{N}}$ et par $1$ sur $\delta_H$. On en déduit que $z_1^{-1}z_2-1 \in B$ agit par $0$. Si l'on choisi $z_1 \neq z_2 \mod G_0$, on en déduit que $\Ext^1_{B, G \times G}((\tilde{\pi_B} \boxtimes \pi_B) \otimes C^\infty_c(S_r), B)$ est de torsion.
+
+Terminons le raisonnement. Notons $Q$ le polynôme qui correspond à l'élément de $B$ qui agit par $0$ dans $\Ext^1_{B, G \times G}((\tilde{\pi_B} \boxtimes \pi_B) \otimes C^\infty_c(S^{(n)}), B)$. Alors par $B$-linéarité, on en déduit que l'image de $Q\zeta_{|\mathcal{S}(G)}$ dans $\Ext^1_{B, G \times G}((\tilde{\pi_B} \boxtimes \pi_B) \otimes C^\infty_c(S^{(n)}), B)$ est nulle. Ce qui permet d'en déduire que $Q\zeta_{|\mathcal{S}(G)}$ se relève en un élément de $\Hom_{B, G \times G}((\tilde{\pi_B} \boxtimes \pi_B) \otimes \mathcal{S}(M_n), B)$, que l'on note $\zeta_0$. Alors $\zeta_0(s)$ est un élément de $\Hom_{G \times G} ( (\tilde{\pi} \boxtimes \pi) \otimes \mathcal{S}, |\det|_p^s \boxtimes |\det|_p^{-s})$, qui est de dimension $1$ pour presque tout $s \in \mathbb{C}$, donc il est proportionnel à $\zeta(., ., s)$. De plus, la restriction de $\zeta_0$ à $\mathcal{S}(G)$ est $Q\zeta_{|\mathcal{S}(G)}$. On en déduit que $\zeta_0(s) = Q(p^s, p^{-s})\zeta(.,.,s)$ pour presque tout $s$; c'est un polynôme en $p^s$ et $p^{-s}$.
