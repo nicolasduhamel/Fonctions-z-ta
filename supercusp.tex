@@ -3,6 +3,7 @@
 Dans cette partie, on suppose que $\pi$ est une représentation supercuspidale irréductible de $G$. Avant d'aller plus loin, commençons par rappeler un résultat fondamental sur les représentations supercuspidales.
 
 \begin{proposition}
+\label{suppcompact}
 Les coefficients de $\pi$ sont à support compact modulo $\mathbb{Q}_p^\times$.
 \end{proposition}
 
@@ -50,6 +51,32 @@ Soit $\phi \in \mathcal{S}, \phi' \in \mathcal{S}_0, v \in V$ et $\tilde{v} \in 
 sont absolument convergentes et coïncident. De plus, ces intégrales sont les coefficients des opérateurs $\zeta(\check{\pi}, \hat{\phi}', n-s)\zeta(\pi,\phi,s)$ et $\zeta(\pi, \phi',s)\zeta(\check{\pi}, \hat{\phi}, n-s)$.
 \end{lemme}
 
+Montrons la convergence de la première intégrale, la deuxième intégrale se fait de même. Pour ce qui est de l'égalité, le calcul est le même que pour le lemme \ref{lemme_fun}.
+
+Comme $\phi' \in \mathcal{S}_0$, il existe un compact $C$ de $G$ tel que $supp(\hat{\phi}') \subset C$. De plus, $\left\lbrace \tilde{\pi}(h)\tilde{v}, h \in C \right\rbrace$ est fini. En effet, $\tilde{v}$ est invariant par un sous-groupe ouvert $H$ et $C/(C \cap H)$ est fini car $C$ est compact. On en déduit qu'il existe un compact $C'$ de $G$ tel que pour tout $h \in C$, $g \mapsto <\pi(g)v, \tilde{\pi}(h)\tilde{v}>$ a son support contenu dans $C' \mathbb{Q}_p^\times$. En effet, cette propriété pour tout élément de l'ensemble fini $\left\lbrace \tilde{\pi}(h)\tilde{v}, h \in C \right\rbrace$, d'après la proposition \ref{suppcompact}.
+
+La fonction $(g,h) \mapsto <\pi(g)v,\tilde{\pi}(h)\tilde{v}>\hat{\phi}'(h)$ est à support contenu dans $C'\mathbb{Q}_p^\times \times C$. En particulier, la convergence absolue de l'intégrale provient de la convergence pour tout $s$ de l'intégrale
+\begin{equation}
+\int_{C'\mathbb{Q}_p^\times/\mathbb{Q}_p^\times} \int_{\mathbb{Q}_p^\times} |\phi(gx)||\omega(x)||x|^{Re(s)}d^\times x dg,
+\end{equation}
+où $\omega$ est le caractère central de $\pi$. En effet, cette dernière intégrale converge d'après le lemme \ref{convergence-gl1}.
+\end{proof}
+
+\begin{lemme}
+Soit $v \in V, \tilde{v} \in \tilde{V}$ et $s \in \mathbb{C}$, il existe $\phi \in \mathcal{S}_0$ tel que
+\begin{equation}
+\zeta(\pi,\phi,s)w = <w,\tilde{v}>v, \forall w \in V.
+\end{equation}
+En particulier, il existe $\phi \in \mathcal{S}_0$ tel que $\zeta(\pi, \phi, s) = Id_V.$
+\end{lemme}
+
+\begin{proof}
+Soit $\phi \in \mathcal{S}_0$ tel que $\phi(g) = |\det g|_p^s<v, \tilde{\pi}(g)\tilde{v}>$ si $|\det g|_p \in \left\lbrace 1, p, ..., p^{n-1} \right\rbrace$ et $\phi(g) = 0$ sinon. Alors
+\begin{align}
+<\zeta(\pi,\phi,s)w,\tilde{w}> &= \int_{G/\mathbb{Q}_p^\times} <v,\tilde{\pi}(g)\tilde{v}><\pi(g)w,\tilde{w}>dg \\
+&= c <v, \tilde{w}><w,\tilde{v}>,
+\end{align}
+pour tout $w \in V, \tilde{w} \in \tilde{V}$. La dernière égalité est une conséquence du lemme de Schur. Ce qui montre que $\zeta(\pi, \phi,s)$ est proportionnel à $w \mapsto <w,\tilde{v}>v$.
 \end{proof}
 
 \begin{proposition}
@@ -86,23 +113,6 @@ D'autre part, on a
 \gamma(s)\zeta(\pi,\phi_h,s)=|\det h|_p^{-s}\gamma(s)\pi(h^{-1})\zeta(\pi,\phi,s).
 \end{equation}
 Par unicité de l'opérateur $\gamma(s)$, on en déduit que $\pi(h^{-1})\gamma(s)=\gamma(s)\pi(h^{-1})$. Autrement dit, $\gamma(s) \in \Hom_G(\pi,\pi)$.
-\end{proof}
-
-\begin{lemme}
-Soit $v \in V, \tilde{v} \in \tilde{V}$ et $s \in \mathbb{C}$, il existe $\phi \in \mathcal{S}_0$ tel que
-\begin{equation}
-\zeta(\pi,\phi,s)w = <w,\tilde{v}>v, \forall w \in V.
-\end{equation}
-En particulier, il existe $\phi \in \mathcal{S}_0$ tel que $\zeta(\pi, \phi, s) = Id_V.$
-\end{lemme}
-
-\begin{proof}
-Soit $\phi \in \mathcal{S}_0$ tel que $\phi(g) = |\det g|_p^s<v, \tilde{\pi}\tilde{v}>$ si $|\det g|_p \in \left\lbrace 1, p, ..., p^{n-1} \right\rbrace$ et $\phi(g) = 0$ sinon. Alors
-\begin{align}
-<\zeta(\pi,\phi,s)w,\tilde{w}> &= \int_{G/\mathbb{Q}_p^\times} <v,\tilde{\pi}(g)\tilde{v}><\pi(g)w,\tilde{w}>dg \\
-&= c <v, \tilde{w}><w,\tilde{v}>,
-\end{align}
-pour tout $w \in V, \tilde{w} \in \tilde{V}$. La dernière égalité est une conséquence du lemme de Schur. Ce qui montre que $\zeta(\pi, \phi,s)$ est proportionnel à $w \mapsto <w,\tilde{v}>v$.
 \end{proof}
 
 \begin{lemme}

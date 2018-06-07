@@ -1,6 +1,6 @@
 \section{Fonctions zêta sur $GL_n(\mathbb{A})$}
 
-Dans cette partie, on note $G = GL_n(\mathbb{Q})$, $G_\mathbb{A}=GL_n(\mathbb{A})$. On pose $K = O_n(\mathbb{R}) \times \prod_p GL_n(\mathbb{Z}_p)$, c'est un sous-groupe compact maximal de $G_\mathbb{A}$.
+Dans cette dernière section, on présente la théorie globale de Godement-Jacquet \cite{godement-jacquet} et on termine par la définition de la fonction $L$ attachée à une représentation cuspidale. Dans la suite, on note $G = GL_n(\mathbb{Q})$, $G_\mathbb{A}=GL_n(\mathbb{A})$. On pose $K = O_n(\mathbb{R}) \times \prod_p GL_n(\mathbb{Z}_p)$, c'est un sous-groupe compact maximal de $G_\mathbb{A}$.
 
 \subsection{Formes cuspidales}
 On commence par donner la définition des formes automorphes (et cuspidales), on renvoie à \cite{bump} et \cite{goldfeld-hundley} pour plus de détails.
@@ -32,7 +32,7 @@ pour tout radical unipotent $U$ d'un sous-groupe parabolique propre de $G_\mathb
 On note $\mathcal{A}_0(G_\mathbb{A}, \omega)$ l'espace des formes cuspidales de caractère central $\omega$.
 \end{definition}
 
-L'espace de Schwartz de $M_n(\mathbb{A})$ est, par définition, $\mathcal{S}(M_n(\mathbb{A}))=\otimes_v^{'} \mathcal{S}(M_n(\mathbb{Q}_v)=\left\lbrace \phi = \otimes \phi_v, \phi_v \in \mathcal{S}(M_n(\mathbb{Q}_v)), \phi_v = \mathbbm{1}_{\mathbb{Z}_v} \text{sauf pour un nombre fini de v} \right\rbrace$.
+L'espace de Schwartz de $M_n(\mathbb{A})$ est, par définition, $\mathcal{S}(M_n(\mathbb{A}))=\otimes_v^{'} \mathcal{S}(M_n(\mathbb{Q}_v)=\left\lbrace \phi = \otimes \phi_v, \phi_v \in \mathcal{S}(M_n(\mathbb{Q}_v)), \phi_v = \mathbbm{1}_{\mathbb{Z}_v} \text{ sauf pour un nombre fini de v} \right\rbrace$.
 
 Pour $\varphi \in \mathcal{A}_0(G_\mathbb{A}, \omega)$, $\phi \in \mathcal{S}(M_\mathbb{A})$ et $s \in \mathbb{C}$, on pose
 \begin{equation}
@@ -61,7 +61,13 @@ La seconde intégrale converge absolument pour tout $s \in \mathbb{C}$, c'est un
 \int_1^\infty \int_{G \backslash G^0_\mathbb{A}} \sum_{x \in G}{\phi(t^{-1}xg)} \varphi(g) \omega^{-1}(t) t^{-ns} dg \frac{dt}{t}.
 \end{equation}
 
-On va maintenant utiliser la formule de Poisson sur $M_n(\mathbb{A})$, ce qui donne pour la fonction $x \mapsto \phi(t^{-1}xg)$ :
+On va maintenant utiliser la formule de Poisson sur $M_n(\mathbb{A})$. Commençons par définir la transformée de Fourier adélique, on pose
+\begin{equation}
+\hat{\phi}(y) = \int_{M_n(\mathbb{A})} \phi(x)\psi(Tr(xy))dx, y \in M_n(\mathbb{A}),
+\end{equation}
+où $dx$ est une mesure de Haar normalisée pour avoir la formule $\hat{\hat{\phi}}(x)=\phi(-x)$ et $\psi : \mathbb{A}/\mathbb{Q} \rightarrow \mathbb{C}$ est un caractère non trivial.
+
+La formule de Poisson donne, pour la fonction $x \mapsto \phi(t^{-1}xg)$ :
 \begin{equation}
 \sum_{x \in M_n(\mathbb{Q})} \phi(t^{-1}xg) = t^{n^2}\sum_{x \in M_n(\mathbb{Q})} \hat{\phi}(txg^{-1}),
 \end{equation}
@@ -170,7 +176,7 @@ Le produit $L(s, \pi) = \prod_v L(s, \pi_v)$, qui est défini pour $Re(s) > n$, 
 \begin{equation}
 L(s,\pi) = \epsilon(s,\pi)L(1-s,\tilde{\pi}),
 \end{equation}
-où $\epsilon(s,\pi) = \prod_v \epsilon(s, \pi_v)$.
+où $\epsilon(s,\pi) = \prod_v \epsilon(s, \pi_v, \psi_v)$, avec $\psi$ un caractère non trivial de $\mathbb{A}/\mathbb{Q}$.
 \end{theoreme}
 
 \begin{proof}
@@ -183,7 +189,7 @@ D'après les résultats locaux, pour chaque place $v$, il existe un nombre fini 
 \end{equation}
 De plus, d'après l'équation fonctionnelle locale
 \begin{equation}
-\sum_{\alpha_v \in I_v} \zeta(\check{f}_{\alpha_v}, \hat{\phi}_{\alpha_v}, 1-s + \frac{1}{2}(n-1)) = \epsilon(s,\pi_v)L(1-s, \tilde{\pi}_v).
+\sum_{\alpha_v \in I_v} \zeta(\check{f}_{\alpha_v}, \hat{\phi}_{\alpha_v}, 1-s + \frac{1}{2}(n-1)) = \epsilon(s,\pi_v,\psi_v)L(1-s, \tilde{\pi}_v).
 \end{equation}
 
 Notons $I = \prod_v I_v$. Pour presque toutes les places $v$, $\pi_v$ est sphérique, $I_v$ est un singleton; donc $I$ est fini.
@@ -207,7 +213,7 @@ est une somme finie de fonction zêta, qui chacune se prolonge en une fonction e
 L(s, \pi) &= \sum_{\alpha \in I} \zeta(f_\alpha, \phi_\alpha, s + \frac{1}{2}(n-1)) \\
 &= \sum_{\alpha \in I} \zeta(\check{f}_\alpha, \hat{\phi}_\alpha, 1 - s + \frac{1}{2}(n-1)) \\
 &= \prod_v \sum_{\alpha_v \in I_v} \zeta(\check{f}_{\alpha_v}, \hat{\phi}_{\alpha_v}, 1-s + \frac{1}{2}(n-1)) \\
-&= \prod_v \epsilon(s, \pi_v) L(1-s, \tilde{\pi}_v) \\
+&= \prod_v \epsilon(s, \pi_v, \psi_v) L(1-s, \tilde{\pi}_v) \\
 &= \epsilon(s, \pi)L(1-s, \tilde{\pi}).
 \end{align}
 \end{proof}
