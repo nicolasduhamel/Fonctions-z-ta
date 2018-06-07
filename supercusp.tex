@@ -6,14 +6,14 @@ Dans cette partie, on suppose que $\pi$ est une représentation supercuspidale i
 Les coefficients de $\pi$ sont à support compact modulo $\mathbb{Q}_p^\times$.
 \end{proposition}
 
-Soit $f$ un coefficient de $\pi$ et $\phi \in \mathcal{S}$, alors il existe un sous-groupe compact $K'$ de $G$ tel que $f$ et $\phi$ sont invariant à gauche par $K'$. De plus, le support de $f$ est, d'après la proposition, à support compact modulo $\mathbb{Q}_p^\times$. Il existe donc un nombre fini d'éléments $(g_i)_{1 \leq i \leq N}$ de $G$ tel que
+Soit $f$ un coefficient de $\pi$ et $\phi \in \mathcal{S}$, alors il existe un sous-groupe compact $K'$ de $G$ tel que $f$ et $\phi$ sont invariants à gauche par $K'$. De plus, le support de $f$ est, d'après la proposition, à support compact modulo $\mathbb{Q}_p^\times$. Il existe donc un nombre fini d'éléments $(g_i)_{1 \leq i \leq N}$ de $G$ tel que
 \begin{equation}
 supp(f) \subset \cup_{i=1}^N K'\mathbb{Q}_p^\times g_i.
 \end{equation}
 
 On en déduit que
 \begin{equation}
-\zeta(f,\phi,s) = vol(K') \sum_{i=1}^N f(g_i)|\det g_i|_p^s \int_{\mathbb{Q}_p^\times} \phi(xg_i)|x|_p^{ns}\omega(x)dx,
+\zeta(f,\phi,s) = \frac{vol(K')}{vol(K' \cap \mathbb{Q}_p^\times)} \sum_{i=1}^N f(g_i)|\det g_i|_p^s \int_{\mathbb{Q}_p^\times} \phi(xg_i)|x|_p^{ns}\omega(x)dx,
 \end{equation}
 où $\omega$ est le caractère central de $\pi$. Cette dernière intégrale est absolument convergente pour $Re(s) > 0$. De plus, le quotient $\frac{\zeta(f,\phi,s)}{L(ns,\omega)}$ est un polynôme en $p^s$ et $p^{-s}$. Ce qui prouve les parties (1) et (2) du théorème pour $\pi$.
 

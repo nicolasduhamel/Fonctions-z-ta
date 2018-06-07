@@ -177,7 +177,7 @@ D'après le lemme de Schur, la représentation $\tau_2^{(i)}$ admet un caractèr
 \begin{equation}
 Hom_{(M \times M) \cap H} (V_i/V_{i-1}, |.|_p^s\delta_H) = 0,
 \end{equation}
-sauf si $\omega^{(i)} = |.|_p^{-(n-r)s}$ sur $\mathbb{Q}_p^\times$. Cette dernière équation ne peut être vérifiée que pour au plus une valeur de $s$ modulo $\frac{2i\pi}{(n-r)\log p}\mathbb{Z}$.
+sauf si $\omega^{(i)} = |.|_p^{-(n-r)s}$ sur $\mathbb{Q}_p^\times$. Cette équation n'est en fait vérifiée que pour au plus une valeur de $s$ modulo $\frac{2i\pi}{(n-r)\log p}\mathbb{Z}$.
 \end{proof}
 
 Terminons la preuve de l'équation fonctionnelle. Rappelons que les opérateurs $\zeta(., ., s)$ et $\zeta(\check{.}, \hat{.}, n-s)$ sont des éléments de $\Hom_{G \times G} ( (\tilde{\pi} \boxtimes \pi) \otimes \mathcal{S}, |\det|_p^s \boxtimes |\det|_p^{-s})$, qui est de dimension $1$ sauf pour un nombre fini de valeurs de $s$ modulo $\sum_{r=0}^{n-1}\frac{2i\pi}{(n-r)\log p}\mathbb{Z}$.
@@ -194,10 +194,10 @@ Les fonctions zêta étant des fonctions rationnelles en $p^s$ et l'ensemble des
 
 On veut maintenant montrer que la fonction zêta est une fraction rationnelle où l'on peut choisir le dénominateur de façon indépendante de $f$ et de $\phi$.
 
-Si l'on note $\pi_s = \pi \otimes |\det|^s$, alors $\zeta(f, \phi, s)$ est élément de $\Hom_{G \times G}((\tilde{\pi_s} \boxtimes \pi_s) \otimes \mathcal{S}(M), \mathbb{C})$. On va donc considérer $\pi_s$ comme une famille de représentation paramétrée par $s$.
+Si l'on note $\pi_s = \pi \otimes |\det|^s$, alors $\zeta(f, \phi, s)$ est élément de $\Hom_{G \times G}((\tilde{\pi_s} \boxtimes \pi_s) \otimes \mathcal{S}(M), \mathbb{C})$. On va donc considérer $\pi_s$ comme une famille de représentations paramétrée par $s$.
 
 \begin{definition}
-Soit $B$ une $\mathbb{C}$-algèbre commutative noethérienne réduite. Un $(G, B)$-module (ou $B$-famille de représentation de $G$) est une représentation lisse $(\pi_B, V_B)$ de $G$ muni d'une structure de $B$-module plat, qui commute à l'action de $G$.
+Soit $B$ une $\mathbb{C}$-algèbre commutative noethérienne réduite. Un $(G, B)$-module (ou $B$-famille de représentation de $G$) est une représentation lisse $(\pi_B, V_B)$ de $G$ munie d'une structure de $B$-module plat, qui commute à l'action de $G$.
 \end{definition}
 
 On pose $B=\mathbb{C}[G/G^0]$ l'algèbre des polynômes sur la variété des caractères non ramifiés $X^*(G)$ de $G$. On définit alors un $(G,B)$-module $(\pi_B, V_B)$ par $V_B = V \otimes B$ et $\pi_B(g)(v \otimes b) = \pi(g)v \otimes gb$ pour $v \in V, b \in B$ et $g \in G$.
@@ -216,7 +216,7 @@ On reprend la suite exacte (\ref{suiteexacte}) et on applique le foncteur $\Hom_
 
 Si la dernière flèche était surjective, cela montrerait immédiatement que $\zeta \in \Hom_{B, G \times G}((\tilde{\pi_B} \boxtimes \pi_B) \otimes C^\infty_c(M_n), B)$. Cependant, en général, elle n'est pas surjective. On doit donc utiliser le terme suivant de cette suite exacte, qui est $\Ext^1_{B, G \times G}((\tilde{\pi_B} \boxtimes \pi_B) \otimes C^\infty_c(S^{(n)}), B)$.
 
-Le but est maintenant de trouver un élément de $\Hom_{B, G \times G}((\tilde{\pi_B} \boxtimes \pi_B) \otimes C^\infty_c(G), B)$ dont l'image dans $\Ext^1_{B, G \times G}((\tilde{\pi_B} \boxtimes \pi_B) \otimes C^\infty_c(S^{(n)}), B)$ est nulle, ce qui nous permettra de le relever en un élément de $\Hom_{B, G \times G}((\tilde{\pi_B} \boxtimes \pi_B) \otimes C^\infty_c(M_n), B)$. Plus exactement, on va montrer qu'il existe un élément de $B$ qui agit par $0$ dans $\Ext^1_{B, G \times G}((\tilde{\pi_B} \boxtimes \pi_B) \otimes C^\infty_c(S^{(n)}), B)$.
+Le but est maintenant de trouver un élément de $\Hom_{B, G \times G}((\tilde{\pi_B} \boxtimes \pi_B) \otimes C^\infty_c(G), B)$ dont l'image dans $\Ext^1_{B, G \times G}((\tilde{\pi_B} \boxtimes \pi_B) \otimes C^\infty_c(S^{(n)}), B)$ est nulle, ce qui nous permettra de le relever en un élément de $\Hom_{B, G \times G}((\tilde{\pi_B} \boxtimes \pi_B) \otimes C^\infty_c(M_n), B)$. Plus exactement, on va montrer qu'il existe un élément non nul de $B$ qui agit par $0$ dans $\Ext^1_{B, G \times G}((\tilde{\pi_B} \boxtimes \pi_B) \otimes C^\infty_c(S^{(n)}), B)$.
 
 Pour $r \in \left\lbrace 1, ..., n \right\rbrace$, on décompose l'espace $S^{(r)}$ des matrices de rang $< r$ en $S^{(r)}=S^{(r-1)} \cup S_{r-1}$ où $S_{r-1}$ est l'ouvert de $S^{(r)}$ des matrices de rang $r-1$, pour obtenir la suite exacte
 \begin{equation}
@@ -231,7 +231,7 @@ En prolongeant la suite exacte du foncteur $\Hom_{B, G \times G} (., \pi_B \boxt
 \end{equation}
 
 \begin{lemme}
-Soit $M,N,P$ des $B$-module qui satisfont la suite exacte de $B$-module
+Soit $M,N,P$ des $B$-module qui satisfont la suite exacte de $B$-modules
 \begin{equation}
 M \xrightarrow{\alpha} N \xrightarrow{\beta} P.
 \end{equation}

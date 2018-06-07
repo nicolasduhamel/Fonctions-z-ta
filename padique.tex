@@ -15,6 +15,14 @@ des vecteurs stable par $H$ est de dimension fini.
 \end{itemize}
 \end{definition}
 
+\begin{definition}
+On note $\tilde{V}$ l'espace des formes linéaires $l : V \rightarrow \mathbb{C}$ telles qu'il existe un sous-groupe ouvert $H$ de $G$ vérifiant $l(\pi(h^{-1})v)=l(v)$ pour tout $h \in H$. On définit alors la contragrédiente $(\tilde{\pi}, \tilde{V})$ de $(\pi, V)$ par
+\begin{equation}
+(\tilde{\pi}(g)l)(v) = l(\pi(g^{-1}v)),
+\end{equation}
+pour tout $g \in G, l \in \tilde{V}$ et $v \in V$.
+\end{definition}
+
 Les coefficients de $\pi$ sont les fonctions de la forme $g \in G \mapsto <\pi(g)v, \tilde{v}>$, où $v \in V$ et $\tilde{v} \in \tilde{V}$. Alors $\check{f}(g)=f(g^{-1})=<v, \tilde{\pi}(g)\tilde{v}>$ est un coefficient de $\tilde{\pi}$.
 
 On note $M_n$ l'ensemble des matrices $n \times n$ à coefficients dans $\mathbb{Q}_p$ et $\mathcal{S}$ l'ensemble des fonctions $\phi : M_n \rightarrow \mathbb{C}$ localement constantes à support compact.
@@ -40,19 +48,19 @@ L'objectif de cette section est de montrer le
 \zeta(\check{f}, \phi, s) &= \int_G \phi(g)\check{f}(g)|\det g|_p^s dg
 \end{align}
 convergent absolument.
-\item Ces intégrales sont des fonctions rationnelles en $p^{-s}$. Plus précisément, il existe des polynômes $Q$ et $\tilde{Q}$ indépendant de $f$ et $\phi$ avec $Q(0)\neq 0$ (respectivement $\tilde{Q}(0)\neq 0$) et des polynômes $\Xi(f, \phi, s)$, $\tilde{\Xi}(\check{f}, \phi, s)$ en $p^{s}$ et $p^{-s}$ tel que
+\item Ces intégrales sont des fonctions rationnelles en $p^{-s}$. Plus précisément, il existe des polynômes $Q$ et $\tilde{Q}$ indépendants de $f$ et $\phi$ avec $Q(0)\neq 0$ (respectivement $\tilde{Q}(0)\neq 0$) et des polynômes $\Xi(f, \phi, s)$, $\tilde{\Xi}(\check{f}, \phi, s)$ en $p^{s}$ et $p^{-s}$ tels que
 \begin{align}
 \zeta(f, \phi, s+\frac{1}{2}(n-1)) &= \frac{\Xi(f, \phi, s)}{Q(p^{-s})}, \\
 \zeta(\check{f}, \phi, s+\frac{1}{2}(n-1)) &= \frac{\tilde{\Xi}(\check{f}, \phi, s)}{\tilde{Q}(p^{-s})},
 \end{align}
-pour tout $s \in \mathbb{C}$, $\phi \in \mathcal{S}$ et $f$ coefficient de $\pi$.
+pour tous $s \in \mathbb{C}$, $\phi \in \mathcal{S}$ et $f$ coefficient de $\pi$. Les polynômes $Q$ et $\tilde{Q}$ sont choisis de degré minimal.
 \item On peut choisir un nombre fini, de coefficients $f_i$ de $\pi$ (respectivement $\tilde{\pi}$) et de fonctions $\phi_i \in \mathcal{S}$, telles que $\sum_i \Xi(f_i, \phi_i, s)$ (respectivement $\sum_i \tilde{\Xi}(f_i, \phi_i, s)$ soit une constante non nulle.
 \item Il existe une fonction $\epsilon(s, \pi, \psi)$, qui est à une constante près une puissance de $p^{-s}$, telle que
 \begin{equation}
 \label{epsilon}
 \tilde{\Xi}(\check{f}, \hat{\phi}, 1-s) = \epsilon(s, \pi, \psi)\Xi(f, \phi, s),
 \end{equation}
-pour tout $s\in \mathbb{C}$, $\phi \in \mathcal{S}$ et $f$ coefficient de $\pi$.
+pour tous $s\in \mathbb{C}$, $\phi \in \mathcal{S}$ et $f$ coefficient de $\pi$.
 \end{enumerate}
 \end{theoreme}
 
@@ -91,7 +99,7 @@ Si $\pi$ est une représentation admissible (non nécessairement irréductible) 
 Supposons le théorème vrai pour $\pi$ et $\tilde{\pi}$. Soit $\sigma$ une sous-représentation irréductible de $\pi$. Alors les coefficients de $\sigma$ sont de la forme $<\pi(g)v,\tilde{v}>$ avec $v\in V$ et $\tilde{v} \in \tilde{V}$. Cependant, toutes ces fonctions ne sont pas des coefficients de $\sigma$. On en déduit la
 \begin{proposition}
 \label{comp_ind1}
-Il existe des polynômes $R$ et $\tilde{R}$ en $p^{-s}$ tel que
+Le théorème est vrai pour $\sigma$ et il existe des polynômes $R$ et $\tilde{R}$ en $p^{-s}$ tels que
 \begin{align}
 L(s,\sigma)&=R(p^{-s})L(s,\pi), \\
 L(s,\tilde{\sigma})&=\tilde{R}(p^{-s})L(s,\tilde{\pi}).
@@ -132,7 +140,7 @@ f(g)&=<\pi(g)v,\tilde{v}> \\
 
 Posons $t=s+\frac{1}{2}(n-1)$, $t'=s+\frac{1}{2}(n'-1)$ et $t''=s+\frac{1}{2}(n''-1)$. L'intégrale zêta est donc
 \begin{equation}
-\zeta(f,\phi,s)=\int_G \phi(g)|\det g|_p^t \int_K <v(kg),\tilde{v}(k)>dk dg.
+\zeta(f,\phi,t)=\int_G \phi(g)|\det g|_p^t \int_K <v(kg),\tilde{v}(k)>dk dg.
 \end{equation}
 On échange l'ordre d'intégration et on fait le changement de variables $g \mapsto k^{-1}g$, on obtient
 \begin{equation}
@@ -191,7 +199,7 @@ D'après les hypothèses faites sur $\sigma'$ et $\sigma''$, les intégrales dé
 
 D'après (\ref{zetainduite}) et les hypothèses faites sur $\sigma'$ et $\sigma''$, on obtient la relation
 \begin{equation}
-\zeta(f,\phi,s)=\sum_{i,j=1}^{l,l'}c_{i,j}\Xi(f_i',\phi_j',s)L(s,\sigma')\Xi(f_i'',\phi_j'',s)L(s,\sigma'').
+\zeta(f,\phi,s+\frac{1}{2}(n-1))=\sum_{i,j=1}^{l,l'}c_{i,j}\Xi(f_i',\phi_j',s)L(s,\sigma')\Xi(f_i'',\phi_j'',s)L(s,\sigma'').
 \end{equation}
 Ce qui prouve la partie (2) du théorème pour $\pi$.
 
@@ -224,7 +232,7 @@ La première égalité s'obtient en considérant la transformée de Fourier en l
 
 Ces considérations nous donnent une égalité similaire à (\ref{zetainduite}),
 \begin{equation}
-\zeta(\check{f},\phi,1-s+\frac{1}{2}(n-1))=\sum_{i,j=1}^{l,l'}c_{i,j}\Xi(\check{f}_i',\hat{\phi}_j',1-s)L(1-s,\tilde{\sigma}')\Xi(\check{f}_i'',\hat{\phi}_j'',1-s)L(1-s,\tilde{\sigma}'').
+\zeta(\check{f},\hat{\phi},1-s+\frac{1}{2}(n-1))=\sum_{i,j=1}^{l,l'}c_{i,j}\Xi(\check{f}_i',\hat{\phi}_j',1-s)L(1-s,\tilde{\sigma}')\Xi(\check{f}_i'',\hat{\phi}_j'',1-s)L(1-s,\tilde{\sigma}'').
 \end{equation}
 On obtient ainsi l'équation fonctionnelle
 \begin{equation}
@@ -232,7 +240,7 @@ On obtient ainsi l'équation fonctionnelle
 \end{equation}
 on en déduit que $\epsilon(s,\pi,\psi)=\epsilon(s, \sigma', \psi)\epsilon(s,\sigma'',\psi)$ et la partie (4) du théorème pour $\pi$.
 
-Il ne reste plus qu'à prouver la partie (3). Il suffit de montrer que si l'on fixe $\phi' \in \mathcal{S}(M')$, $\phi'' \in \mathcal{S}(M'')$ et $f$ (respectivement $f'$) coefficient de $\sigma'$ (respectivement $\sigma''$) alors il existe $\phi \in \mathcal{S}(M)$ et $f$ coefficient de $\pi$ tel que
+Il ne reste plus qu'à prouver la partie (3). Il suffit de montrer que si l'on fixe $\phi' \in \mathcal{S}(M')$, $\phi'' \in \mathcal{S}(M'')$ et $f'$ (respectivement $f''$) coefficient de $\sigma'$ (respectivement $\sigma''$) alors il existe $\phi \in \mathcal{S}(M)$ et $f$ coefficient de $\pi$ tel que
 \begin{equation}
 \zeta(f,\phi,t)=\zeta(f',\phi',t')\zeta(f'',\phi'',t'').
 \end{equation}
@@ -261,15 +269,12 @@ g' & u \\
 On pose aussi $f(g)=\delta_P^{\frac{1}{2}}(\begin{pmatrix} 
 g' & u \\
 0 & g'' 
-\end{pmatrix})\eta(k)f(g')f(g'')$, alors $f$ est bien un coefficient de $\pi$. De plus, en intégrant sur $U \times K$ l'expression (\ref{zetaprod}) devient
+\end{pmatrix})\eta(k)f'(g')f''(g'')$, alors $f$ est bien un coefficient de $\pi$. De plus, en intégrant sur $U \times K$ l'expression (\ref{zetaprod}) devient
 \begin{equation}
 \int_G \phi(\begin{pmatrix} 
 g' & u \\
 0 & g'' 
-\end{pmatrix}k)f(g)|\deg g|_p^t\delta_P(\begin{pmatrix} 
-g' & u \\
-0 & g'' 
-\end{pmatrix})dg'dg''dudk,
+\end{pmatrix}k)f(g)|\deg g|_p^t|\det g'|_p^{-n''}dg'dg''dudk,
 \end{equation}
 qui est bien $\zeta(f,\phi,t)$. Ce qui termine la preuve de la proposition.
 \end{proof}
