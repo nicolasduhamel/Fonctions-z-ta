@@ -45,7 +45,7 @@ L(s, \pi_0) = \prod_{i=1}^n L(s+\frac{1}{2}(n-1), \chi_i).
 
 Cette partie provient de \cite{goldfeld-hundley}.
 \begin{definition}
-Une représentation admissible $(\pi, V)$ de $G$ est dite de carré intégrable si son caractère central est unitaire et $\int_{G/\mathbb{Q}_p^\times} |f(g)|^2 dg < \infty$ pour tout coefficient $f$ de $\pi$.
+Une représentation admissible irréductible $(\pi, V)$ de $G$ est dite de carré intégrable si son caractère central est unitaire et $\int_{G/\mathbb{Q}_p^\times} |f(g)|^2 dg < \infty$ pour tout coefficient $f$ de $\pi$.
 \end{definition}
 
 On décrit maintenant la classification de Bernstein-Zelevinsky des représentations admissibles irréductibles de carré intégrable. Soit $r,d$ des entiers $> 0$, soit $\tau$ une représentation supercuspidale de $GL(r, \mathbb{Q}_p)$ de caractère central unitaire. On note $P_{r,d}$ le sous-groupe parabolique de $GL(rd, \mathbb{Q}_p)$ des matrices triangulaires supérieures par bloc où les blocs diagonaux sont de tailles $r \times r$. Alors
@@ -67,17 +67,17 @@ L(s, \tau') = \begin{cases}
 \begin{proof}
 Si $r > 1$, par la compatibilité de l'induction,
 \begin{equation}
-L(s, Ind_{P_{r,d}}^{GL(rd, \mathbb{Q}_p)}(|.|_p^{\frac{1-d}{2}}\tau \boxtimes ... \boxtimes |.|_p^{\frac{d-1}{2}}\tau)) = \prod_{i=0}^{n-1} L(s, |.|_p^{\frac{1-d}{2}+i}\tau)=1,
+L(s, Ind_{P_{r,d}}^{GL(rd, \mathbb{Q}_p)}(|.|_p^{\frac{1-d}{2}}\tau \boxtimes ... \boxtimes |.|_p^{\frac{d-1}{2}}\tau)) = \prod_{i=0}^{d-1} L(s, |.|_p^{\frac{1-d}{2}+i}\tau)=1,
 \end{equation}
-la dernière égalité vient du calcul de la fonction $L$ d'une représentation supercuspidale. On en déduit immédiatement que $L(s,\tau')=1$.
+la dernière égalité vient du calcul de la fonction $L$ d'une représentation supercuspidale. On en déduit immédiatement que $L(s,\tau')=1$, d'après la proposition \ref{lfunsupercusp}.
 
 Supposons maintenant que $r=1$. Soit $\phi \in \mathcal{S}$, $f$ un coefficient de $\tau'$ et $s \in \mathbb{C}$. Alors, d'après l'équation fonctionnelle,
 \begin{equation}
-\zeta(f, \phi, s) = \gamma(s, \tau', \lambda)\zeta(\check{f}, \hat{\phi}, s).
+\zeta(\check{f}, \hat{\phi}, s) = \gamma(s, \tau', \lambda)\zeta(f, \phi, s).
 \end{equation}
 Les propriétés du facteur $\gamma$ et le calcul pour $GL_1(\mathbb{Q}_p)$ donnent
 \begin{equation}
-\gamma(s, \tau', \lambda) = \prod_{i=0}^{n-1} \frac{1-\tau(p)^{-1}p^{s-1+\frac{n-1}{2}-i}}{1-\tau(p)p^{-s-\frac{n-1}{2}+i}}.
+\gamma(s, \tau', \lambda) = \prod_{i=0}^{n-1} \frac{1-\tau(p)p^{-s-\frac{n-1}{2}+i}}{1-\tau(p)^{-1}p^{s-1+\frac{n-1}{2}-i}}.
 \end{equation}
 Ce qui nous permet d'en déduire immédiatement que
 \begin{equation}
@@ -87,13 +87,13 @@ Ce qui nous permet d'en déduire immédiatement que
 \end{equation}
 On utilise maintenant le fait que
 \begin{equation}
-(1-\tau(p)^{-1}p^{s+\frac{n-1}{2}+i}) = \tau(p)^{-1}p^{s+\frac{n-1}{2}-i}(1-\tau(p)p^{-s-\frac{n-1}{2}-i}),
+(1-\tau(p)^{-1}p^{s+\frac{n-1}{2}-i}) = -\tau(p)^{-1}p^{s+\frac{n-1}{2}-i}(1-\tau(p)p^{-s-\frac{n-1}{2}+i}),
 \end{equation}
 pour simplifier l'équation (\ref{carreintegrable1}), ce qui nous donne
 \begin{equation}
 \label{carreintegrable2}
-(1-\tau(p)p^{-s-\frac{n-1}{2}})\zeta(f, \phi, s) = \tau(p)^{-n+1}
-p^{s(n-1)+\frac{n(n+1)}{2}-1}(1-\tau(p)^{-1}p^{s-\frac{n+1}{2}})\zeta(\check{f}, \hat{\phi}, s).
+(1-\tau(p)p^{-s-\frac{n-1}{2}})\zeta(f, \phi, s) = (-\tau(p))^{-n+1}
+p^{(s-\frac{1}{2})(n-1)}(1-\tau(p)^{-1}p^{s-\frac{n-1}{2}})\zeta(\check{f}, \hat{\phi}, s).
 \end{equation}
 
 Pour les représentations de carré intégrable, on dispose d'une information plus précise sur de domaine de convergence de l'intégrale zêta.
@@ -107,5 +107,5 @@ est absolument convergente pour $Re(s) > 0$.
 
 Ce lemme nous permet d'en déduire que les deux membres de l'équation (\ref{carreintegrable2}) sont holomorphes dans les régions $Re(s) > 0$ et $Re(s) < 1$. Ceci nous permet voir immédiatement que $L(s, \tau') = (1-\tau(p)p^{-s-\frac{n-1}{2}})$ ou $1$. Il nous suffit donc de montrer que $L(s, \tau') \neq 1$ pour avoir le résultat voulu.
 
-On choisit $\phi \in \mathbb{S}$ et $f$ un coefficient de $\pi$ tel que $\zeta(\check{f}, \hat{\phi}, 1-s)$ est une constante non nulle. Alors le membre de droite de l'équation (\ref{carreintegrable2}) ne s'annule pas en $s=-\frac{n-1}{2}$. On en déduit que $\zeta(f, \phi, s)$ doit avoir un pôle en $s=-\frac{n-1}{2}$, d'où $L(s,\tau')\neq 1$.
+On choisit $\phi \in \mathbb{S}$ et $f$ un coefficient de $\pi$ tels que $\zeta(\check{f}, \hat{\phi}, 1-s)$ est une constante non nulle. En effet, on choisit un compact $C$ de $G^0$ suffisamment grand tel qu'il existe un coefficient $f$ de $\pi$ non identiquement nul sur $C$ et on pose alors $\phi(g) = \overline{f(g)}$ si $g \in C$ et $\phi(g)=0$ sinon. Alors le membre de droite de l'équation (\ref{carreintegrable2}) ne s'annule pas en $s=-\frac{n-1}{2}$. On en déduit que $\zeta(f, \phi, s)$ doit avoir un pôle en $s=-\frac{n-1}{2}$, d'où $L(s,\tau')\neq 1$.
 \end{proof}
