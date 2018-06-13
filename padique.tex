@@ -1,7 +1,7 @@
 \section{Fonctions zêta sur $GL_n(\mathbb{Q}_p), n > 1$}
 
 \label{gln}
-Cette section présente la théorie locale de Godement-Jacquet \cite{godement-jacquet}. On montre que le théorème principal est compatible à l'induction et aux sous-représentations, ce qui nous permet de nous ramener au cas des représentations supercuspidales. Pour finir, on calcule les fonctions $L$ attachées aux représentations sphériques (qui sont utiles pour la théorie globale) et aux représentations de carré intégrable.
+Cette section présente la théorie locale de Godement-Jacquet \cite{godement-jacquet}. On montre que le théorème \ref{thm_padique} est compatible à l'induction et aux sous-représentations, ce qui nous permet de nous ramener au cas des représentations supercuspidales. Pour finir, on calcule les fonctions $L$ attachées aux représentations sphériques (qui sont utiles pour la théorie globale) et aux représentations de carré intégrable.
 
 Dans la suite, on notera $G = GL_n(\mathbb{Q}_p)$, $dg$ une mesure de Haar sur $G$ et $(\pi, V)$ une représentation admissible irréductible de $G$. On pose $K=GL_n(\mathbb{Z}_p)$, c'est un sous-groupe compact maximal de $G$.
 
@@ -29,22 +29,24 @@ Les coefficients de $\pi$ sont les fonctions de la forme $g \in G \mapsto <\pi(g
 
 On note $M_n$ l'ensemble des matrices $n \times n$ à coefficients dans $\mathbb{Q}_p$ et $\mathcal{S}$ l'ensemble des fonctions $\phi : M_n \rightarrow \mathbb{C}$ localement constantes à support compact.
 
-Si $f$ est un coefficient de $\pi$, $\phi \in \mathcal{S}$ et $s \in \mathbb{C}$, on pose
-\begin{equation}
-\zeta(f, \phi, s) = \int_G \phi(g)f(g)|\det g|_p^s dg.
-\end{equation}
-
 On fixe un caractère non trivial $\psi$ de $\mathbb{Q}_p$ et on pose
 \begin{equation}
 \hat{\phi}(y) = \int_{M_n} \phi(x) \psi(Tr(xy)) dx,
 \end{equation}
 où $dx$ est une mesure de Haar sur $M_n$, normalisée telle que $\hat{\hat{\phi}}(x)=\phi(-x)$.
 
+\begin{definition}
+Soient $f$ un coefficient de $\pi$, $\phi \in \mathcal{S}$ et $s \in \mathbb{C}$, on pose alors
+\begin{equation}
+\zeta(f, \phi, s) = \int_G \phi(g)f(g)|\det g|_p^s dg.
+\end{equation}
+\end{definition}
+
 L'objectif de cette section est de montrer le
 \begin{theoreme}
 \label{thm_padique}
 \begin{enumerate}
-\item Il existe $s_0 \in \mathbb{R}$ tel que pour tout $s \in \mathbb{C}$ vérifiant $Re (s) > s_0$, $\phi \in \mathcal{S}$ et $f$ un coefficient de $\pi$, les intégrales
+\item Il existe $s_0 \in \mathbb{R}$ tel que pour tous $s \in \mathbb{C}$ vérifiant $Re (s) > s_0$, $\phi \in \mathcal{S}$ et $f$ coefficient de $\pi$, les intégrales
 \begin{align}
 \zeta(f, \phi, s) &= \int_G \phi(g)f(g)|\det g|_p^s dg \\
 \zeta(\check{f}, \phi, s) &= \int_G \phi(g)\check{f}(g)|\det g|_p^s dg

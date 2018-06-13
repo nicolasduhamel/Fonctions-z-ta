@@ -6,30 +6,33 @@ L'importance des représentations sphériques vient du fait que dans la théorie
 Une représentation sphérique de $G$ est une représentation $(\pi, V)$ admissible irréductible de $G$ telle qu'il existe un vecteur $v \in V$ non nul invariant par $K$.
 \end{definition}
 
-Notons $P_0 \subset G$ l'ensemble des matrices triangulaires supérieures. Soit $\chi_1, ..., \chi_n$ des caractères non ramifiés de $\mathbb{Q}_p^\times$, on note $\chi = \chi_1 \boxtimes ... \boxtimes \chi_n$ le caractère de $P_0$ trivial sur son radical unipotent. On pose $\pi = Ind_{P_0}^G(\chi)$.
+Notons $P_0 \subset G$ l'ensemble des matrices triangulaires supérieures. Soient $\chi_1, ..., \chi_n$ des caractères non ramifiés de $\mathbb{Q}_p^\times$, on note $\chi = \chi_1 \boxtimes ... \boxtimes \chi_n$ le caractère de $P_0$ trivial sur son radical unipotent. On pose $\pi = Ind_{P_0}^G(\chi)$.
 
-Alors $\pi$ contient un vecteur invariant par $K$, $\varphi_0$ définie par $\varphi_0(pk)=\delta_P(p)^{\frac{1}{2}}\chi(p)$. On considère le coefficient $f_0$ défini par $f_0(g)=<\pi(g)\varphi_0, \tilde{\varphi}_0>$, où $\tilde{\varphi}_0$ est un vecteur de $\tilde{\pi}$ invariant par $K$ défini par $\tilde{\varphi}_0(pk)=\delta_P(p)^{\frac{1}{2}}\chi(p)^{-1}$. C'est un coefficient d'une représentation admissible irréductible que l'on note $\pi_0$, cette représentation est sphérique.
+Alors $\pi$ contient un vecteur invariant par $K$, $\varphi_0$ défini par $\varphi_0(pk)=\delta_P(p)^{\frac{1}{2}}\chi(p)$. On considère le coefficient $f_0$ défini par $f_0(g)=<\pi(g)\varphi_0, \tilde{\varphi}_0>$, où $\tilde{\varphi}_0$ est le vecteur de $\tilde{\pi}$ invariant par $K$ défini par $\tilde{\varphi}_0(pk)=\delta_P(p)^{\frac{1}{2}}\chi(p)^{-1}$. C'est un coefficient d'une représentation admissible irréductible que l'on note $\pi_0$, cette représentation est sphérique.
 
 De plus, toutes les représentations sphériques sont de cette forme (à isomorphisme près).
 
 \begin{lemme}
+\label{lemmespherique}
 On note $\phi_0$ l'indicatrice de $M_n(\mathbb{Z}_p)$. Alors
 \begin{equation}
-\zeta(f_0, \phi_0, s) = \prod_{i=1}^n L(s, \chi_i).
+\zeta(f_0, \phi_0, s+\frac{1}{2}(n-1)) = \prod_{i=1}^n L(s, \chi_i).
 \end{equation}
 \end{lemme}
 
 \begin{proof}
-Comme $\varphi_0$ et $\tilde{\varphi}$ sont $K$-invariant, on en déduit que
+Comme $\tilde{\varphi}_0$ est $K$-invariant, on en déduit que
 \begin{equation}
-f_0(g)=\int_K \varphi_0(kg)\tilde{\varphi}_0(k)dk=\varphi_0(g).
+f_0(g)=\int_K \varphi_0(kg)\tilde{\varphi}_0(k)dk=\int_K \varphi_0(kg) dk.
 \end{equation}
 De plus,
 \begin{align}
-\zeta(f_0, \phi_0, s) &= \int_G \phi_0(g)\varphi_0(g)|\det g|^s dg \\
-&= \int_P \int_K \phi_0(pk) \varphi_0(pk) |\det p|^s \delta_P(p)^{-\frac{1}{2}}dp dk \\
-&= \prod_{i=1}^n \int_{\mathbb{Z}_p}|a_i|^s\chi_i(a_i)da_i \\
-&= \prod_{i=1}^n L(s, \chi_i).
+\zeta(f_0, \phi_0, s) &= \int_G \int_K \phi_0(g)\varphi_0(kg)|\det g|^s dkdg \\
+&= \int_G \int_K \phi_0(k^{-1}g)\varphi_0(g)|\det k^{-1}g|^s dkdg \\
+&= \int_G \phi_0(g)\varphi_0(g)|\det g|^s dg \\
+&= \int_{P_0} \int_K \phi_0(pk) \varphi_0(pk) |\det p|^s dp dk \\
+&= \prod_{i=1}^n \int_{\mathbb{Z}_p}|a_i|^s\chi_i(a_i) |a_i|^{s+\frac{1}{2}(n-1)}da_i \\
+&= \prod_{i=1}^n L(s-\frac{1}{2}(n-1), \chi_i).
 \end{align}
 \end{proof}
 
@@ -37,13 +40,22 @@ On en déduit le calcul de la fonction $L$ d'une représentation sphérique.
 \begin{proposition}
 En reprenant les notations précédentes,
 \begin{equation}
-L(s, \pi_0) = \prod_{i=1}^n L(s+\frac{1}{2}(n-1), \chi_i).
+L(s, \pi_0) = \prod_{i=1}^n L(s, \chi_i).
 \end{equation}
 \end{proposition}
 
+\begin{proof}
+En effet, $\pi_0$ est une sous-représentation de $\pi=Ind_{P_0}^G(\chi)$. D'après la proposition \ref{comp_ind1}, $L(s, \pi_0)$ est de la forme $R(p^{-s})L(s, \pi)$. De plus, d'après la proposition \ref{comp_ind2},
+\begin{equation}
+L(s, \pi) = \prod_{i=1}^n L(s, \chi_i).
+\end{equation}
+Il nous suffit donc de montrer que $R=1$. C'est le lemme \ref{lemmespherique}.
+\end{proof}
+
 \subsection{Représentation de carré intégrable}
 
-Cette partie provient de \cite{goldfeld-hundley}.
+Cette partie est consacrée extraite au calcul de la fonction $L$ d'une représentation de carré intégrable, elle est extraite de \cite{goldfeld-hundley}.
+
 \begin{definition}
 Une représentation admissible irréductible $(\pi, V)$ de $G$ est dite de carré intégrable si son caractère central est unitaire et $\int_{G/\mathbb{Q}_p^\times} |f(g)|^2 dg < \infty$ pour tout coefficient $f$ de $\pi$.
 \end{definition}
@@ -73,8 +85,9 @@ la dernière égalité vient du calcul de la fonction $L$ d'une représentation 
 
 Supposons maintenant que $r=1$. Soit $\phi \in \mathcal{S}$, $f$ un coefficient de $\tau'$ et $s \in \mathbb{C}$. Alors, d'après l'équation fonctionnelle,
 \begin{equation}
-\zeta(\check{f}, \hat{\phi}, s) = \gamma(s, \tau', \lambda)\zeta(f, \phi, s).
+\zeta(\check{f}, \hat{\phi}, s) = \gamma(s, \tau', \lambda)\zeta(f, \phi, s),
 \end{equation}
+où la transformée de Fourier $\hat{\phi}$ est calculée par rapport au caractère $\lambda$ définit dans la section \ref{caracqp}.
 Les propriétés du facteur $\gamma$ et le calcul pour $GL_1(\mathbb{Q}_p)$ donnent
 \begin{equation}
 \gamma(s, \tau', \lambda) = \prod_{i=0}^{n-1} \frac{1-\tau(p)p^{-s-\frac{n-1}{2}+i}}{1-\tau(p)^{-1}p^{s-1+\frac{n-1}{2}-i}}.

@@ -32,13 +32,23 @@ pour tout radical unipotent $U$ d'un sous-groupe parabolique propre de $G_\mathb
 On note $\mathcal{A}_0(G_\mathbb{A}, \omega)$ l'espace des formes cuspidales de caractère central $\omega$.
 \end{definition}
 
+\begin{proposition}
+Les formes cuspidales sont à décroissance rapide. Soit $\varphi$ une forme cuspidale. Pour tout $d \in \mathbb{N}$, il existe $C > 0$ tel que
+\begin{equation}
+|\varphi(g)| \leq C||g||^{-d},
+\end{equation}
+pour tout $g \in G_{\mathbb{A}}$.
+\end{proposition}
+
 L'espace de Schwartz de $M_n(\mathbb{A})$ est, par définition, $\mathcal{S}(M_n(\mathbb{A}))=\otimes_v^{'} \mathcal{S}(M_n(\mathbb{Q}_v)=\left\lbrace \phi = \otimes \phi_v, \phi_v \in \mathcal{S}(M_n(\mathbb{Q}_v)), \phi_v = \mathbbm{1}_{\mathbb{Z}_v} \text{ sauf pour un nombre fini de v} \right\rbrace$.
 
-Pour $\varphi \in \mathcal{A}_0(G_\mathbb{A}, \omega)$, $\phi \in \mathcal{S}(M_\mathbb{A})$ et $s \in \mathbb{C}$, on pose
+\begin{definition}
+Soient $\varphi \in \mathcal{A}_0(G_\mathbb{A}, \omega)$, $\phi \in \mathcal{S}(M_\mathbb{A})$ et $s \in \mathbb{C}$, on pose
 \begin{equation}
 \zeta(\varphi, \phi, s) = \int_{G_\mathbb{A}} \phi(g) \varphi(g) |\det g|_\mathbb{A}^s dg,
 \end{equation}
 où $dg = \otimes_v dg_v$ est une mesure de Haar sur $GL_n(\mathbb{A})$ et $|.|_\mathbb{A} = \prod_v |.|_v$ est la valeur absolue adélique.
+\end{definition}
 
 Notons $G^0_\mathbb{A}=\left\lbrace g \in G_\mathbb{A}, |\det g|_\mathbb{A} = 1 \right\rbrace$. Comme $\mathbb{R}_{> 0} \subset \mathbb{A}^\times=Z(G_\mathbb{A})$, l'application $|\det|_\mathbb{A} : G_\mathbb{A} \rightarrow \mathbb{R}_{> 0}$ est surjective de noyau $G^0_\mathbb{A}$.
 
@@ -81,7 +91,7 @@ on se rappelle que $g \in G^0_\mathbb{A}$, donc $|\det g|_\mathbb{A}=1$. On scin
 
 La contribution de la dernière somme s'avèrera nulle. Ce qui nous permet d'en déduire la
 \begin{proposition}
-Si $\varphi \in \mathcal{A}_0(G_\mathbb{A}, \omega)$ et $\phi \in \mathcal{S}(M_n(\mathbb{A})$, la fonction $\zeta(\varphi, \phi, .)$ peut être prolongée en une fonction entière et vérifie l'équation fonctionnelle
+Pour $\varphi \in \mathcal{A}_0(G_\mathbb{A}, \omega)$ et $\phi \in \mathcal{S}(M_n(\mathbb{A})$, la fonction $\zeta(\varphi, \phi, .)$ peut être prolongée en une fonction entière et vérifie l'équation fonctionnelle
 \begin{equation}
 \label{eqcusp}
 \zeta(\varphi, \phi, s) = \zeta(\check{\varphi}, \hat{\phi}, n-s),
@@ -130,10 +140,12 @@ f(g) = <\pi(g)\varphi, \tilde{\varphi}> = \int_{\mathbb{A}^\times G \backslash G
 \end{equation}
 où $\varphi \in \mathcal{A}_0(G_\mathbb{A}, \omega)$ et $\tilde{\varphi} \in \mathcal{A}_0(G_\mathbb{A}, \omega^{-1})$.
 
-Pour un coefficient $f$ de $\mathcal{A}_0(G_\mathbb{A}, \omega)$, $\phi \in \mathcal{S}(M_\mathbb{A})$ et $s \in \mathbb{C}$, on pose
+\begin{definition}
+Soient $f$ un coefficient de $\mathcal{A}_0(G_\mathbb{A}, \omega)$, $\phi \in \mathcal{S}(M_\mathbb{A})$ et $s \in \mathbb{C}$, on pose
 \begin{equation}
 \zeta(f, \phi, s) = \int_{G_\mathbb{A}} \phi(g) f(g) |\det g|_\mathbb{A}^s dg.
 \end{equation}
+\end{definition}
 
 On peut déduire les propriétés de cette fonction zêta grâce à ce que l'on vient de faire pour les formes cuspidales. Plus précisément, on a
 \begin{align}
@@ -143,7 +155,7 @@ On peut déduire les propriétés de cette fonction zêta grâce à ce que l'on 
 \end{align}
 où la deuxième égalité s'obtient grâce au changement de variable $g \mapsto h^{-1}g$. Ceci nous permet de démontrer la
 \begin{proposition}
-Si $f$ est un coefficient de $\mathcal{A}_0(G_\mathbb{A}, \omega)$ et $\phi \in \mathcal{S}(M_\mathbb{A})$, la fonction $\zeta(f, \phi, .)$ peut être prolongée en une fonction entière et vérifie l'équation fonctionnelle
+Pour $f$ un coefficient de $\mathcal{A}_0(G_\mathbb{A}, \omega)$ et $\phi \in \mathcal{S}(M_\mathbb{A})$, la fonction $\zeta(f, \phi, .)$ peut être prolongée en une fonction entière et vérifie l'équation fonctionnelle
 \begin{equation}
 \zeta(f, \phi, s) = \zeta(\check{f}, \hat{\phi}, n-s),
 \end{equation}
@@ -208,7 +220,7 @@ On en déduit que
 L(s, \pi) &= \prod_v L(s, \pi_v) = \prod_v \sum_{\alpha_v \in I_v} \zeta(f_{\alpha_v}, \phi_{\alpha_v}, s + \frac{1}{2}(n-1)) \\
 &= \sum_{\alpha \in I} \zeta(f_\alpha, \phi_\alpha, s + \frac{1}{2}(n-1))
 \end{align}
-est une somme finie de fonction zêta, qui chacune se prolonge en une fonction entière. De plus,
+est une somme finie de fonctions zêta, qui chacune se prolonge en une fonction entière. De plus,
 \begin{align}
 L(s, \pi) &= \sum_{\alpha \in I} \zeta(f_\alpha, \phi_\alpha, s + \frac{1}{2}(n-1)) \\
 &= \sum_{\alpha \in I} \zeta(\check{f}_\alpha, \hat{\phi}_\alpha, 1 - s + \frac{1}{2}(n-1)) \\

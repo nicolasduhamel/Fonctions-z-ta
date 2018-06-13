@@ -1,8 +1,8 @@
 \section{Fonctions zêta sur $GL_n(\mathbb{R})$}
 
-Dans cette partie, on note $G=GL_n(\mathbb{R})$ et $\mathfrak{g}$ son algèbre de Lie. On pose $K=O_n(\mathbb{R})$, c'est un sous-groupe compact maximal de $G$.
+Cette section est consacré à l'étude du cas réel. Dans la théorie globale, la composante locale archimédienne n'est pas une représentation de $GL_n(\mathbb{R})$, on va introduire une notion plus faible. On explique les modifications nécessaires.
 
-Dans la théorie globale, les composantes locales archimédiennes ne seront pas des représentations de $GL_n(\mathbb{R})$, on introduit une notion plus faible.
+On note $G=GL_n(\mathbb{R})$ et $\mathfrak{g}$ son algèbre de Lie. On pose $K=O_n(\mathbb{R})$, c'est un sous-groupe compact maximal de $G$.
 
 \begin{definition}
 Un $(\mathfrak{g}, K)$-module $(\pi, V)$ est un espace vectoriel $V$ muni d'actions $\pi_\mathfrak{g} : U(\mathfrak{g}) \rightarrow End(V)$ et $\pi_K : K \rightarrow GL(V)$ tels que :
@@ -26,30 +26,33 @@ Un $(\mathfrak{g}, K)$-module $(\pi, V)$ est dit unitaire s'il existe une forme 
 pour tous $v, v' \in V, k \in K$ et $X \in \mathfrak{g}$.
 \end{definition}
 
-Soit $(\pi, V)$ une représentation unitaire irréductible de $GL_n(\mathbb{R})$. Pour $f$ un coefficient de $\pi$ et $\phi : M_n(\mathbb{R}) \rightarrow \mathbb{C}$ une fonction de la forme
+Soit $(\pi, V)$ une représentation unitaire irréductible de $GL_n(\mathbb{R})$.
+\begin{definition}
+Soient $f$ un coefficient de $\pi$ et $\phi : M_n(\mathbb{R}) \rightarrow \mathbb{C}$ une fonction de la forme
 $g \mapsto e^{-\pi Tr(gg^t)}P(g)$, où $P$ est un polynôme en les coefficients de $g$; on pose
 \begin{equation}
 \zeta(f, \phi, s) = \int_{GL_n(\mathbb{R})} f(g) \phi(g) |\det g|^s dg,
 \end{equation}
 où $dg$ est une mesure de Haar sur $GL_n(\mathbb{R})$.
+\end{definition}
 
 On est maintenant prêt pour écrire l'analogue du théorème \ref{thm_padique} dans le cas réel.
 \begin{theoreme}
 \label{thm_reel}
 \begin{enumerate}
 \item Il existe $s_0 \in \mathbb{R}$ tel que l'intégrale définissant la fonction zêta convergence absolument pour tout $s \in \mathbb{C}$ vérifiant $Re(s) > s_0$.
-\item Il existe $\nu_1, ..., \nu_n \in \mathbb{C}$ et des polynômes $\Xi(f,\phi,s)$ tel que
+\item Il existe $\nu_1, ..., \nu_n \in \mathbb{C}$ et des polynômes $\Xi(f,\phi,s)$ tels que
 \begin{equation}
 \zeta(f, \phi, s+ \frac{n-1}{2}) = \Xi(f, \phi, s)\prod_{i=1}^n \pi^{-\frac{s+\nu_i}{2}}\Gamma(\frac{s+\nu_i}{2}).
 \end{equation}
 \item On peut choisir un nombre fini de coefficients $f_i$ de $\pi$ et de fonctions $\phi_i$ de la forme $g \mapsto e^{-\pi Tr(gg^t)}P(g)$, telles que $\sum_i \Xi(f_i, \phi_i, s)$ est une constante non nulle.
 \item Il existe une fonction méromorphe $\gamma(s, \pi)$ telle que
 \begin{equation}
-\zeta(\check{f}, \hat{\phi}, 1-s+\frac{n-1}{2}) = \gamma(s, \pi)\zeta(f, \phi, s + \frac{n-1}{2}),
+\zeta(\check{f}, \hat{\phi}, 1-s+\frac{n-1}{2}) = \gamma(s, \pi)\zeta(f, \phi, s),
 \end{equation}
 où la transformée de Fourier est définie par
 \begin{equation}
-\hat{\phi}(x) = \int_{M_n(\mathbb{R})}\phi(y)e^{-Tr(xy)}dx.
+\hat{\phi}(x) = \int_{M_n(\mathbb{R})}\phi(y)e^{-iTr(xy)}dx.
 \end{equation}
 \end{enumerate}
 \end{theoreme}
@@ -62,7 +65,7 @@ Soit $\phi_1, \phi_2 : \mathbb{R} \rightarrow \mathbb{C}$ de la forme $x \mapsto
 \begin{equation}
 \zeta(\omega, \phi_1, s)\zeta(\omega^{-1}, \hat{\phi}_2, 1-s)=\zeta(\omega^{-1}, \hat{\phi}_1, 1-s)\zeta(\omega, \phi_2, s)
 \end{equation}
-pour $s \in \mathbb{C}$ dans le domaine de convergence absolue.
+pour tout $s \in \mathbb{C}$ dans le domaine de convergence absolue.
 \end{lemme}
 La preuve est la même que dans le cas de $GL_1(\mathbb{Q}_p)$. Il nous suffit donc de faire le calcul explicite des membres de l'équation fonctionnelle pour des fonctions $\phi$ bien choisis.
 
@@ -83,5 +86,5 @@ Ce qui nous permet de calculer explicitement le facteur $\gamma(s,\pi)$ et de v�
 
 Les propositions \ref{comp_ind1} et \ref{comp_ind2} admettent un analogue dans le cas réel. Elles traduisent la compatibilité du théorème vis à vis des sous-représentations et des représentations induites. Le théorème \ref{thm_reel} est alors une conséquence du
 \begin{theoreme}[de la sous-représentation]
-Soit $\pi$ une représentation unitaire irréductible de $GL_n(\mathbb{R})$. Alors il existe des caractères $\chi_1, ..., \chi_n$ de $GL_1(\mathbb{R})$ tel que $\pi$ soit une sous-représentation de $Ind_{P_0}^{GL_n(\mathbb{R})}(\chi_1 \boxtimes ... \boxtimes \chi_n)$, où $P_0$ est le sous-groupe des matrices triangulaires supérieures de $GL_n(\mathbb{R})$.
+Soit $\pi$ une représentation unitaire irréductible de $GL_n(\mathbb{R})$. Alors il existe des caractères $\chi_1, ..., \chi_n$ de $GL_1(\mathbb{R})$ tels que $\pi$ soit une sous-représentation de $Ind_{P_0}^{GL_n(\mathbb{R})}(\chi_1 \boxtimes ... \boxtimes \chi_n)$, où $P_0$ est le sous-groupe des matrices triangulaires supérieures de $GL_n(\mathbb{R})$.
 \end{theoreme}
