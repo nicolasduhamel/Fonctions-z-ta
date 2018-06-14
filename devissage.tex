@@ -63,11 +63,11 @@ Un calcul immédiat, montre que $\check{f}_{g_1,g_2}(g) = \check{f}(g_2^{-1}gg_1
 \end{equation}
 Après le changement de variable $x \mapsto g_1xg_2^{-1}$ l'intégrale devient
 \begin{equation}
-|\det g_1^{-1}g_2|_p^n\int_{M_n} \phi(x) \psi(Tr(xg_2^{-1}gg_1)) dx,
+|\det g_1g_2^{-1}|_p^n\int_{M_n} \phi(x) \psi(Tr(xg_2^{-1}gg_1)) dx,
 \end{equation}
 qui n'est autre que $|\det g_1g_2^{-1}|_p^n\hat{\phi}(g_2^{-1}gg_1)$.
 L'intégrale (\ref{intzetafourier}) devient donc, après le changement de variable $g \mapsto g_2gg_1^{-1}$,
-\begin{equation}|\det g_1^{-1}g_2|_p^n|\det g_2g_1^{-1}|_p^{n-s}\int_G \hat{\phi}(g)\check{f}(g)|\det g|_p^{n-s} dg.
+\begin{equation}|\det g_1g_2^{-1}|_p^n|\det g_2g_1^{-1}|_p^{n-s}\int_G \hat{\phi}(g)\check{f}(g)|\det g|_p^{n-s} dg.
 \end{equation}
 \end{proof}
 
@@ -205,19 +205,19 @@ On pose $B=\mathbb{C}[G/G^0]$ l'algèbre des polynômes sur la variété des car
 
 La variété des caractères non ramifiés est $X^*(G) = \left\lbrace |\det|^s, s \in \mathbb{C} \right\rbrace$, on retrouve ainsi la famille de représentation $\pi_s$.
 
-Lorsque l'on restreint l'espace de Schwartz à $\mathcal{S}(G)$, la fonction zêta $\zeta(f, \phi, .)$ est un polynôme en $p^s$. On en déduit que $\zeta_{|\mathcal{S}(G)}$ (que l'on étend par linéarité à $B$) est un élément de $\Hom_{B, G \times G}((\tilde{\pi_B} \boxtimes_B \pi_B) \otimes_B \mathcal{S}(G), B)$.
+Lorsque l'on restreint l'espace de Schwartz à $\mathcal{S}(G)$, la fonction zêta $\zeta(f, \phi, .)$ est un polynôme en $p^s$. On en déduit que $\zeta_{|\mathcal{S}(G)}$ (que l'on étend par linéarité à $B$) est un élément de $\Hom_{B, G \times G}((\tilde{\pi_B} \boxtimes_B \pi_B) \otimes \mathcal{S}(G), B)$, où $B$ est muni de l'action triviale de $G \times G$.
 
 On reprend la suite exacte (\ref{suiteexacte}) et on applique le foncteur $\Hom_{B, G \times G} (., \pi_B \boxtimes_B \tilde{\pi_B})$, ce qui nous donne
 \begin{equation}
 \begin{split}
-0 \rightarrow \Hom_{B, G \times G}((\tilde{\pi_B} \boxtimes_B \pi_B) \otimes_B C^\infty_c(S^{(n)}), B) &\rightarrow \Hom_{B, G \times G}((\tilde{\pi_B} \boxtimes_B \pi_B) \otimes_B C^\infty_c(M_n), B) \\
-&\rightarrow \Hom_{B, G \times G}((\tilde{\pi_B} \boxtimes_B \pi_B) \otimes_B C^\infty_c(G), B)
+0 \rightarrow \Hom_{B, G \times G}((\tilde{\pi_B} \boxtimes_B \pi_B) \otimes C^\infty_c(S^{(n)}), B) &\rightarrow \Hom_{B, G \times G}((\tilde{\pi_B} \boxtimes_B \pi_B) \otimes C^\infty_c(M_n), B) \\
+&\rightarrow \Hom_{B, G \times G}((\tilde{\pi_B} \boxtimes_B \pi_B) \otimes C^\infty_c(G), B)
 \end{split}
 \end{equation}
 
-Si la dernière flèche était surjective, cela montrerait immédiatement que $\zeta \in \Hom_{B, G \times G}((\tilde{\pi_B} \boxtimes_B \pi_B) \otimes_B C^\infty_c(M_n), B)$. Cependant, en général, elle n'est pas surjective. On doit donc utiliser le terme suivant de cette suite exacte, qui est $\Ext^1_{B, G \times G}((\tilde{\pi_B} \boxtimes_B \pi_B) \otimes_B C^\infty_c(S^{(n)}), B)$.
+Si la dernière flèche était surjective, cela montrerait immédiatement que $\zeta \in \Hom_{B, G \times G}((\tilde{\pi_B} \boxtimes_B \pi_B) \otimes C^\infty_c(M_n), B)$. Cependant, en général, elle n'est pas surjective. On doit donc utiliser le terme suivant de cette suite exacte, qui est $\Ext^1_{B, G \times G}((\tilde{\pi_B} \boxtimes_B \pi_B) \otimes C^\infty_c(S^{(n)}), B)$.
 
-Le but est maintenant de trouver un élément de $\Hom_{B, G \times G}((\tilde{\pi_B} \boxtimes_B \pi_B) \otimes_B C^\infty_c(G), B)$ dont l'image dans $\Ext^1_{B, G \times G}((\tilde{\pi_B} \boxtimes_B \pi_B) \otimes_B C^\infty_c(S^{(n)}), B)$ est nulle, ce qui nous permettra de le relever en un élément de $\Hom_{B, G \times G}((\tilde{\pi_B} \boxtimes_B \pi_B) \otimes_B C^\infty_c(M_n), B)$. Plus exactement, on va montrer qu'il existe un élément non nul de $B$ qui agit par $0$ dans $\Ext^1_{B, G \times G}((\tilde{\pi_B} \boxtimes_B \pi_B) \otimes_B C^\infty_c(S^{(n)}), B)$.
+Le but est maintenant de trouver un élément de $\Hom_{B, G \times G}((\tilde{\pi_B} \boxtimes_B \pi_B) \otimes C^\infty_c(G), B)$ dont l'image dans $\Ext^1_{B, G \times G}((\tilde{\pi_B} \boxtimes_B \pi_B) \otimes C^\infty_c(S^{(n)}), B)$ est nulle, ce qui nous permettra de le relever en un élément de $\Hom_{B, G \times G}((\tilde{\pi_B} \boxtimes_B \pi_B) \otimes C^\infty_c(M_n), B)$. Plus exactement, on va montrer qu'il existe un élément non nul de $B$ qui agit par $0$ dans $\Ext^1_{B, G \times G}((\tilde{\pi_B} \boxtimes_B \pi_B) \otimes C^\infty_c(S^{(n)}), B)$.
 
 Pour $r \in \left\lbrace 1, ..., n \right\rbrace$, on décompose l'espace $S^{(r)}$ des matrices de rang $< r$ en $S^{(r)}=S^{(r-1)} \cup S_{r-1}$ où $S_{r-1}$ est l'ouvert de $S^{(r)}$ des matrices de rang $r-1$, pour obtenir la suite exacte
 \begin{equation}
@@ -226,31 +226,31 @@ Pour $r \in \left\lbrace 1, ..., n \right\rbrace$, on décompose l'espace $S^{(r
 En prolongeant la suite exacte du foncteur $\Hom_{B, G \times G} (., \pi_B \boxtimes_B \tilde{\pi_B})$, on en déduit la suite exacte
 \begin{equation}
 \begin{split}
-\Ext^1_{B, G \times G}((\tilde{\pi_B} \boxtimes_B \pi_B) \otimes_B C^\infty_c(S^{(r-1)}), B) &\rightarrow \Ext^1_{B, G \times G}((\tilde{\pi_B} \boxtimes_B \pi_B) \otimes_B C^\infty_c(S^{(r)}), B) \\ 
-&\rightarrow \Ext^1_{B, G \times G}((\tilde{\pi_B} \boxtimes_B \pi_B) \otimes_B C^\infty_c(S_{r-1}), B)
+\Ext^1_{B, G \times G}((\tilde{\pi_B} \boxtimes_B \pi_B) \otimes C^\infty_c(S^{(r-1)}), B) &\rightarrow \Ext^1_{B, G \times G}((\tilde{\pi_B} \boxtimes_B \pi_B) \otimes C^\infty_c(S^{(r)}), B) \\ 
+&\rightarrow \Ext^1_{B, G \times G}((\tilde{\pi_B} \boxtimes_B \pi_B) \otimes C^\infty_c(S_{r-1}), B)
 \end{split}
 \end{equation}
 
 \begin{lemme}
-Soit $M,N,P$ des $B$-module qui satisfont la suite exacte de $B$-modules
+Soient $M,N,P$ des $B$-module qui satisfont la suite exacte de $B$-modules
 \begin{equation}
 M \xrightarrow{\alpha} N \xrightarrow{\beta} P.
 \end{equation}
-Supposons qu'il existe $b_1, b_2 \in B$ tel que $b_1M = 0$ et $b_2P=0$. Alors $b_1b_2N=0$.
+Supposons qu'il existe $b_1, b_2 \in B$ tels que $b_1M = 0$ et $b_2P=0$. Alors $b_1b_2N=0$.
 \end{lemme}
 
 \begin{proof}
 Soit $n \in N$. Alors $\beta(n) \in P$, donc $b_2\beta(n)=0$. On en déduit qu'il existe $m \in M$ tel que $\alpha(m)=b_2n$. Or $b_1m=0$, d'où $b_1b_2n=\alpha(b_1m)=0$.
 \end{proof}
 
-Ce lemme nous permet d'en déduire qu'il suffit de montrer que les espaces $\Ext^1_{B, G \times G}((\tilde{\pi_B} \boxtimes_B \pi_B) \otimes_B C^\infty_c(S_r), B)$ sont de torsion, pour $r \in \left\lbrace 0, ..., n-1 \right\rbrace$.
+Ce lemme nous permet d'en déduire qu'il suffit de montrer que les espaces $\Ext^1_{B, G \times G}((\tilde{\pi_B} \boxtimes_B \pi_B) \otimes C^\infty_c(S_r), B)$ sont de torsion, pour $r \in \left\lbrace 0, ..., n-1 \right\rbrace$.
 
 De plus, on dispose de l'isomorphisme suivant
 \begin{equation}
-\Ext^1_{B, G \times G}((\tilde{\pi_B} \boxtimes_B \pi_B) \otimes_B C^\infty_c(S_r), B) \simeq \Ext^1_{B, (M \times M) \cap H}((\tilde{\pi_B} \boxtimes_B \pi_B)_{N \times \bar{N}}, \delta_H).
+\Ext^1_{B, G \times G}((\tilde{\pi_B} \boxtimes_B \pi_B) \otimes C^\infty_c(S_r), B) \simeq \Ext^1_{B, (M \times M) \cap H}((\tilde{\pi_B} \boxtimes_B \pi_B)_{N \times \bar{N}}, \delta_H).
 \end{equation}
 Pour justifier cet isomorphisme, on reprend la suite d'isomorphismes (\ref{isom}) et on montre que les isomorphismes successifs passent à $Ext^1$ en prenant une résolution projective.
 
-La représentation $(\tilde{\pi_B} \boxtimes_B \pi_B)_{N \times \bar{N}}$ n'admet pas forcément de caractère central, cependant elle est de longueur finie et chaque facteur de la suite de composition admet un caractère central. Considérons l'action de $(z_1,z_2) \in Z(GL_{n-r}) \times Z(GL_{n-r})$ sur $\Ext^1_{B, (M \times M) \cap H}(V_i/V_{i-1} \otimes (B^{op} \boxtimes B), \delta_H)$, où $V_{i}/V_{i-1}$ est un facteur de la suite de composition de $(\tilde{\pi} \boxtimes \pi)_{N \times \bar{N}}$ et $B^{op}$ est l'algèbre opposée à $B$ (elle agit par multiplication de l'inverse). Il agit par $\chi_1(z_1)\chi_2(z_2)z_1^{-1}z_2 \in \mathbb{C}[G/G_0]$ sur $V_i/V_{i-1} \otimes (B^{op} \boxtimes B)$ et par $1$ sur $\delta_H$. On en déduit que $\chi_1(z_1)\chi_2(z_2)z_1^{-1}z_2-1 \in B$ agit par $0$ dans $\Ext^1_{B, (M \times M) \cap H}(V_i/V_{i-1} \otimes (B^{op} \boxtimes B), \delta_H)$. Si l'on choisi $z_1 \neq z_2 \mod G_0$, on en déduit que $\Ext^1_{B, G \times G}((V_i/V_{i-1} \otimes (B^{op} \boxtimes B)) \otimes_B C^\infty_c(S_r), B)$ est de torsion.
+La représentation $(\tilde{\pi_B} \boxtimes_B \pi_B)_{N \times \bar{N}}$ n'admet pas forcément de caractère central, cependant elle est de longueur finie et chaque facteur de la suite de composition admet un caractère central. Considérons l'action de $(z_1,z_2) \in Z(GL_{n-r}) \times Z(GL_{n-r})$ sur $\Ext^1_{B, (M \times M) \cap H}(V_i/V_{i-1} \otimes (B^{\vee} \boxtimes B), \delta_H)$, où $V_{i}/V_{i-1}$ est un facteur de la suite de composition de $(\tilde{\pi} \boxtimes \pi)_{N \times \bar{N}}$ et $B^{\vee}$ est le module $B$ muni de la $G$-action $(g, b) \mapsto g^{-1}b$. La représentation $V_{i}/V_{i-1}$ est irréductible sur $M \times M \simeq GL_{n-r}^2(\mathbb{Q}_p) \times GL_r^2(\mathbb{Q}_p)$, donc admet un caractère central de la forme $(\chi_1 \boxtimes \chi_2) \boxtimes (\chi_3 \boxtimes \chi_4)$. L'élément $(z_1,z_2)$ agit par $\chi_1(z_1)\chi_2(z_2)z_1^{-1}z_2 \in \mathbb{C}[G/G_0]$ sur $V_i/V_{i-1} \otimes (B^{\vee} \boxtimes B)$ et par $\delta_H(z_1,z_2)$ sur $\delta_H$. On en déduit que $\chi_1(z_1)\chi_2(z_2)z_1^{-1}z_2-\delta_H(z_1,z_2) \in B$ agit par $0$ dans $\Ext^1_{B, (M \times M) \cap H}(V_i/V_{i-1} \otimes (B^{\vee} \boxtimes B), \delta_H)$. Si l'on choisi $z_1 \neq z_2 \mod G_0$, on en déduit que $\Ext^1_{B, G \times G}((V_i/V_{i-1} \otimes (B^{\vee} \boxtimes B)) \otimes C^\infty_c(S_r), B)$ est de torsion.
 
-Terminons le raisonnement. Notons $Q$ le polynôme qui correspond à l'élément de $B$ qui agit par $0$ dans $\Ext^1_{B, G \times G}((\tilde{\pi_B} \boxtimes_B \pi_B) \otimes_B C^\infty_c(S^{(n)}), B)$. Alors par $B$-linéarité, on en déduit que l'image de $Q\zeta_{|\mathcal{S}(G)}$ dans $\Ext^1_{B, G \times G}((\tilde{\pi_B} \boxtimes_B \pi_B) \otimes_B C^\infty_c(S^{(n)}), B)$ est nulle. Ce qui permet d'en déduire que $Q\zeta_{|\mathcal{S}(G)}$ se relève en un élément de $\Hom_{B, G \times G}((\tilde{\pi_B} \boxtimes_B \pi_B) \otimes \mathcal{S}(M_n), B)$, que l'on note $\zeta_0$. Alors $\zeta_0(s)$ est un élément de $\Hom_{G \times G} ( (\tilde{\pi} \boxtimes \pi) \otimes \mathcal{S}, |\det|_p^s \boxtimes |\det|_p^{-s})$, qui est de dimension $1$ pour presque tout $s \in \mathbb{C}$, donc il est proportionnel à $\zeta(., ., s)$. De plus, la restriction de $\zeta_0$ à $\mathcal{S}(G)$ est $Q\zeta_{|\mathcal{S}(G)}$. On en déduit que $\zeta_0(s) = Q(p^s, p^{-s})\zeta(.,.,s)$ pour presque tout $s$; c'est un polynôme en $p^s$ et $p^{-s}$. Ce qui montre que l'on peut bien choisir le dénominateur indépendant de $f$ et $\phi$; $Q$ convient.
+Terminons le raisonnement. Notons $Q$ le polynôme qui correspond à un élément de $B$ qui agit par $0$ dans $\Ext^1_{B, G \times G}((\tilde{\pi_B} \boxtimes_B \pi_B) \otimes C^\infty_c(S^{(n)}), B)$. Alors par $B$-linéarité, on en déduit que l'image de $Q\zeta_{|\mathcal{S}(G)}$ dans $\Ext^1_{B, G \times G}((\tilde{\pi_B} \boxtimes_B \pi_B) \otimes C^\infty_c(S^{(n)}), B)$ est nulle. Ce qui permet d'en déduire que $Q\zeta_{|\mathcal{S}(G)}$ se relève en un élément de $\Hom_{B, G \times G}((\tilde{\pi_B} \boxtimes_B \pi_B) \otimes \mathcal{S}(M_n), B)$, que l'on note $\zeta_0$. Alors $\zeta_0(s)$ est un élément de $\Hom_{G \times G} ( (\tilde{\pi} \boxtimes \pi) \otimes \mathcal{S}, |\det|_p^s \boxtimes |\det|_p^{-s})$, qui est de dimension $1$ pour presque tout $s \in \mathbb{C}$, donc il est proportionnel à $\zeta(., ., s)$. De plus, la restriction de $\zeta_0$ à $\mathcal{S}(G)$ est $Q\zeta_{|\mathcal{S}(G)}$. On en déduit que $\zeta_0(s) = Q(p^s, p^{-s})\zeta(.,.,s)$ pour presque tout $s$; c'est un polynôme en $p^s$ et $p^{-s}$. Ce qui montre que l'on peut bien choisir le dénominateur indépendant de $f$ et $\phi$; $Q$ convient.

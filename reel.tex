@@ -52,16 +52,16 @@ On est maintenant prêt pour écrire l'analogue du théorème \ref{thm_padique} 
 \end{equation}
 où la transformée de Fourier est définie par
 \begin{equation}
-\hat{\phi}(x) = \int_{M_n(\mathbb{R})}\phi(y)e^{-iTr(xy)}dx.
+\hat{\phi}(x) = \int_{M_n(\mathbb{R})}\phi(y)e^{-2i\pi Tr(xy)}dx.
 \end{equation}
 \end{enumerate}
 \end{theoreme}
 
 \subsection{$GL_1(\mathbb{R})$}
 
-On doit traiter séparément le cas où $n=1$, comme précédemment pour $GL_n(\mathbb{Q}_p)$. Les caractères de $\mathbb{R}$ se répartissent en deux classes, les caractères de la forme $|.|^t$ et les caractères de la forme $sgn(.)|.|^t$. On en déduit immédiatement la convergence absolue des intégrables pour $Re(s)$ assez grand. De plus, on dispose de l'analogue de lemme \ref{lemme_fun}.
+On doit traiter séparément le cas où $n=1$, comme précédemment pour $GL_n(\mathbb{Q}_p)$. Les caractères de $\mathbb{R}$ se répartissent en deux classes, les caractères de la forme $|.|^t$ et les caractères de la forme $sgn(.)|.|^t$. On en déduit immédiatement la convergence absolue des intégrables pour $Re(s)$ assez grand. De plus, on dispose de l'analogue du lemme \ref{lemme_fun}.
 \begin{lemme}
-Soit $\phi_1, \phi_2 : \mathbb{R} \rightarrow \mathbb{C}$ de la forme $x \mapsto e^{-\pi x^2}P(x)$ et $\omega$ de la forme $|.|^t$ ou $sgn(.)|.|^t$. Alors
+Soient $\phi_1, \phi_2 : \mathbb{R} \rightarrow \mathbb{C}$ de la forme $x \mapsto e^{-\pi x^2}P(x)$ et $\omega$ de la forme $|.|^t$ ou $sgn(.)|.|^t$. Alors
 \begin{equation}
 \zeta(\omega, \phi_1, s)\zeta(\omega^{-1}, \hat{\phi}_2, 1-s)=\zeta(\omega^{-1}, \hat{\phi}_1, 1-s)\zeta(\omega, \phi_2, s)
 \end{equation}
