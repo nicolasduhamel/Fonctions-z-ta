@@ -166,6 +166,7 @@ On peut déduire les propriétés de cette fonction zêta grâce à ce que l'on 
 \end{align}
 où la deuxième égalité s'obtient grâce au changement de variable $g \mapsto h^{-1}g$. Ceci nous permet de démontrer la
 \begin{proposition}
+\label{zetacusp}
 Pour $f$ un coefficient de $\mathcal{A}_0(G_\mathbb{A}, \omega)$ et $\phi \in \mathcal{S}(M_\mathbb{A})$, la fonction $\zeta(f, \phi, .)$ peut être prolongée en une fonction entière et vérifie l'équation fonctionnelle
 \begin{equation}
 \zeta(f, \phi, s) = \zeta(\check{f}, \hat{\phi}, n-s),
@@ -192,7 +193,7 @@ Une représentation cuspidale est un $(\mathfrak{g}, O_n(\mathbb{R})) \times GL_
 \end{definition}
 
 Plus précisément, on montre le
-\begin{theoreme}
+\begin{theoreme}[Godement-Jacquet \cite{godement-jacquet}]
 Soit $\pi$ une représentation cuspidale irréductible.
 
 Le produit $L(s, \pi) = \prod_v L(s, \pi_v)$, qui est défini pour $Re(s) > n$, se prolonge en une fonction entière. De plus, $L(s, \pi)$ vérifie l'équation fonctionnelle
@@ -206,7 +207,7 @@ où $\epsilon(s,\pi) = \prod_v \epsilon(s, \pi_v, \psi_v)$, avec $\psi$ un carac
 La représentation $\pi$ se décompose en facteurs locaux,
 $\pi \simeq \otimes_v^{'} \pi_v$, où $\pi_v$ est une représentation admissible irréductible de $GL_n(\mathbb{Q}_v)$ (un $(\mathfrak{g}, O_n(\mathbb{R}))$-module irréductible pour la place archimédienne) et pour presque toutes les places $\pi_v$ est sphérique (contient la représentation unité de $GL_n(\mathbb{Z}_v)$).
 
-D'après les résultats locaux, pour chaque place $v$, il existe un nombre fini $(\phi_{\alpha_v})_{\alpha_v \in I_v}$ d'éléments de $\mathcal{S}(M_v)$ et de coefficient $(f_{\alpha_v})_{\alpha_v \in I_v}$ de $\pi_v$ tel que
+D'après le théorème \ref{thm_padique}, pour chaque place $v$, il existe un nombre fini $(\phi_{\alpha_v})_{\alpha_v \in I_v}$ d'éléments de $\mathcal{S}(M_v)$ et de coefficient $(f_{\alpha_v})_{\alpha_v \in I_v}$ de $\pi_v$ tels que
 \begin{equation}
 \sum_{\alpha_v \in I_v} \zeta(f_{\alpha_v}, \phi_{\alpha_v}, s + \frac{1}{2}(n-1)) = L(s, \pi_v).
 \end{equation}
@@ -215,7 +216,7 @@ De plus, d'après l'équation fonctionnelle locale
 \sum_{\alpha_v \in I_v} \zeta(\check{f}_{\alpha_v}, \hat{\phi}_{\alpha_v}, 1-s + \frac{1}{2}(n-1)) = \epsilon(s,\pi_v,\psi_v)L(1-s, \tilde{\pi}_v).
 \end{equation}
 
-Notons $I = \prod_v I_v$. Pour presque toutes les places $v$, $\pi_v$ est sphérique, $I_v$ est un singleton; donc $I$ est fini.
+Notons $I = \prod_v I_v$. Pour presque toutes les places $v$, $\pi_v$ est sphérique, $I_v$ est un singleton (lemme \ref{lemmespherique}); donc $I$ est fini.
 
 Pour $\alpha = (\alpha_v) \in I$, on pose
 \begin{equation}
@@ -231,7 +232,7 @@ On en déduit que
 L(s, \pi) &= \prod_v L(s, \pi_v) = \prod_v \sum_{\alpha_v \in I_v} \zeta(f_{\alpha_v}, \phi_{\alpha_v}, s + \frac{1}{2}(n-1)) \\
 &= \sum_{\alpha \in I} \zeta(f_\alpha, \phi_\alpha, s + \frac{1}{2}(n-1))
 \end{align}
-est une somme finie de fonctions zêta, qui chacune se prolonge en une fonction entière. De plus,
+est une somme finie de fonctions zêta, qui chacune se prolonge en une fonction entière (proposition \ref{zetacusp}). De plus,
 \begin{align}
 L(s, \pi) &= \sum_{\alpha \in I} \zeta(f_\alpha, \phi_\alpha, s + \frac{1}{2}(n-1)) \\
 &= \sum_{\alpha \in I} \zeta(\check{f}_\alpha, \hat{\phi}_\alpha, 1 - s + \frac{1}{2}(n-1)) \\

@@ -6,7 +6,8 @@ Dans cette section, on présente une autre preuve qui se base sur un dévissage 
 
 Commençons par donner une seconde preuve de la convergence absolue. On va utiliser la
 \begin{proposition}
-Soit $f$ un coefficient de $\pi$. Alors il existe $c > 0$ et $d \in \mathbb{N}$ tel que pour tout $g \in G$, on ait $|f(g)| \leq c ||g||^d$, où $||g|| = max(|||g|||, |\det g|^{-1})$, avec $|||g|||$ une norme d'algèbre sur $M_n(\mathbb{Q}_p)$.
+\label{majoration}
+Soit $f$ un coefficient de $\pi$. Alors il existe $c > 0$ et $d \in \mathbb{N}$ tel que pour tout $g \in G$, on ait $|f(g)| \leq c ||g||^d$, où $||g|| = max(|||g|||, |\det g|_p^{-1})$, avec $|||g|||$ une norme d'algèbre sur $M_n(\mathbb{Q}_p)$.
 \end{proposition}
 
 \begin{proof}
@@ -17,13 +18,13 @@ On sépare l'intégrale
 \begin{equation}
 \int_G \phi(g)f(g)|\det g|^s dg
 \end{equation}
-en deux intégrales selon que $||g|| < 1$ et $||g|| \geq 1$. Comme $\phi$ est à support compact, la deuxième intégrale converge absolument pour tout $s \in \mathbb{C}$. En ce qui concerne la première intégrale, on utilise la proposition pour montrer que
+en deux intégrales selon que $|\det g|_p < 1$ et $|\det g|_p \geq 1$. Comme $\phi$ est à support compact, la deuxième intégrale converge absolument pour tout $s \in \mathbb{C}$. En ce qui concerne la première intégrale, on utilise la proposition \ref{majoration} pour montrer que
 \begin{align}
-\int_{||g|| < 1}|\phi(g)f(g)|\det g|^s dg &\leq C \int_{||g|| < 1} |\det g|^{s-d} dg \\
-&\leq C \int_{||p_0k|| < 1} |\det p_0|^{s-d}dp_0dk \\
-&\leq C' \sum_{m_1, ..., m_n \geq 0} p^{-(m_1+...+m_n)(s-d)},
+\int_{|\det g|_p < 1}|\phi(g)f(g)||\det g|^{Re(s)} dg &\leq C \int_{|\det g|_p < 1} |\det g|^{Re(s)-d} dg \\
+&\leq C \int_{|\det p_0| < 1} |\det p_0|^{Re(s)-d}dp_0dk \\
+&\leq C' \sum_{m_1 + ... + m_n > 0} p^{-(m_1+...+m_n)(Re(s)-d)},
 \end{align}
-où l'on a utilisé la décomposition de Cartan $G=P_0K$ avec $P_0$ le sous-groupe parabolique des matrices triangulaires supérieures. Cette série géométrique converge absolument pour $Re(s)$ assez grand.
+où l'on a utilisé la décomposition de Cartan $G=P_0K$ avec $P_0$ le sous-groupe parabolique des matrices triangulaires supérieures. Cette série converge absolument pour $Re(s)$ assez grand.
 
 \subsection{Équation fonctionnelle}
 On veut montrer l'équation fonctionnelle suivante

@@ -28,7 +28,7 @@ Pour $\phi \in \mathcal{S}(\mathbb{Q}_p), \omega$ caractère de $\mathbb{Q}_p^\t
 \begin{equation}
 \zeta(\omega,\phi,s) = \int_{\mathbb{Q}_p^\times} \phi(x) \omega(x) |x|_p^s d^\times x,
 \end{equation}
-où $d^\times x$ est une mesure de Haar sur $\mathbb{Q}_p$. On choisit la mesure de Haar normalisé de telle façon à avoir $vol(\mathbb{Z}_p^\times)=1$.
+où $d^\times x$ est une mesure de Haar sur $\mathbb{Q}_p$. On choisit la mesure de Haar normalisée de telle façon à avoir $vol(\mathbb{Z}_p^\times)=1$.
 \end{definition}
 
 \begin{lemme}
@@ -37,7 +37,7 @@ L'intégrale définissant la fonction zêta est absolument convergente pour $Re(
 \end{lemme}
 
 \begin{proof}
-Quitte à remplacer $\omega$ par $\omega|.|_p^{-s_0}$, on peut supposer que $\omega$ est unitaire. On sépare l'intégrale en deux selon un intégrale pour $|x|_p > 1$ et l'autre pour $|x|_p \leq 1$. 
+Quitte à remplacer $\omega$ par $\omega|.|_p^{-s_0}$, on peut supposer que $\omega$ est unitaire. On sépare l'intégrale en deux, une intégrale pour $|x|_p > 1$ et l'autre pour $|x|_p \leq 1$. 
 
 Pour ce qui est de la première intégrale, elle est absolument convergente car $\phi$ est à support compact. Quant à la seconde intégrale, elle est bornée par
 \begin{equation}
@@ -53,7 +53,7 @@ Soient $\phi_1, \phi_2 \in \mathcal{S}(\mathbb{Q}_p), \omega$ un caractère de $
 \begin{equation}
 \zeta(\omega, \phi_1, s)\zeta(\omega^{-1}, \hat{\phi}_2, 1-s)=\zeta(\omega^{-1}, \hat{\phi}_1, 1-s)\zeta(\omega, \phi_2, s),
 \end{equation}
-cette équation étant valable dans le domaine d'absolue convergence.
+cette équation étant valable dans le domaine de convergence absolue.
 \end{lemme}
 
 \begin{proof}
@@ -78,7 +78,7 @@ On en déduit l'égalité $\zeta(\omega, \phi_1, s)\zeta(\omega^{-1}, \hat{\phi}
 \end{proof}
 
 On démontre maintenant le
-\begin{theoreme}
+\begin{theoreme}[Tate \cite{tate}]
 Soit $\phi \in \mathcal{S}(\mathbb{Q}_p), \omega$ un caractère de $\mathbb{Q}_p^\times$ et $s \in \mathbb{C}$. La fonction $\zeta(\phi, \omega, .)$ peut être prolongée analytiquement en une fonction méromorphe sur $\mathbb{C}$. De plus, elle vérifie
 \begin{equation}
 \label{eq_gl1}
@@ -88,11 +88,11 @@ où $\gamma$ est une fonction méromorphe indépendante de $\phi$.
 \end{theoreme}
 
 \begin{proof}
-On suppose tout d'abord que l'équation (\ref{eq_gl1}) est vérifiée pour une fonction $\phi_0 \in \mathcal{S}(\mathbb{Q}_p)$ telle que le quotient $\frac{\zeta(\omega^{-1}, \hat{\phi}_0 1-s)}{\zeta(\omega, \phi_0, s)}$ est défini. D'après le lemme (\ref{lemme_fun}), on en déduit que
+On suppose tout d'abord que l'équation (\ref{eq_gl1}) est vérifiée pour une fonction $\phi_0 \in \mathcal{S}(\mathbb{Q}_p)$ telle que le quotient $\frac{\zeta(\omega^{-1}, \hat{\phi}_0 1-s)}{\zeta(\omega, \phi_0, s)}$ est défini. D'après le lemme \ref{lemme_fun}, on en déduit que
 \begin{equation}
 \zeta(\omega^{-1}, \hat{\phi}, 1-s) = \gamma(\omega,s)\zeta(\omega, \phi, s),
 \end{equation}
-où $\gamma(\omega,s) = \frac{\zeta(\omega^{-1}, \hat{\phi}_0, 1-s)}{\zeta(\omega, \phi_0, s)}$. Ce qui montre l'équation fonctionnelle pour toutes les fonctions $\phi \in \mathcal{S}(\mathbb{Q}_p)$. La suite de cette section, on montre que cette fonction $\phi_0$ existe bien et on calcule le facteur $\gamma$.
+où $\gamma(\omega,s) = \frac{\zeta(\omega^{-1}, \hat{\phi}_0, 1-s)}{\zeta(\omega, \phi_0, s)}$. Ce qui montre l'équation fonctionnelle pour toutes les fonctions $\phi \in \mathcal{S}(\mathbb{Q}_p)$. Dans la suite de cette section, on montre que cette fonction $\phi_0$ existe bien et on calcule le facteur $\gamma$.
 \end{proof}
 
 \subsection{Calcul du facteur $\gamma$}
