@@ -6,7 +6,7 @@ Dans cette dernière section, on présente la théorie globale de Godement-Jacqu
 
 L'anneau des adèles, noté $\mathbb{A}$, est le produit restreint des complétions de $\mathbb{Q}$,
 \begin{equation}
-\mathbb{A} = \prod_v \mathbb{Q}_v,
+\mathbb{A} = \sideset{}{'}\prod_v \mathbb{Q}_v,
 \end{equation}
 où $v$ décrit les places de $\mathbb{Q}$, $v = \infty$ ou $p$ un nombre premier, le produit restreint étant relatif aux sous-groupes $\mathbb{Z}_p$. Plus exactement,
 \begin{equation}
@@ -53,7 +53,7 @@ Soit $\phi \in \mathcal{S}(\mathbb{A})$ une fonction $\mathbb{Q}$-périodique. A
 \end{equation}
 où l'on a posé
 \begin{equation}
-\hat{\phi}_\alpha = \int_{\mathbb{Q}\backslash \mathbb{A}} \phi(x)e(-\alpha x).
+\hat{\phi}_\alpha = \int_{\mathbb{Q}\backslash \mathbb{A}} \phi(x)e(-\alpha x)dx.
 \end{equation}
 \end{proposition}
 
@@ -72,15 +72,15 @@ h(x) = \sum_{\alpha \in \mathbb{Q}} \hat{h}_\alpha e(\alpha x).
 
 Montrons que l'on a $\hat{h}_\alpha = \hat{\phi}(\alpha)$. En effet,
 \begin{align}
-\hat{h}_\alpha &= \int_{\mathbb{Q}\backslash \mathbb{A}} h(x)e(-\alpha x) \\
-&=\int_{\mathbb{Q}\backslash \mathbb{A}} \sum_{\beta \in \mathbb{Q}} \phi(\beta+x)e(-\alpha x) \\
-&= \int_{\mathbb{Q}\backslash \mathbb{A}} \sum_{\beta \in \mathbb{Q}} \phi(x)e(-\alpha x)e(\alpha \beta) \\
-&= \int_{\mathbb{A}} \phi(x) e(-\alpha x) \\
+\hat{h}_\alpha &= \int_{\mathbb{Q}\backslash \mathbb{A}} h(x)e(-\alpha x)dx \\
+&=\int_{[0, 1[ \prod_p \mathbb{Z}_p} \sum_{\beta \in \mathbb{Q}} \phi(\beta+x)e(-\alpha x)dx \\
+&= \sum_{\beta \in \mathbb{Q}}\int_{-\beta + [0, 1[ \prod_p \mathbb{Z}_p} \phi(x)e(-\alpha x)e(\alpha \beta)dx \\
+&= \int_{\mathbb{A}} \phi(x) e(-\alpha x)dx \\
 &= \hat{\phi}(\alpha),
 \end{align}
 où l'on a utilisé le fait que $e(\alpha \beta) = 1$ car $e$ est trivial sur $\mathbb{Q}$. On a donc l'égalité
 \begin{equation}
-h(x) = \sum_{\alpha \in \mathbb{Q}} \phi(\alpha+x) = \sum_{\alpha \in \mathbb{Q}} \hat{\phi}_\alpha e(\alpha x).
+h(x) = \sum_{\alpha \in \mathbb{Q}} \phi(\alpha+x) = \sum_{\alpha \in \mathbb{Q}} \hat{\phi}(\alpha) e(\alpha x).
 \end{equation}
 En prenant cette égalité en $x=0$, on obtient la formule de Poisson.
 \end{proof}
@@ -340,6 +340,17 @@ Si l'on combine cette proposition avec les résultats locaux, on peut construire
 Une représentation cuspidale est un $(\mathfrak{g}, O_n(\mathbb{R})) \times GL_n(\mathbb{A}_f)$-module qui est isomorphe à un sous-quotient de $\mathcal{A}_0(G_\mathbb{A}, \omega)$.
 \end{definition}
 
+\begin{proposition}[\cite{goldfeld-hundley}]
+\label{prodtens}
+Soit $(\pi, V)$ un $(\mathfrak{g}, O_n(\mathbb{R})) \times GL_n(\mathbb{A}_f)$-module admissible irréductible. Il existe un ensemble fini $S$ de places contenant $\infty$ et
+\begin{itemize}
+\item un $(\mathfrak{g}, O_n(\mathbb{R}))$-module admissible irréductible $(\pi_\infty, V_\infty)$,
+\item une représentation admissible irréductible $(\pi_p, V_p)$ de $GL_n(\mathbb{Q}_p)$ pour tout $p$ premier,
+\item un vecteur non nul $v_p^0 \in V_p$ invariant par $GL_n(\mathbb{Z}_p)$ pour tout premier $p \not \in S$,
+\end{itemize}
+tels que $\pi \simeq \otimes_v' \pi_v$ le produit tensoriel restreint étant pris par rapport aux vecteurs $v_p^0$. La représentation $\otimes_v' \pi_v$ est définie sur l'espace $\otimes_v' V_v$ des combinaisons linéaires de vecteurs de la forme $\otimes_v \xi_v$ avec $\xi_v \in V_v$ tels que $\xi_p = v_p^0$ sauf pour un nombre fini de $p$.
+\end{proposition}
+
 Plus précisément, on montre le
 \begin{theoreme}[Godement-Jacquet \cite{godement-jacquet}]
 Soit $\pi$ une représentation cuspidale irréductible.
@@ -352,7 +363,7 @@ où $\epsilon(s,\pi) = \prod_v \epsilon(s, \pi_v, \psi_v)$, avec $\psi$ un carac
 \end{theoreme}
 
 \begin{proof}
-La représentation $\pi$ se décompose en facteurs locaux,
+D'après la proposition \ref{prodtens}, $\pi$ se décompose en facteurs locaux,
 $\pi \simeq \otimes_v^{'} \pi_v$, où $\pi_v$ est une représentation admissible irréductible de $GL_n(\mathbb{Q}_v)$ (un $(\mathfrak{g}, O_n(\mathbb{R}))$-module irréductible pour la place archimédienne) et pour presque toutes les places $\pi_v$ est sphérique (contient la représentation unité de $GL_n(\mathbb{Z}_v)$).
 
 D'après le théorème \ref{thm_padique}, pour chaque place $v$, il existe un nombre fini $(\phi_{\alpha_v})_{\alpha_v \in I_v}$ d'éléments de $\mathcal{S}(M_v)$ et de coefficient $(f_{\alpha_v})_{\alpha_v \in I_v}$ de $\pi_v$ tels que
