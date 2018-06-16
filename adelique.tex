@@ -32,7 +32,21 @@ pour tout radical unipotent $U$ d'un sous-groupe parabolique propre de $G_\mathb
 On note $\mathcal{A}_0(G_\mathbb{A}, \omega)$ l'espace des formes cuspidales de caractère central $\omega$.
 \end{definition}
 
+Dans le but de donner un sens à la proposition \ref{decrap}, on a besoin d'introduire une notion de "norme" sur $\mathbb{R}_{> 0}G\backslash G_\mathbb{A}$. Commençons par la
+\begin{proposition}[approximation forte \cite{goldfeld-hundley}]
+\label{approx}
+Pour $g \in G_\mathbb{A}$, il existe $\gamma \in G$, $t \in \mathbb{R}_{>0}$, $g_\infty \in SL_n(\mathbb{R})$ et $k \in \prod_p GL_n(\mathbb{Z}_p)$ tels que $g = \gamma t g_\infty k$. Cette décomposition n'est pas unique. Autrement dit,
+\begin{equation}
+G_\mathbb{A} = \mathbb{R}_{> 0}G(\mathbb{Q}) SL_n(\mathbb{R}) \prod_p GL_n(\mathbb{Z}_p).
+\end{equation}
+\end{proposition}
+
+Une classe de $\mathbb{R}_{> 0}G\backslash G_\mathbb{A}$ est représentée par un élément de la forme $g_\infty k$ avec $g_\infty \in SL_n(\mathbb{R})$ et $k \in \prod_p GL_n(\mathbb{Z}_p)$. L'élément $g_\infty$ est alors unique modulo $SL_n(\mathbb{Z})$. On pose alors $||g_\infty||_\infty = \inf_{\gamma \in SL_n(\mathbb{Z})} |||\gamma g|||$, où $|||.|||$ est la norme d'opérateur sur $M_n(\mathbb{R})$.
+
+Soit $g \in G_\mathbb{A}$, d'après la proposition \ref{approx}, il s'écrit sous la forme $g=\gamma t g_\infty k$ avec $\gamma \in G$, $t \in \mathbb{R}_{>0}$, $g_\infty \in SL_n(\mathbb{R})$ et $k \in \prod_p GL_n(\mathbb{Z}_p)$. On pose alors $||g|| = ||g_\infty||_\infty$.
+
 \begin{proposition}
+\label{decrap}
 Les formes cuspidales sont à décroissance rapide. Soit $\varphi$ une forme cuspidale. Pour tout $d \in \mathbb{N}$, il existe $C > 0$ tel que
 \begin{equation}
 |\varphi(g)| \leq C||g||^{-d},
@@ -40,7 +54,7 @@ Les formes cuspidales sont à décroissance rapide. Soit $\varphi$ une forme cus
 pour tout $g \in G_{\mathbb{A}}$.
 \end{proposition}
 
-L'espace de Schwartz de $M_n(\mathbb{A})$ est, par définition, $\mathcal{S}(M_n(\mathbb{A}))=\otimes_v^{'} \mathcal{S}(M_n(\mathbb{Q}_v)=\left\lbrace \phi = \otimes \phi_v, \phi_v \in \mathcal{S}(M_n(\mathbb{Q}_v)), \phi_v = \mathbbm{1}_{\mathbb{Z}_v} \text{ sauf pour un nombre fini de v} \right\rbrace$.
+L'espace de Schwartz de $M_n(\mathbb{A})$ est, par définition, $\mathcal{S}(M_n(\mathbb{A}))=\otimes_v^{'} \mathcal{S}(M_n(\mathbb{Q}_v)=Vect(\left\lbrace \phi = \otimes \phi_v, \phi_v \in \mathcal{S}(M_n(\mathbb{Q}_v)), \phi_v = \mathbbm{1}_{\mathbb{Z}_v} \text{ sauf pour un nombre fini de v} \right\rbrace)$.
 
 \begin{definition}
 Soient $\varphi \in \mathcal{A}_0(G_\mathbb{A}, \omega)$, $\phi \in \mathcal{S}(M_\mathbb{A})$ et $s \in \mathbb{C}$, on pose
@@ -58,6 +72,49 @@ La factorisation $G_\mathbb{A} = \mathbb{R}_{> 0}G^0_\mathbb{A}$ permet d'obteni
 &= \int_0^\infty \int_{G \backslash G^0_\mathbb{A}} \sum_{x \in G}{\phi(txg)} \varphi(g) \omega(t) t^{ns} dg \frac{dt}{t}.
 \end{align}
 
+\begin{lemme}
+\label{lemme_convergence_globale}
+L'intégrale définissant $\zeta(\varphi, \phi, s)$ converge absolument pour $Re(s)$ assez grand.
+\end{lemme}
+
+\begin{proof}
+D'après la proposition \ref{approx}, on a $G^0_\mathbb{A} = GL_n(\mathbb{Q})SL_n(\mathbb{R})\prod_p GL_n(\mathbb{Z}_p)$, d'où $G \backslash G^0_\mathbb{A} = SL_n(\mathbb{Z}) \backslash SL_n(\mathbb{R}) \prod_p GL_n(\mathbb{Z}_p)$. On veut donc majorer
+\begin{equation}
+\label{convergence_globale}
+\int_0^\infty \int_{SL_n(\mathbb{Z}) \backslash SL_n(\mathbb{R})} \int_{\prod_p GL_n(\mathbb{Z}_p)} \sum_{x \in G}{|\phi(txg_\infty k)|} |\varphi(g_\infty k)| |\omega(t)| |t|^{nRe(s)-1} dk dg_\infty dt.
+\end{equation}
+
+Comme $\phi$ et $\varphi$ sont $\prod_p GL_n(\mathbb{Z}_p)$-finis, l'intégrale sur $\prod_p GL_n(\mathbb{Z}_p)$ est une somme finie. De plus, on peut supposer que $\phi = \prod_v \phi_v$ avec $\phi_v \in \mathcal{S}(M_n(\mathbb{Q}_v)$ et $\phi_v = \mathbbm{1}_{\mathbb{Z}_v}$ sauf pour un nombre fini de $v$. Comme $\phi_v$ est à support compact et qu'il n'y a qu'un nombre fini de $v$ tel que $\phi_v \neq \mathbbm{1}_{\mathbb{Z}_v}$, il existe $N \in \mathbb{N}^*$ (uniforme en $v$) tel que $supp(\phi_v) \subset N^{-1}M_n(\mathbb{Z}_v)$. Alors
+\begin{align}
+\sum_{x \in N^{-1}M_n(\mathbb{Z}) \cap G} |\phi(txg_\infty)| &\leq \sum_{x \in N^{-1}M_n(\mathbb{Z}) \cap G} |\phi_\infty(txg_\infty)|\prod_p |\phi_p(x)| \\
+&\leq C_d \sum_{x \in N^{-1}M_n(\mathbb{Z}) \cap G} |||txg_\infty|||^{-d} \\
+&\leq C_d |t|^{-d}|||g_\infty|||^{-d}\sum_{x \in N^{-1}M_n(\mathbb{Z}) \cap G} |||x|||^{-d},
+\end{align}
+pour tout $d > 0$, où $C_d > 0$ est une constante. Cette dernière somme est convergente pour $d$ assez grand. De plus, la somme est invariante par la translation $x \mapsto x\gamma$ pour $\gamma \in SL_n(\mathbb{Z})$. On peut donc remplacer $g_\infty$ par $\gamma g_\infty$. On en déduit que
+\begin{equation}
+\sum_{x \in N^{-1}M_n(\mathbb{Z}) \cup G} |\phi(txg_\infty)| \leq C_d' ||g_\infty ||^{-d}_{\infty} |t|^{-d}.
+\end{equation}
+
+De plus, il existe $d_0 > 0$ tel que $|\omega(t)| \leq |t|^{d_0}$ et d'après la proposition \ref{decrap}, pour tout $d > 0$, il existe $C_d'' > 0$ tel que $|\phi(g_\infty)| \leq C_d'' ||g_\infty||^{-d}_\infty$. Ce qui montre que l'intégrale \ref{convergence_globale} est majorée par
+\begin{equation}
+C_d'C_d''\int_0^\infty \int_{SL_n(\mathbb{Z}) \backslash SL_n(\mathbb{R})} ||g_\infty||^{-2d}_\infty|t|^{nRe(s)-1-d+d_0} dg_\infty dt.
+\end{equation}
+
+Pour finir, il ne reste plus qu'à montrer que l'intégrale sur $SL_n(\mathbb{Z}) \backslash SL_n(\mathbb{R})$ est convergente pour $d$ assez grand. Pour ce faire on remarque que
+\begin{equation}
+||g_\infty||^{-2d}_\infty = \sup_{\gamma \in SL_n(\mathbb{Z})} |||\gamma g_\infty|||^{-2d} \leq \sum_{\gamma \in SL_n(\mathbb{Z})} |||\gamma g_\infty|||^{-2d}.
+\end{equation}
+L'intégrale sur $SL_n(\mathbb{Z}) \backslash SL_n(\mathbb{R})$ est donc majorée par
+\begin{equation}
+\int_{SL_n(\mathbb{R})} |||g_\infty|||^{-2d} dg_\infty,
+\end{equation}
+qui converge pour $d$ assez grand. Ce qui permet de conclure. On fixe $d > 0$ assez grand pour avoir la convergence des différentes sommes et intégrales. L'intégrale \ref{convergence_globale} est alors majorée par
+\begin{equation}
+C_d''' \int_0^\infty |t|^{nRe(s)-1-d+d_0} dt,
+\end{equation}
+qui converge pour $Re(s)$ assez grand.
+\end{proof}
+
 Comme dans la preuve de l'équation fonctionnelle de la fonction zêta de Riemann, on scinde l'intégrale en $1$ dans le but de faire apparaître une symétrie. Autrement dit,
 \begin{equation}
 \begin{split}
@@ -66,7 +123,13 @@ Comme dans la preuve de l'équation fonctionnelle de la fonction zêta de Rieman
 \end{split}
 \end{equation}
 
-La seconde intégrale converge absolument pour tout $s \in \mathbb{C}$, c'est une fonction entière. Pour la première intégrale, on fait le changement de variable $t \mapsto t^{-1}$, ce qui donne
+La seconde intégrale converge absolument pour tout $s \in \mathbb{C}$, c'est une fonction entière. En effet, on reprend le raisonnement du lemme \ref{lemme_convergence_globale} et on montre la convergence absolue de $\int_1^\infty$, cette intégrale est majorée par
+\begin{equation}
+C_d''' \int_1^\infty |t|^{nRe(s)-1-d+d_0} dt,
+\end{equation}
+pour tout $d > 0$ assez grand. On fixe maintenant $s \in \mathbb{C}$, cette dernière intégrale est alors convergente pour $d$ assez grand.
+
+Pour la première intégrale, on fait le changement de variable $t \mapsto t^{-1}$, ce qui donne
 \begin{equation}
 \int_1^\infty \int_{G \backslash G^0_\mathbb{A}} \sum_{x \in G}{\phi(t^{-1}xg)} \varphi(g) \omega^{-1}(t) t^{-ns} dg \frac{dt}{t}.
 \end{equation}
