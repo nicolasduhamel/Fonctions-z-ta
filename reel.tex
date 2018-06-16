@@ -7,7 +7,8 @@ On note $G=GL_n(\mathbb{R})$ et $\mathfrak{g}$ son algèbre de Lie. On pose $K=O
 \begin{definition}
 Un $(\mathfrak{g}, K)$-module $(\pi, V)$ est un espace vectoriel $V$ muni d'actions $\pi_\mathfrak{g} : U(\mathfrak{g}) \rightarrow End(V)$ et $\pi_K : K \rightarrow GL(V)$ tels que :
 \begin{itemize}
-\item Pour tout $v \in V$, $\left\lbrace \pi_K(k)v, k \in K \right\rbrace$ est de dimension finie,
+\item Pour tout $v \in V$, $\left\lbrace \pi_K(k)v, k \in K \right\rbrace$ engendre un sous-espace de dimension fini,
+\item Pour tout $v \in V$, l'action de $K$ sur $\left\lbrace \pi_K(k)v, k \in K \right\rbrace$ est continue,
 \item Pour tout $k \in K$ et $X \in \mathfrak{g}$, on a
 $\pi_K(k)\pi_\mathfrak{g}(X) = \pi_\mathfrak{g}(Ad(k)X)\pi_K(k)$,
 \item Pour tout $Y \in Lie(K)$ et $v \in V$, on a
@@ -28,7 +29,7 @@ pour tous $v, v' \in V, k \in K$ et $X \in \mathfrak{g}$.
 
 Soit $(\pi, V)$ une représentation unitaire irréductible de $GL_n(\mathbb{R})$.
 \begin{definition}
-Soient $f$ un coefficient de $\pi$ et $\phi : M_n(\mathbb{R}) \rightarrow \mathbb{C}$ une fonction de la forme
+Soient $f$ un coefficient $K$-fini à droite et à gauche de $\pi$ (obtenus à partir de vecteurs provenant du $(\mathfrak{g}, K)$-module sous-jacent) et $\phi : M_n(\mathbb{R}) \rightarrow \mathbb{C}$ une fonction de la forme
 $g \mapsto e^{-\pi Tr(gg^t)}P(g)$, où $P$ est un polynôme en les coefficients de $g$; on pose
 \begin{equation}
 \zeta(f, \phi, s) = \int_{GL_n(\mathbb{R})} f(g) \phi(g) |\det g|^s dg,
@@ -40,20 +41,21 @@ On est maintenant prêt pour écrire l'analogue du théorème \ref{thm_padique} 
 \begin{theoreme}[Godement-Jacquet \cite{godement-jacquet}]
 \label{thm_reel}
 \begin{enumerate}
-\item Il existe $s_0 \in \mathbb{R}$ tel que l'intégrale définissant la fonction zêta convergence absolument pour tout $s \in \mathbb{C}$ vérifiant $Re(s) > s_0$.
-\item Il existe $\nu_1, ..., \nu_n \in \mathbb{C}$ et des polynômes $\Xi(f,\phi,s)$ tels que
+\item Il existe $s_0 \in \mathbb{R}$ tel que l'intégrale définissant la fonction zêta converge absolument pour tout $s \in \mathbb{C}$ vérifiant $Re(s) > s_0$.
+\item Il existe $\nu_1, ..., \nu_n \in \mathbb{C}$ indépendants de $f$ et $\phi$ et des polynômes $\Xi(f,\phi,s)$ tels que
 \begin{equation}
 \zeta(f, \phi, s+ \frac{n-1}{2}) = \Xi(f, \phi, s)\prod_{i=1}^n \pi^{-\frac{s+\nu_i}{2}}\Gamma(\frac{s+\nu_i}{2}).
 \end{equation}
 \item On peut choisir un nombre fini de coefficients $f_i$ de $\pi$ et de fonctions $\phi_i$ de la forme $g \mapsto e^{-\pi Tr(gg^t)}P(g)$, telles que $\sum_i \Xi(f_i, \phi_i, s)$ est une constante non nulle.
-\item Il existe une fonction méromorphe $\gamma(s, \pi)$ telle que
+\item Il existe une fonction méromorphe $\gamma(s, \pi)$ indépendante de $f$ et $\phi$ telle que
 \begin{equation}
 \zeta(\check{f}, \hat{\phi}, 1-s+\frac{n-1}{2}) = \gamma(s, \pi)\zeta(f, \phi, s),
 \end{equation}
 où la transformée de Fourier est définie par
 \begin{equation}
-\hat{\phi}(x) = \int_{M_n(\mathbb{R})}\phi(y)e^{-2i\pi Tr(xy)}dx.
+\hat{\phi}(x) = \int_{M_n(\mathbb{R})}\phi(y)e^{2i\pi Tr(xy)}dx,
 \end{equation}
+où $dx$ est une mesure de Haar sur $M_n(\mathbb{R})$ telle que $\hat{\hat{\phi}}(x) = \phi(-x)$.
 \end{enumerate}
 \end{theoreme}
 
@@ -67,7 +69,7 @@ Soient $\phi_1, \phi_2 : \mathbb{R} \rightarrow \mathbb{C}$ de la forme $x \maps
 \end{equation}
 pour tout $s \in \mathbb{C}$ dans le domaine de convergence absolue.
 \end{lemme}
-La preuve est la même que dans le cas de $GL_1(\mathbb{Q}_p)$. Il nous suffit donc de faire le calcul explicite des membres de l'équation fonctionnelle pour des fonctions $\phi$ bien choisis.
+La preuve est la même que dans le cas de $GL_1(\mathbb{Q}_p)$. Il nous suffit donc de faire le calcul explicite des membres de l'équation fonctionnelle pour des fonctions $\phi$ bien choisies.
 
 On pose $\phi_0(x) = e^{-\pi x^2}$ et $\phi_{sgn}(x)=xe^{-\pi x^2}$. Le calcul des transformées de Fourier est un résultat classique, $\hat{\phi}_0 = \phi_0$ et $\hat{\phi}_{sgn} = i\phi_{sgn}$. On vérifie alors que
 \begin{align}
@@ -78,13 +80,13 @@ On pose $\phi_0(x) = e^{-\pi x^2}$ et $\phi_{sgn}(x)=xe^{-\pi x^2}$. Le calcul d
 \end{align}
 Ce qui nous permet de calculer explicitement le facteur $\gamma(s,\pi)$ et de vérifier que ce sont bien des fonctions méromorphes :
 \begin{align}
-\gamma(s, |.|^t) = \frac{\pi^{-\frac{s+t}{2}}\Gamma(\frac{s+t}{2})}{\pi^{-\frac{1-s-t}{2}}\Gamma(\frac{1-s-t}{2})}, \\
-\gamma(s, sgn(.)|.|^t) = -i\frac{\pi^{-\frac{s+t+1}{2}}\Gamma(\frac{s+t+1}{2})}{\pi^{-\frac{(1-s+t)+1}{2}}\Gamma(\frac{(1-s-t)+1}{2})}.
+\gamma(s, |.|^t) = \frac{\pi^{-\frac{1-s-t}{2}}\Gamma(\frac{1-s-t}{2})}{\pi^{-\frac{s+t}{2}}\Gamma(\frac{s+t}{2})}, \\
+\gamma(s, sgn(.)|.|^t) = i\frac{\pi^{-\frac{(1-s+t)+1}{2}}\Gamma(\frac{(1-s-t)+1}{2})}{\pi^{-\frac{s+t+1}{2}}\Gamma(\frac{s+t+1}{2})}.
 \end{align}
 
 \subsection{$GL_n(\mathbb{R}), n > 1$}
 
 Les propositions \ref{comp_ind1} et \ref{comp_ind2} admettent un analogue dans le cas réel. Elles traduisent la compatibilité du théorème vis à vis des sous-représentations et des représentations induites. Le théorème \ref{thm_reel} est alors une conséquence du
-\begin{theoreme}[de la sous-représentation]
+\begin{theoreme}[de la sous-représentation \cite{wallach}]
 Soit $\pi$ une représentation unitaire irréductible de $GL_n(\mathbb{R})$. Alors il existe des caractères $\chi_1, ..., \chi_n$ de $GL_1(\mathbb{R})$ tels que $\pi$ soit une sous-représentation de $Ind_{P_0}^{GL_n(\mathbb{R})}(\chi_1 \boxtimes ... \boxtimes \chi_n)$, où $P_0$ est le sous-groupe des matrices triangulaires supérieures de $GL_n(\mathbb{R})$.
 \end{theoreme}
