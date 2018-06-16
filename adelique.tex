@@ -1,8 +1,93 @@
 \section{Fonctions zêta sur $GL_n(\mathbb{A})$}
 
-Dans cette dernière section, on présente la théorie globale de Godement-Jacquet \cite{godement-jacquet} et on termine par la définition de la fonction $L$ attachée à une représentation cuspidale. Dans la suite, on note $G = GL_n(\mathbb{Q})$, $G_\mathbb{A}=GL_n(\mathbb{A})$. On pose $K = O_n(\mathbb{R}) \times \prod_p GL_n(\mathbb{Z}_p)$, c'est un sous-groupe compact maximal de $G_\mathbb{A}$.
+Dans cette dernière section, on présente la théorie globale de Godement-Jacquet \cite{godement-jacquet} et on termine par la définition de la fonction $L$ attachée à une représentation cuspidale. On commence par un paragraphe d'introduction sur les adèles.
+
+\subsection{Adèles}
+
+L'anneau des adèles, noté $\mathbb{A}$, est le produit restreint des complétions de $\mathbb{Q}$,
+\begin{equation}
+\mathbb{A} = \prod_v \mathbb{Q}_v,
+\end{equation}
+où $v$ décrit les places de $\mathbb{Q}$, $v = \infty$ ou $p$ un nombre premier, le produit restreint étant relatif aux sous-groupes $\mathbb{Z}_p$. Plus exactement,
+\begin{equation}
+\mathbb{A} = \left\lbrace (x_v), x_v \in \mathbb{Q}_v, x_p \in \mathbb{Z}_p \text{ sauf pour un nombre fini de p} \right\rbrace.
+\end{equation}
+De plus, $\mathbb{A}$ est un anneau topologique localement compact en prenant comme base d'ouverts les ensembles de la forme
+\begin{equation}
+U \times \prod_{p \not\in S} \mathbb{Z}_p
+\end{equation}
+où $S$ est un ensemble fini de places contenant $\infty$ et $U$ est un ouvert de $\prod_{v \in S} \mathbb{Q}_v$ muni de la topologie produit.
+
+Le groupe multiplicatif des idèles, noté $\mathbb{A}^\times$, est
+\begin{equation}
+\mathbb{A}^\times = \left\lbrace (x_v), x_v \in \mathbb{Q}_v^\times, x_p \in \mathbb{Z}_p^\times \text{ sauf pour un nombre fini de p} \right\rbrace.
+\end{equation}
+Le groupe $\mathbb{A}^\times$ est groupe topologique localement compact en prenant comme base d'ouverts les ensembles de la forme
+\begin{equation}
+U \times \prod_{p \not\in S} \mathbb{Z}_p^\times
+\end{equation}
+où $S$ est un ensemble fini de places contenant $\infty$ et $U$ est un ouvert de $\prod_{v \in S} \mathbb{Q}_v^\times$ muni de la topologie produit. La topologie des idèles n'est pas la topologie induite des adèles.
+
+On plonge l'anneau des rationnels $\mathbb{Q}$ diagonalement dans les adèles $\mathbb{A}$. Soit $q \in \mathbb{Q}$, alors $(q)_v \in \mathbb{A}$, c'est l'adèle dont toutes les composantes sont égales à $q$.
+
+\begin{proposition}[Approximation forte \cite{goldfeld-hundley}]
+Un domaine fondamental pour $\mathbb{Q}\backslash \mathbb{A}$ est donné par
+\begin{equation}
+[0, 1[ \prod_p \mathbb{Z}_p.
+\end{equation}
+Autrement dit, tout élément $x \in \mathbb{A}$ s'écrit de manière unique $x = q + d$, avec $q \in \mathbb{Q}$ et $d \in \mathbb{A}$ qui vérifie $d_\infty \in [0, 1[$ et $d_p \in \mathbb{Z}_p$ pour tout $p$ premier.
+\end{proposition}
+
+L'espace de Schwartz de $\mathbb{A}$, que l'on note $\mathcal{S}(\mathbb{A})$, est l'ensemble des combinaisons linéaires de fonctions $\phi : \mathbb{A} \rightarrow \mathbb{C}$ factorisables $\phi = \prod_v \phi_v$ telles que $\phi_\infty \in \mathcal{S}(\mathbb{R})$, $\phi_p \in \mathcal{S}(\mathbb{Q}_p)$ et $\phi_p = \mathbbm{1}_{\mathbb{Z}_p}$ sauf pour un nombre fini de $p$.
+
+Soit $e : \mathbb{Q}\backslash \mathbb{A} \rightarrow \mathbb{C}^\times$ le caractère non trivial défini par $e(x) = \prod_v e_v(x_v)$ où $e_p(x_p) = e^{2i\pi \lambda_p(x_p)}$ ($\lambda_p$ est définit dans la section \ref{gl1}) et $e_\infty(x_\infty) = e^{-2i\pi x_\infty}$. Pour $\phi = \prod_v \phi_v \in \mathcal{S}(\mathbb{A})$, on définit la transformée de Fourier de $\phi$ par
+\begin{equation}
+\hat{\phi}(x) = \int_{\mathbb{}}\phi(y)e(-xy)dy,
+\end{equation}
+où $dy = \otimes dy_v$ avec $dy_p$ la mesure introduite dans la section \ref{gl1} et $dy_\infty$ la mesure de Lebesgue.
+
+\begin{proposition}[\cite{goldfeld-hundley}]
+Soit $\phi \in \mathcal{S}(\mathbb{A})$ une fonction $\mathbb{Q}$-périodique. Alors
+\begin{equation}
+\phi(x) = \sum_{\alpha \in \mathbb{Q}} \hat{\phi}_\alpha e(\alpha x),
+\end{equation}
+où l'on a posé
+\begin{equation}
+\hat{\phi}_\alpha = \int_{\mathbb{Q}\backslash \mathbb{A}} \phi(x)e(-\alpha x).
+\end{equation}
+\end{proposition}
+
+\begin{proposition}[Formule de Poisson]
+Soit $\phi \in \mathcal{S}(\mathbb{A})$. Alors
+\begin{equation}
+\sum_{\alpha \in \mathbb{Q}} \phi(\alpha) = \sum_{\alpha \in \mathbb{Q}} \hat{\phi}(\alpha).
+\end{equation}
+\end{proposition}
+
+\begin{proof}
+Pour $x \in \mathbb{A}$, on pose $h(x) = \sum_{\alpha \in \mathbb{Q}} \phi(\alpha+x)$. Cette somme converge absolument et uniformément sur tout compact. Alors
+\begin{equation}
+h(x) = \sum_{\alpha \in \mathbb{Q}} \hat{h}_\alpha e(\alpha x).
+\end{equation}
+
+Montrons que l'on a $\hat{h}_\alpha = \hat{\phi}(\alpha)$. En effet,
+\begin{align}
+\hat{h}_\alpha &= \int_{\mathbb{Q}\backslash \mathbb{A}} h(x)e(-\alpha x) \\
+&=\int_{\mathbb{Q}\backslash \mathbb{A}} \sum_{\beta \in \mathbb{Q}} \phi(\beta+x)e(-\alpha x) \\
+&= \int_{\mathbb{Q}\backslash \mathbb{A}} \sum_{\beta \in \mathbb{Q}} \phi(x)e(-\alpha x)e(\alpha \beta) \\
+&= \int_{\mathbb{A}} \phi(x) e(-\alpha x) \\
+&= \hat{\phi}(\alpha),
+\end{align}
+où l'on a utilisé le fait que $e(\alpha \beta) = 1$ car $e$ est trivial sur $\mathbb{Q}$. On a donc l'égalité
+\begin{equation}
+h(x) = \sum_{\alpha \in \mathbb{Q}} \phi(\alpha+x) = \sum_{\alpha \in \mathbb{Q}} \hat{\phi}_\alpha e(\alpha x).
+\end{equation}
+En prenant cette égalité en $x=0$, on obtient la formule de Poisson.
+\end{proof}
 
 \subsection{Formes cuspidales}
+Dans la suite, on note $G = GL_n(\mathbb{Q})$, $G_\mathbb{A}=GL_n(\mathbb{A})$. On pose $K = O_n(\mathbb{R}) \times \prod_p GL_n(\mathbb{Z}_p)$, c'est un sous-groupe compact maximal de $G_\mathbb{A}$.
+
 On commence par donner la définition des formes automorphes (et cuspidales), on renvoie à \cite{bump} et \cite{goldfeld-hundley} pour plus de détails.
 
 On fixe un caractère unitaire $\omega : \mathbb{A}^\times/\mathbb{Q}^\times \rightarrow \mathbb{S}^1$.
@@ -81,7 +166,7 @@ L'intégrale définissant $\zeta(\varphi, \phi, s)$ converge absolument pour $Re
 D'après la proposition \ref{approx}, on a $G^0_\mathbb{A} = GL_n(\mathbb{Q})SL_n(\mathbb{R})\prod_p GL_n(\mathbb{Z}_p)$, d'où $G \backslash G^0_\mathbb{A} = SL_n(\mathbb{Z}) \backslash SL_n(\mathbb{R}) \prod_p GL_n(\mathbb{Z}_p)$. On veut donc majorer
 \begin{equation}
 \label{convergence_globale}
-\int_0^\infty \int_{SL_n(\mathbb{Z}) \backslash SL_n(\mathbb{R})} \int_{\prod_p GL_n(\mathbb{Z}_p)} \sum_{x \in G}{|\phi(txg_\infty k)|} |\varphi(g_\infty k)| |\omega(t)| |t|^{nRe(s)-1} dk dg_\infty dt.
+\int_0^\infty \int_{SL_n(\mathbb{Z}) \backslash SL_n(\mathbb{R})} \int_{\prod_p GL_n(\mathbb{Z}_p)} \sum_{x \in G}{|\phi(txg_\infty k)|} |\varphi(g_\infty k)| |t|^{nRe(s)-1} dk dg_\infty dt.
 \end{equation}
 
 Comme $\phi$ et $\varphi$ sont $\prod_p GL_n(\mathbb{Z}_p)$-finis, l'intégrale sur $\prod_p GL_n(\mathbb{Z}_p)$ est une somme finie. De plus, on peut supposer que $\phi = \prod_v \phi_v$ avec $\phi_v \in \mathcal{S}(M_n(\mathbb{Q}_v)$ et $\phi_v = \mathbbm{1}_{\mathbb{Z}_v}$ sauf pour un nombre fini de $v$. Comme $\phi_v$ est à support compact et qu'il n'y a qu'un nombre fini de $v$ tel que $\phi_v \neq \mathbbm{1}_{\mathbb{Z}_v}$, il existe $N \in \mathbb{N}^*$ (uniforme en $v$) tel que $supp(\phi_v) \subset N^{-1}M_n(\mathbb{Z}_v)$. Alors
@@ -95,9 +180,9 @@ pour tout $d > 0$, où $C_d > 0$ est une constante. Cette dernière somme est co
 \sum_{x \in N^{-1}M_n(\mathbb{Z}) \cup G} |\phi(txg_\infty)| \leq C_d' ||g_\infty ||^{-d}_{\infty} |t|^{-d}.
 \end{equation}
 
-De plus, il existe $d_0 > 0$ tel que $|\omega(t)| \leq |t|^{d_0}$ et d'après la proposition \ref{decrap}, pour tout $d > 0$, il existe $C_d'' > 0$ tel que $|\phi(g_\infty)| \leq C_d'' ||g_\infty||^{-d}_\infty$. Ce qui montre que l'intégrale \ref{convergence_globale} est majorée par
+De plus, d'après la proposition \ref{decrap}, pour tout $d > 0$, il existe $C_d'' > 0$ tel que $|\phi(g_\infty)| \leq C_d'' ||g_\infty||^{-d}_\infty$. Ce qui montre que l'intégrale \ref{convergence_globale} est majorée par
 \begin{equation}
-C_d'C_d''\int_0^\infty \int_{SL_n(\mathbb{Z}) \backslash SL_n(\mathbb{R})} ||g_\infty||^{-2d}_\infty|t|^{nRe(s)-1-d+d_0} dg_\infty dt.
+C_d'C_d''\int_0^\infty \int_{SL_n(\mathbb{Z}) \backslash SL_n(\mathbb{R})} ||g_\infty||^{-2d}_\infty|t|^{nRe(s)-1-d} dg_\infty dt.
 \end{equation}
 
 Pour finir, il ne reste plus qu'à montrer que l'intégrale sur $SL_n(\mathbb{Z}) \backslash SL_n(\mathbb{R})$ est convergente pour $d$ assez grand. Pour ce faire on remarque que
@@ -110,7 +195,7 @@ L'intégrale sur $SL_n(\mathbb{Z}) \backslash SL_n(\mathbb{R})$ est donc majoré
 \end{equation}
 qui converge pour $d$ assez grand. Ce qui permet de conclure. On fixe $d > 0$ assez grand pour avoir la convergence des différentes sommes et intégrales. L'intégrale \ref{convergence_globale} est alors majorée par
 \begin{equation}
-C_d''' \int_0^\infty |t|^{nRe(s)-1-d+d_0} dt,
+C_d''' \int_0^\infty |t|^{nRe(s)-1-d} dt,
 \end{equation}
 qui converge pour $Re(s)$ assez grand.
 \end{proof}
@@ -125,7 +210,7 @@ Comme dans la preuve de l'équation fonctionnelle de la fonction zêta de Rieman
 
 La seconde intégrale converge absolument pour tout $s \in \mathbb{C}$, c'est une fonction entière. En effet, on reprend le raisonnement du lemme \ref{lemme_convergence_globale} et on montre la convergence absolue de $\int_1^\infty$, cette intégrale est majorée par
 \begin{equation}
-C_d''' \int_1^\infty |t|^{nRe(s)-1-d+d_0} dt,
+C_d''' \int_1^\infty |t|^{nRe(s)-1-d} dt,
 \end{equation}
 pour tout $d > 0$ assez grand. On fixe maintenant $s \in \mathbb{C}$, cette dernière intégrale est alors convergente pour $d$ assez grand.
 
@@ -138,7 +223,7 @@ On va maintenant utiliser la formule de Poisson sur $M_n(\mathbb{A})$. Commenço
 \begin{equation}
 \hat{\phi}(y) = \int_{M_n(\mathbb{A})} \phi(x)\psi(Tr(xy))dx, y \in M_n(\mathbb{A}),
 \end{equation}
-où $dx$ est une mesure de Haar normalisée pour avoir la formule $\hat{\hat{\phi}}(x)=\phi(-x)$ et $\psi : \mathbb{A}/\mathbb{Q} \rightarrow \mathbb{C}$ est un caractère non trivial.
+où $dx$ est une mesure de Haar normalisée pour avoir la formule $\hat{\hat{\phi}}(x)=\phi(-x)$ et $\psi : \mathbb{A}/\mathbb{Q} \rightarrow \mathbb{C}^\times$ est un caractère non trivial.
 
 La formule de Poisson donne, pour la fonction $x \mapsto \phi(t^{-1}xg)$ :
 \begin{equation}
@@ -295,7 +380,7 @@ On en déduit que
 L(s, \pi) &= \prod_v L(s, \pi_v) = \prod_v \sum_{\alpha_v \in I_v} \zeta(f_{\alpha_v}, \phi_{\alpha_v}, s + \frac{1}{2}(n-1)) \\
 &= \sum_{\alpha \in I} \zeta(f_\alpha, \phi_\alpha, s + \frac{1}{2}(n-1))
 \end{align}
-est une somme finie de fonctions zêta, qui chacune se prolonge en une fonction entière (proposition \ref{zetacusp}). De plus,
+est une somme finie de fonctions zêta, qui se prolongent en des fonctions entières (proposition \ref{zetacusp}). De plus,
 \begin{align}
 L(s, \pi) &= \sum_{\alpha \in I} \zeta(f_\alpha, \phi_\alpha, s + \frac{1}{2}(n-1)) \\
 &= \sum_{\alpha \in I} \zeta(\check{f}_\alpha, \hat{\phi}_\alpha, 1 - s + \frac{1}{2}(n-1)) \\
