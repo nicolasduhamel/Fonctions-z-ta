@@ -173,29 +173,29 @@ Comme $\phi$ et $\varphi$ sont $\prod_p GL_n(\mathbb{Z}_p)$-finis, l'intégrale 
 \begin{align}
 \sum_{x \in N^{-1}M_n(\mathbb{Z}) \cap G} |\phi(txg_\infty)| &\leq \sum_{x \in N^{-1}M_n(\mathbb{Z}) \cap G} |\phi_\infty(txg_\infty)|\prod_p |\phi_p(x)| \\
 &\leq C_d \sum_{x \in N^{-1}M_n(\mathbb{Z}) \cap G} |||txg_\infty|||^{-d} \\
-&\leq C_d |t|^{-d}|||g_\infty|||^{-d}\sum_{x \in N^{-1}M_n(\mathbb{Z}) \cap G} |||x|||^{-d},
+&\leq C_d |t|^{-d}|||g_\infty^{-1}|||^d\sum_{x \in N^{-1}M_n(\mathbb{Z}) \cap G} |||x|||^{-d},
 \end{align}
-pour tout $d > 0$, où $C_d > 0$ est une constante. Cette dernière somme est convergente pour $d$ assez grand. De plus, la somme est invariante par la translation $x \mapsto x\gamma$ pour $\gamma \in SL_n(\mathbb{Z})$. On peut donc remplacer $g_\infty$ par $\gamma g_\infty$. On en déduit que
+pour tout $d > 0$, où $C_d > 0$ est une constante. Cette dernière somme est convergente pour $d$ assez grand. D'autre part, comme $g_\infty \in SL_n(\mathbb{R})$, on a $g_\infty^{-1} = Com(g_\infty)$, donc $|||g_\infty^{-1}||| \leq c \max(|h_{ij}|) \leq c'\max(|(g_\infty)_{ij}|)^{n-1} \leq c'' |||g_\infty|||^{n-1}$, où $(h_{ij})=Com(g_\infty)$ et $c,c',c'' > 0$ sont des constantes. De plus, la somme est invariante par la translation $x \mapsto x\gamma$ pour $\gamma \in SL_n(\mathbb{Z})$. On peut donc remplacer $g_\infty$ par $\gamma g_\infty$. On en déduit que
 \begin{equation}
-\sum_{x \in N^{-1}M_n(\mathbb{Z}) \cup G} |\phi(txg_\infty)| \leq C_d' ||g_\infty ||^{-d}_{\infty} |t|^{-d}.
+\sum_{x \in N^{-1}M_n(\mathbb{Z}) \cup G} |\phi(txg_\infty)| \leq c''C_d' ||g_\infty ||^{d(n-1)}_{\infty} |t|^{-d}.
 \end{equation}
 
-De plus, d'après la proposition \ref{decrap}, pour tout $d > 0$, il existe $C_d'' > 0$ tel que $|\phi(g_\infty)| \leq C_d'' ||g_\infty||^{-d}_\infty$. Ce qui montre que l'intégrale \ref{convergence_globale} est majorée par
+De plus, d'après la proposition \ref{decrap}, pour tout $d' > 0$, il existe $C_{d'}'' > 0$ tel que $|\phi(g_\infty)| \leq C_{d'}'' ||g_\infty||^{-d}_\infty$. Ce qui montre que l'intégrale \ref{convergence_globale} est majorée par
 \begin{equation}
-C_d'C_d''\int_0^\infty \int_{SL_n(\mathbb{Z}) \backslash SL_n(\mathbb{R})} ||g_\infty||^{-2d}_\infty|t|^{nRe(s)-1-d} dg_\infty dt.
+c''C_d'C_{d'}''\int_0^\infty \int_{SL_n(\mathbb{Z}) \backslash SL_n(\mathbb{R})} ||g_\infty||^{-d'}||g_\infty||^{d(n-1)}_\infty|t|^{nRe(s)-1-d} dg_\infty dt.
 \end{equation}
 
-Pour finir, il ne reste plus qu'à montrer que l'intégrale sur $SL_n(\mathbb{Z}) \backslash SL_n(\mathbb{R})$ est convergente pour $d$ assez grand. Pour ce faire on remarque que
+Pour finir, il ne reste plus qu'à montrer que l'intégrale sur $SL_n(\mathbb{Z}) \backslash SL_n(\mathbb{R})$ est convergente pour $d'$ assez grand. Pour ce faire on remarque que
 \begin{equation}
-||g_\infty||^{-2d}_\infty = \sup_{\gamma \in SL_n(\mathbb{Z})} |||\gamma g_\infty|||^{-2d} \leq \sum_{\gamma \in SL_n(\mathbb{Z})} |||\gamma g_\infty|||^{-2d}.
+||g_\infty||^{d(n-1)-d'}_\infty = \sup_{\gamma \in SL_n(\mathbb{Z})} |||\gamma g_\infty|||^{d(n-1)-d'} \leq \sum_{\gamma \in SL_n(\mathbb{Z})} |||\gamma g_\infty|||^{d(n-1)-d'}.
 \end{equation}
 L'intégrale sur $SL_n(\mathbb{Z}) \backslash SL_n(\mathbb{R})$ est donc majorée par
 \begin{equation}
-\int_{SL_n(\mathbb{R})} |||g_\infty|||^{-2d} dg_\infty,
+\int_{SL_n(\mathbb{R})} |||g_\infty|||^{d(n-1)-d'} dg_\infty,
 \end{equation}
-qui converge pour $d$ assez grand. Ce qui permet de conclure. On fixe $d > 0$ assez grand pour avoir la convergence des différentes sommes et intégrales. L'intégrale \ref{convergence_globale} est alors majorée par
+qui converge pour $d'$ assez grand. Ce qui permet de conclure. On fixe $d > 0$ assez grand pour avoir la convergence de la somme sur $G$ et $d' > 0$ assez grand pour avoir la convergence de l'intégrale sur $SL_n(\mathbb{Z}) \backslash SL_n(\mathbb{R})$. L'intégrale \ref{convergence_globale} est alors majorée par
 \begin{equation}
-C_d''' \int_0^\infty |t|^{nRe(s)-1-d} dt,
+C_{d,d'} \int_0^\infty |t|^{nRe(s)-1-d} dt,
 \end{equation}
 qui converge pour $Re(s)$ assez grand.
 \end{proof}
@@ -210,9 +210,9 @@ Comme dans la preuve de l'équation fonctionnelle de la fonction zêta de Rieman
 
 La seconde intégrale converge absolument pour tout $s \in \mathbb{C}$, c'est une fonction entière. En effet, on reprend le raisonnement du lemme \ref{lemme_convergence_globale} et on montre la convergence absolue de $\int_1^\infty$, cette intégrale est majorée par
 \begin{equation}
-C_d''' \int_1^\infty |t|^{nRe(s)-1-d} dt,
+C_{d,d'} \int_0^\infty |t|^{nRe(s)-1-d} dt,
 \end{equation}
-pour tout $d > 0$ assez grand. On fixe maintenant $s \in \mathbb{C}$, cette dernière intégrale est alors convergente pour $d$ assez grand.
+pour tout $d, d' > 0$ assez grand. On fixe maintenant $s \in \mathbb{C}$, cette dernière intégrale est alors convergente pour $d, d'$ assez grand.
 
 Pour la première intégrale, on fait le changement de variable $t \mapsto t^{-1}$, ce qui donne
 \begin{equation}
